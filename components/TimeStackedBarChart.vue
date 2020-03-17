@@ -2,13 +2,12 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        {{ $t('（注）同一の対象者について複数の検体を調査する場合あり') }}
+        <a href="https://www.pref.fukushima.lg.jp/sec/21910a/kansenshojoho.html"
+          target="_blank">{{ $t('福島県感染症発生動向調査報告') }}</a>
         <br />
-        {{
-          $t(
-            '検査実施数は、速報値として公開するものであり、後日確定データとして修正される場合があります'
-          )
-        }}
+        {{ $t('正確な情報は福島県公式ウェブサイトでご確認ください。') }}
+        <br />
+        {{ $t('※2/24以前のクルーズ船由来の検査数は情報が見つからないため、日報の合計から算出しています。') }}
       </p>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
@@ -201,9 +200,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           displayColors: false,
           callbacks: {
             label: (tooltipItem: any) => {
-              const labelTokyo = this.$t('都内')
+              const labelFukushima = this.$t('県内')
               const labelOthers = this.$t('その他')
-              const labelArray = [labelTokyo, labelOthers]
+              const labelArray = [labelFukushima, labelOthers]
               let casesTotal, cases
               if (this.dataKind === 'transition') {
                 casesTotal = sumArray[tooltipItem.index].toLocaleString()
@@ -242,7 +241,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
-              id: 'day',
+              id: 'week',
               stacked: true,
               gridLines: {
                 display: false
@@ -253,9 +252,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 fontColor: '#808080',
                 maxRotation: 0,
                 minRotation: 0,
-                callback: (label: string) => {
-                  return label.split('/')[1]
-                }
+                // callback: (label: string) => {
+                //   return label.split('/')[1]
+                // }
               }
             },
             {

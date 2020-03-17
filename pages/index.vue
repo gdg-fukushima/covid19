@@ -8,19 +8,14 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="localePath('/flow')"
-      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
-      :btn-text="$t('相談の手順を見る')"
+      :url="'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html'"
+      :text="$t('自分や家族の症状に不安や心配がある場合（県公式サイト）')"
+      :btn-text="$t('公式の情報を見る')"
     />
     <v-row class="DataBlock">
-      <confirmed-cases-details-card />
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
       <tested-number-card />
-      <telephone-advisory-reports-number-card />
-      <consultation-desk-reports-number-card />
-      <metro-card />
-      <agency-card />
     </v-row>
   </div>
 </template>
@@ -38,9 +33,6 @@ import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCar
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
-import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default Vue.extend({
   components: {
@@ -52,16 +44,13 @@ export default Vue.extend({
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard
   },
   data() {
     const data = {
       Data,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('都内の最新感染動向'),
+        title: this.$t('県内の最新感染動向'),
         date: Data.lastUpdate
       },
       newsItems: News.newsItems
@@ -70,7 +59,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('都内の最新感染動向') as string
+      title: this.$t('県内の最新感染動向') as string
     }
   }
 })

@@ -35,16 +35,12 @@
 
 <script>
 import Data from '@/data/data.json'
-import MetroData from '@/data/metro.json'
-import agencyData from '@/data/agency.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
-import MetroCard from '@/components/cards/MetroCard.vue'
-import AgencyCard from '@/components/cards/AgencyCard.vue'
 
 export default {
   components: {
@@ -52,10 +48,6 @@ export default {
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
     TestedNumberCard,
-    TelephoneAdvisoryReportsNumberCard,
-    ConsultationDeskReportsNumberCard,
-    MetroCard,
-    AgencyCard
   },
   data() {
     let title, updatedAt
@@ -76,22 +68,6 @@ export default {
         title = this.$t('検査実施数')
         updatedAt = Data.inspections_summary.date
         break
-      case 'number-of-reports-to-covid19-telephone-advisory-center':
-        title = this.$t('新型コロナコールセンター相談件数')
-        updatedAt = Data.contacts.date
-        break
-      case 'number-of-reports-to-covid19-consultation-desk':
-        title = this.$t('新型コロナ受診相談窓口相談件数')
-        updatedAt = Data.querents.date
-        break
-      case 'predicted-number-of-toei-subway-passengers':
-        title = this.$t('都営地下鉄の利用者数の推移')
-        updatedAt = MetroData.date
-        break
-      case 'agency':
-        title = this.$t('都庁来庁者数の推移')
-        updatedAt = agencyData.date
-        break
     }
 
     const data = {
@@ -108,7 +84,7 @@ export default {
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、東京都が開設したものです。'
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志の技術者が開設したものです。'
     )}`
 
     return {
@@ -125,10 +101,10 @@ export default {
           content:
             this.title +
             ' | ' +
-            this.$t('東京都') +
+            this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
-            this.$t('対策サイト')
+            this.$t('情報サイト')
         },
         {
           hid: 'description',

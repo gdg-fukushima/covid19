@@ -16,7 +16,7 @@
       </div>
       <div class="DataView-Footer">
         <div class="Footer-Left">
-          <div>
+          <!-- <div>
             <a
               v-if="url"
               class="OpenDataLink"
@@ -35,7 +35,7 @@
                 mdi-open-in-new
               </v-icon>
             </a>
-          </div>
+          </div> -->
           <div>
             <a class="Permalink" :href="permalink()">
               <time :datetime="formattedDate">
@@ -188,9 +188,9 @@ export default Vue.extend({
         'https://twitter.com/intent/tweet?text=' +
         this.title +
         ' / ' +
-        this.$t('東京都') +
+        this.$t('福島県') +
         this.$t('新型コロナウイルス感染症') +
-        this.$t('対策サイト') +
+        this.$t('情報サイト') +
         '&url=' +
         this.permalink(true) +
         '&' +
