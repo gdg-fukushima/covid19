@@ -7,7 +7,7 @@
       :chart-option="{}"
       :date="Data.patients.date"
       :info="sumInfoOfPatients"
-      :url="'https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068'"
+      :url="'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'"
     />
   </v-col>
 </template>
