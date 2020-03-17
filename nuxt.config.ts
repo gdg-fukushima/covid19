@@ -13,7 +13,7 @@ const config: Configuration = {
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | 福島県 新型コロナウイルス感染症情報サイト',
+    titleTemplate: '%s | （非公式）福島県 新型コロナウイルス感染症情報サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -27,16 +27,6 @@ const config: Configuration = {
         hid: 'twitter:card',
         name: 'twitter:card',
         content: 'summary_large_image'
-      },
-      {
-        hid: 'twitter:site',
-        name: 'twitter:site',
-        content: '@gdg_fksm'
-      },
-      {
-        hid: 'twitter:creator',
-        name: 'twitter:creator',
-        content: '@gdg_fksm'
       },
       {
         hid: 'fb:app_id',
@@ -145,7 +135,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '福島県 新型コロナウイルス感染症情報サイト',
+    name: '（非公式）福島県 新型コロナウイルス感染症情報サイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',

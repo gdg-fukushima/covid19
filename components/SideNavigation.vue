@@ -11,9 +11,9 @@
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
-            <img src="/logo.svg" :alt="$t('福島県コロナ情報サイト')" />
+            <img src="/logo.svg" :alt="$t('（非公式）福島県コロナ情報サイト')" />
           </div>
-          {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('情報サイト') }}
+          {{ $t('（非公式）') }} {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('情報サイト') }}
         </h1>
       </nuxt-link>
     </header>
