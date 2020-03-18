@@ -52,7 +52,7 @@
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
-            href="https://github.com/donuzium/covid19"
+            href="https://github.com/gdg-fukushima/covid19"
             target="_blank"
             rel="noopener"
           >

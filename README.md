@@ -2,7 +2,7 @@
 ※福島県の公式ではありません。
 このリポジトリのプロジェクトは、[東京都のプロジェクト](https://github.com/tokyo-metropolitan-gov/covid19)をフォークして派生させたものです。
 
-[![福島県 新型コロナウイルス感染症情報サイト](https://user-images.githubusercontent.com/1407941/76877130-4c337a00-68b6-11ea-9fbc-ae0d065a9e41.png)](https://fukushima-covid19.firebaseapp.com/)
+[![福島県 新型コロナウイルス感染症情報サイト](https://user-images.githubusercontent.com/1407941/76877130-4c337a00-68b6-11ea-9fbc-ae0d065a9e41.png)](https://fukushima-covid19.web.app/)
 
 ## 貢献の仕方
 Issues にあるいろいろな修正にご協力いただけると嬉しいです。
@@ -11,7 +11,7 @@ Issues にあるいろいろな修正にご協力いただけると嬉しいで�
 
 
 ## 行動原則
-現在準備中です。
+詳しくは[サイト構築にあたっての行動原則](./.github/CODE_OF_CONDUCT.md)を御覧ください。
 
 ## ライセンス
 本ソフトウェアは、[MITライセンス](./LICENSE.txt)の元提供されています。

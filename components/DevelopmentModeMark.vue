@@ -2,7 +2,7 @@
   <div v-if="isDevelopmentMode" class="DevelopmentModeMark">
     開発中（development mode）
     <a
-      href="https://fukushima-covid19.firebaseapp.com/"
+      href="https://fukushima-covid19.web.app/"
       target="_blank"
       rel="noopener"
     >
