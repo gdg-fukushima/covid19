@@ -188,7 +188,7 @@
         }}
         <i18n path="詳しくは、{githubRepo}をご確認ください。">
           <a
-            href="https://github.com/donuzium/covid19"
+            href="https://github.com/gdg-fukushima/covid19"
             target="_blank"
             rel="noopener"
             place="githubRepo"

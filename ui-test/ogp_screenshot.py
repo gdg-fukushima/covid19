@@ -21,7 +21,7 @@ options.add_argument("--hide-scrollbars")
 
 driver = webdriver.Chrome(options=options)
 
-for lang in ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']:
+for lang in ['ja']:
     os.mkdir('ogp/'+lang)
     for path, size in PATHS.items():
         driver.set_window_size(size[0], size[1])

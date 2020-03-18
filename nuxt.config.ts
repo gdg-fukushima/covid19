@@ -28,11 +28,11 @@ const config: Configuration = {
         name: 'twitter:card',
         content: 'summary_large_image'
       },
-      {
-        hid: 'fb:app_id',
-        property: 'fb:app_id',
-        content: '2879625188795443'
-      },
+      // {
+      //   hid: 'fb:app_id',
+      //   property: 'fb:app_id',
+      //   content: '2879625188795443'
+      // },
       {
         hid: 'note:card',
         property: 'note:card',
@@ -112,7 +112,7 @@ const config: Configuration = {
     }
   },
   googleAnalytics: {
-    id: 'UA-225787389-1'
+    id: 'UA-160888293-1'
   },
   build: {
     postcss: {
@@ -146,7 +146,7 @@ const config: Configuration = {
   generate: {
     fallback: true,
     routes() {
-      const locales = ['ja', 'en', 'zh-cn', 'zh-tw', 'ko', 'ja-basic']
+      const locales = ['ja']
       const pages = [
         '/cards/details-of-confirmed-cases',
         '/cards/number-of-confirmed-cases',

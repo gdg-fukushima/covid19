@@ -32,7 +32,7 @@
                 {{ $t('※最新の情報はWebページをご覧ください') }}
               </p>
               <p class="PrintMeta-Link">
-                https://fukushima-covid19.firebaseapp.com/
+                https://fukushima-covid19.web.app/
               </p>
             </v-card>
           </v-card>
