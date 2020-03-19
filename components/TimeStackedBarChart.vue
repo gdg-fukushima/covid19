@@ -2,12 +2,26 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        <a href="https://www.pref.fukushima.lg.jp/sec/21910a/kansenshojoho.html"
-          target="_blank">{{ $t('福島県感染症発生動向調査報告') }}</a>
+        <a
+          href="https://www.pref.fukushima.lg.jp/sec/21910a/kansenshojoho.html"
+          target="_blank"
+        >
+          {{ $t('福島県感染症発生動向調査報告') }}
+        </a>
         <br />
         {{ $t('正確な情報は福島県公式ウェブサイトでご確認ください。') }}
         <br />
-        {{ $t('※2/24以前のクルーズ船由来の検査数は情報が見つからないため、日報の合計から算出しています。') }}
+        {{
+          $t(
+            '※2\/18以前、3\/9~3\/17のクルーズ船由来の検査数は情報が見つからないため0になっています。'
+          )
+        }}
+        <br />
+        {{
+          $t(
+            '※3\/18より、週報がなくなり日報のみになったため、グラフの時系列に注意してください。'
+          )
+        }}
       </p>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
@@ -241,7 +255,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         scales: {
           xAxes: [
             {
-              id: 'week',
+              id: 'day',
               stacked: true,
               gridLines: {
                 display: false
@@ -251,50 +265,50 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxTicksLimit: 20,
                 fontColor: '#808080',
                 maxRotation: 0,
-                minRotation: 0,
+                minRotation: 0
                 // callback: (label: string) => {
                 //   return label.split('/')[1]
                 // }
               }
-            },
-            {
-              id: 'month',
-              stacked: true,
-              gridLines: {
-                drawOnChartArea: false,
-                drawTicks: true,
-                drawBorder: false,
-                tickMarkLength: 10
-              },
-              ticks: {
-                fontSize: 11,
-                fontColor: '#808080',
-                padding: 3,
-                fontStyle: 'bold',
-                callback: (label: string) => {
-                  const monthStringArry = [
-                    'Jan',
-                    'Feb',
-                    'Mar',
-                    'Apr',
-                    'May',
-                    'Jun',
-                    'Jul',
-                    'Aug',
-                    'Sep',
-                    'Oct',
-                    'Nov',
-                    'Dec'
-                  ]
-                  const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
-                  return month + '月'
-                }
-              },
-              type: 'time',
-              time: {
-                unit: 'month'
-              }
             }
+            // {
+            //   id: 'month',
+            //   stacked: true,
+            //   gridLines: {
+            //     drawOnChartArea: false,
+            //     drawTicks: true,
+            //     drawBorder: false,
+            //     tickMarkLength: 10
+            //   },
+            //   ticks: {
+            //     fontSize: 11,
+            //     fontColor: '#808080',
+            //     padding: 3,
+            //     fontStyle: 'bold',
+            //     callback: (label: string) => {
+            //       const monthStringArry = [
+            //         'Jan',
+            //         'Feb',
+            //         'Mar',
+            //         'Apr',
+            //         'May',
+            //         'Jun',
+            //         'Jul',
+            //         'Aug',
+            //         'Sep',
+            //         'Oct',
+            //         'Nov',
+            //         'Dec'
+            //       ]
+            //       const month = monthStringArry.indexOf(label.split(' ')[0]) + 1
+            //       return month + '月'
+            //     }
+            //   },
+            //   type: 'time',
+            //   time: {
+            //     unit: 'month'
+            //   }
+            // }
           ],
           yAxes: [
             {

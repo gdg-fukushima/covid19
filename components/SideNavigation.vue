@@ -11,9 +11,14 @@
       <nuxt-link :to="localePath('/')" class="SideNavigation-HeadingLink">
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
-            <img src="/logo.svg" :alt="$t('（非公式）福島県コロナ情報サイト')" />
+            <img
+              src="/logo.svg"
+              :alt="$t('（非公式）福島県コロナ情報サイト')"
+            />
           </div>
-          {{ $t('（非公式）') }} {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('情報サイト') }}
+          {{ $t('（非公式）') }} {{ $t('新型コロナウイルス感染症') }}
+          <br />
+          {{ $t('情報サイト') }}
         </h1>
       </nuxt-link>
     </header>
@@ -44,11 +49,7 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a
-            href="https://twitter.com/gdg_fksm"
-            target="_blank"
-            rel="noopener"
-          >
+          <a href="https://twitter.com/gdg_fksm" target="_blank" rel="noopener">
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
@@ -81,7 +82,7 @@
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
 import ListItem from '@/components/ListItem.vue'
-import LanguageSelector from '@/components/LanguageSelector.vue'
+// import LanguageSelector from '@/components/LanguageSelector.vue'
 
 type Item = {
   icon?: string
@@ -92,8 +93,8 @@ type Item = {
 
 export default Vue.extend({
   components: {
-    ListItem,
-    LanguageSelector
+    ListItem
+    // LanguageSelector
   },
   props: {
     isNaviOpen: {
@@ -112,17 +113,19 @@ export default Vue.extend({
         {
           icon: 'covid',
           title: this.$t('感染が疑われる場合の症状・対応等'),
-          link: 'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html',
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html',
           divider: true
         },
         {
           title: this.$t('福島県【新型コロナ】関連情報一覧'),
-          link: 'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-list.html'
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-list.html'
         },
         {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
-        },
+        }
       ]
     }
   },

@@ -8,7 +8,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html'"
+      :url="
+        'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html'
+      "
       :text="$t('自分や家族の症状に不安や心配がある場合（県公式サイト）')"
       :btn-text="$t('公式の情報を見る')"
     />
@@ -39,7 +41,7 @@ export default Vue.extend({
     StaticInfo,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
-    TestedNumberCard,
+    TestedNumberCard
   },
   data() {
     const data = {

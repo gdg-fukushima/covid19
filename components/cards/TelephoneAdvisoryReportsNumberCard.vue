@@ -7,7 +7,9 @@
       :chart-data="contactsGraph"
       :date="Data.contacts.date"
       :unit="$t('件.reports')"
-      :url="'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'"
+      :url="
+        'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'
+      "
     />
     <!-- 件.reports = 窓口相談件数 -->
   </v-col>
