@@ -84,7 +84,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `https://fukushima-covid19.firebaseapp.com${this.$route.path}`
+          href: `https://fukushima-covid19.web.app${this.$route.path}`
         }
       ],
       meta: [

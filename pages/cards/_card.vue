@@ -77,7 +77,7 @@ export default {
     return data
   },
   head() {
-    const url = 'https://fukushima-covid19.firebaseapp.com'
+    const url = 'https://fukushima-covid19.web.app'
     const timestamp = new Date().getTime()
     const ogpImage =
       this.$i18n.locale === 'ja'

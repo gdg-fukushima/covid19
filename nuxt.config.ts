@@ -21,7 +21,7 @@ const config: Configuration = {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: 'https://fukushima-covid19.firebaseapp.com'
+        content: 'https://fukushima-covid19.web.app/'
       },
       {
         hid: 'twitter:card',
