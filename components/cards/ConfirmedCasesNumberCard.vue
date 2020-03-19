@@ -7,7 +7,9 @@
       :chart-data="patientsGraph"
       :date="Data.patients.date"
       :unit="$t('人')"
-      :url="'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'"
+      :url="
+        'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'
+      "
     />
   </v-col>
 </template>

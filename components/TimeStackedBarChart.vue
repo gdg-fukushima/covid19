@@ -2,7 +2,10 @@
   <data-view :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        <a href="https://www.pref.fukushima.lg.jp/sec/21910a/kansenshojoho.html" target="_blank">
+        <a
+          href="https://www.pref.fukushima.lg.jp/sec/21910a/kansenshojoho.html"
+          target="_blank"
+        >
           {{ $t('福島県感染症発生動向調査報告') }}
         </a>
         <br />
