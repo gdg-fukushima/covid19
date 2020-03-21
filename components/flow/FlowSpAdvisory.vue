@@ -45,7 +45,16 @@
         </dt>
         <dd>
           <div :class="[$style.night]">
-            {{ $t('上記電話番号の案内に従って下さい。') }}
+          <a
+            href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+            target="_blank"
+            rel="noopener"
+          >
+            {{ $t('帰国者・接触者相談センターの案内に従って下さい') }}
+            <v-icon size="16">
+              mdi-open-in-new
+            </v-icon>
+          </a>
           </div>
         </dd>
       </div>

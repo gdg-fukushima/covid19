@@ -63,7 +63,16 @@
             'mt-1'
           ]"
         >
-            {{ $t('上記電話番号の案内に従って下さい。') }}
+            <a
+              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>{{ $t('帰国者・接触者相談センターの案内に従って下さい') }}</span>
+              <v-icon size="18">
+                mdi-open-in-new
+              </v-icon>
+            </a>
         </div>
       </div>
     </div>
