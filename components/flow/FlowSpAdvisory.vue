@@ -16,11 +16,11 @@
         </dt>
         <dd :class="$style.link">
           <a
-            href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+            href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
             target="_blank"
             rel="noopener"
           >
-            {{ $t('各保健所の電話番号は福祉保健局HPへ') }}
+            {{ $t('帰国者・接触者相談センター') }}
             <v-icon size="16">
               mdi-open-in-new
             </v-icon>
@@ -44,11 +44,8 @@
           </ul>
         </dt>
         <dd>
-          <div :class="[$style.phone, $style.fzNumeric]">
-            <span :class="$style.icon">
-              <PhoneIcon alt="Phone" />
-            </span>
-            <a href="tel:0353204592">03-5320-4592</a>
+          <div :class="[$style.night]">
+            {{ $t('上記電話番号の案内に従って下さい。') }}
           </div>
         </dd>
       </div>
