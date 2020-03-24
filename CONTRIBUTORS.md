@@ -8,6 +8,7 @@ Fukushima Covid-19 information site contributors
 | Name (link) | GitHub | Twitter | Contribution |
 | --- | --- | --- | --- |
 | Shunnosuke Shimizu (GDG Fukushima, Hack for Japan) | [@donuzium](https://github.com/donuzium) | [@donuzium](https://twitter.com/donuzium) | Launched Fukushima Project |
+| 德納 弘和 (Code for Aizu) | [@hitokuno](https://github.com/hitokuno) | [@ochokurin](https://twitter.com/ochokurin) | Developer |
 
 ご協力に感謝です！！！
 
