@@ -57,22 +57,19 @@
             {{ $t('土日祝 終日') }}
           </span>
         </div>
-        <div
-          :class="[
-            $style.AdvisoryContentsSubTitle,
-            'mt-1'
-          ]"
-        >
-            <a
-              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
-              target="_blank"
-              rel="noopener"
-            >
-              <span>{{ $t('帰国者・接触者相談センターの案内に従って下さい') }}</span>
-              <v-icon size="18">
-                mdi-open-in-new
-              </v-icon>
-            </a>
+        <div :class="[$style.AdvisoryContentsSubTitle, 'mt-1']">
+          <a
+            href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>{{
+              $t('帰国者・接触者相談センターの案内に従って下さい')
+            }}</span>
+            <v-icon size="18">
+              mdi-open-in-new
+            </v-icon>
+          </a>
         </div>
       </div>
     </div>

@@ -45,16 +45,16 @@
         </dt>
         <dd>
           <div :class="[$style.night]">
-          <a
-            href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('帰国者・接触者相談センターの案内に従って下さい') }}
-            <v-icon size="16">
-              mdi-open-in-new
-            </v-icon>
-          </a>
+            <a
+              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+              target="_blank"
+              rel="noopener"
+            >
+              {{ $t('帰国者・接触者相談センターの案内に従って下さい') }}
+              <v-icon size="16">
+                mdi-open-in-new
+              </v-icon>
+            </a>
           </div>
         </dd>
       </div>
@@ -63,11 +63,11 @@
 </template>
 
 <script lang="ts">
-import PhoneIcon from '@/static/flow/responsive/phone.svg'
+// import PhoneIcon from '@/static/flow/responsive/phone.svg'
 
-export default {
-  components: { PhoneIcon }
-}
+// export default {
+//   components: { PhoneIcon }
+// }
 </script>
 
 <style module lang="scss">
