@@ -32,11 +32,11 @@
             ]"
           >
             <a
-              href="https://www.fukushihoken.metro.tokyo.lg.jp/iryo/kansen/coronasodan.html"
+              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
               target="_blank"
               rel="noopener"
             >
-              <span>{{ $t('各保健所の電話番号は福祉保健局HPへ') }}</span>
+              <span>{{ $t('帰国者・接触者相談センター') }}</span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -59,19 +59,20 @@
         </div>
         <div
           :class="[
-            $style.AdvisoryTelephoneArea,
-            $style.AdvisoryBlockCentering,
+            $style.AdvisoryContentsSubTitle,
             'mt-1'
           ]"
         >
-          <a :class="$style.AdvisoryTelephone" href="tel:0353204592">
-            <img
-              :class="$style.AdvisoryTelephoneIcon"
-              src="/flow/phone-24px.svg"
-              aria-hidden="true"
-            />
-            03-5320-4592
-          </a>
+            <a
+              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>{{ $t('帰国者・接触者相談センターの案内に従って下さい') }}</span>
+              <v-icon size="18">
+                mdi-open-in-new
+              </v-icon>
+            </a>
         </div>
       </div>
     </div>

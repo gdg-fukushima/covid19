@@ -49,18 +49,21 @@
         {{ $t('新型コロナコールセンター') }}
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('午前9時から午後9時（土日祝含む）') }}
+        {{ $t('午前8時30分から午後9時（平日のみ）') }}
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0570550571">
+        <a :class="$style.TelLink" href="tel:024-521-7811">
           <img
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
           />
-          0570-550571
+          024-521-7811
         </a>
+      </div>
+      <div :class="$style.Tel">
+        FAX 024-521-7926(耳の不自由な方)
       </div>
     </div>
   </div>

@@ -24,13 +24,16 @@
         {{ $t('新型コロナコールセンター') }}
       </p>
       <p :class="$style.open">
-        {{ $t('午前9時から午後9時（土日祝含む）') }}
+        {{ $t('午前8時30分から午後9時（平日のみ）') }}
       </p>
       <p :class="[$style.phone, $style.fzNumeric]">
         <span :class="$style.icon">
           <PhoneIcon alt="Phone" />
         </span>
-        <a href="tel:0570550571">0570-550571</a>
+        <a :class="$style.TelLink" href="tel:024-521-7811">024-521-7811</a>
+      </p>
+      <p :class="[$style.phone, $style.fzNumeric]">
+        FAX 024-521-7926(耳の不自由な方)
       </p>
     </div>
 
