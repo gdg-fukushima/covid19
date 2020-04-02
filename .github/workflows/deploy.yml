@@ -29,4 +29,4 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate:deploy --fail-on-page-error
-      - run: ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN --only hosting --non-interactive
+      - run: ./node_modules/.bin/firebase deploy --token $FIREBASE_TOKEN
