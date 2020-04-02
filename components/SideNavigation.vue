@@ -43,9 +43,17 @@
             <v-divider v-show="item.divider" class="SideNavigation-Divider" />
           </v-container>
         </v-list>
-        <!-- <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
-        </div> -->
+        <div class="SideNavigation-LanguageMenu">
+          <div
+            v-if="this.$i18n.locales.length > 1"
+            class="SideNavigation-Language"
+          >
+            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+              {{ $t('多言語対応選択メニュー') }}
+            </label>
+            <LanguageSelector />
+          </div>
+        </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
@@ -81,8 +89,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import ListItem from '@/components/ListItem.vue'
-// import LanguageSelector from '@/components/LanguageSelector.vue'
 
 type Item = {
   icon?: string
@@ -93,8 +101,8 @@ type Item = {
 
 export default Vue.extend({
   components: {
-    ListItem
-    // LanguageSelector
+    ListItem,
+    LanguageSelector
   },
   props: {
     isNaviOpen: {
