@@ -45,8 +45,7 @@
     "vue-chartjs": "^3.5.0",
     "vue-property-decorator": "^8.4.0",
     "vue-scrollto": "^2.17.1",
-    "vue-spinner": "^1.0.3",
-    "firebase-tools": "^8.0.0"
+    "vue-spinner": "^1.0.3"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.1.0",
@@ -73,6 +72,7 @@
     "stylelint": "^13.2.0",
     "rimraf": "^3.0.2",
     "vue-axe": "^1.0.8",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "firebase-tools": "^8.0.0"
   }
 }
