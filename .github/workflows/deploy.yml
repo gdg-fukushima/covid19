@@ -29,5 +29,5 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn run test
       - run: yarn run generate:deploy --fail-on-page-error
-      - run: export PATH=$PATH:./node_modules/.bin/
+      - run: npm install -g firebase-tools
       - run: firebase deploy --token "$FIREBASE_TOKEN" --only hosting --non-interactive -P default
