@@ -71,7 +71,7 @@
           </a>
           {{ $t('の下に提供されています。') }}
           <br />
-          2020 GDG Fukushima
+          2020 Code for Fukushima
         </small>
       </v-footer>
     </div>
