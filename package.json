@@ -2,7 +2,7 @@
   "name": "covid19",
   "version": "1.0.0",
   "description": "（非公式）福島県 新型コロナウイルス感染症情報サイト",
-  "author": "GDG Fukushima",
+  "author": "Code for Fukushima",
   "private": true,
   "engines": {
     "node": ">=10.19.0"
@@ -72,6 +72,7 @@
     "stylelint": "^13.2.0",
     "rimraf": "^3.0.2",
     "vue-axe": "^1.0.8",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-0",
+    "firebase-tools": "^8.0.0"
   }
 }
