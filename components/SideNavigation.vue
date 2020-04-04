@@ -49,8 +49,7 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://twitter.com/
-          _fksm" target="_blank" rel="noopener">
+          <a href="https://twitter.com/gdg_fksm" target="_blank" rel="noopener">
             <img src="/twitter.png" alt="Twitter" />
           </a>
           <a
