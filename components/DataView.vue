@@ -68,15 +68,24 @@
 
             <div class="Buttons">
               <button @click="line">
-                <img src="https://cdn2.dott.dev/line.png" class="icon-resize line" />
+                <img
+                  src="https://cdn2.dott.dev/line.png"
+                  class="icon-resize line"
+                />
               </button>
 
               <button @click="twitter">
-                <img src="https://cdn2.dott.dev/twitter.png" class="icon-resize twitter" />
+                <img
+                  src="https://cdn2.dott.dev/twitter.png"
+                  class="icon-resize twitter"
+                />
               </button>
 
               <button @click="facebook">
-                <img src="https://cdn2.dott.dev/facebook.png" class="icon-resize facebook" />
+                <img
+                  src="https://cdn2.dott.dev/facebook.png"
+                  class="icon-resize facebook"
+                />
               </button>
             </div>
           </div>
