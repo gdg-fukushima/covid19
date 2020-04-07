@@ -8,7 +8,7 @@
         }
       </style>
       <div class="noscript-heading">
-        <img src="/logo.svg" :alt="$t('福島県')" />
+        <img src="https://cdn2.dott.dev/logo.svg" :alt="$t('福島県')" />
         {{ $t('（非公式）') }}{{ $t('新型コロナウイルス感染症') }}
         <br />
         {{ $t('情報サイト') }}
