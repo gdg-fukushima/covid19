@@ -12,7 +12,7 @@
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
             <img
-              src="/logo.svg"
+              src="https://cdn2.dott.dev/logo.svg"
               :alt="$t('（非公式）福島県コロナ情報サイト')"
             />
           </div>
@@ -58,14 +58,14 @@
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
           <a href="https://twitter.com/gdg_fksm" target="_blank" rel="noopener">
-            <img src="/twitter.png" alt="Twitter" />
+            <img src="https://cdn2.dott.dev/twitter.png" alt="Twitter" />
           </a>
           <a
             href="https://github.com/gdg-fukushima/covid19"
             target="_blank"
             rel="noopener"
           >
-            <img src="/github.png" alt="GitHub" />
+            <img src="https://cdn2.dott.dev/github.png" alt="GitHub" />
           </a>
         </div>
         <small class="SideNavigation-Copyright">
