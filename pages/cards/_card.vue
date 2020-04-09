@@ -102,7 +102,7 @@ export default {
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'description',

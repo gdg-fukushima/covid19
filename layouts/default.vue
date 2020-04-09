@@ -2,7 +2,7 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="https://cdn2.dott.dev/logo.svg" alt="福島県" />
+        <img src="https://cdn2.dott.dev/logo2.svg" alt="福島県" />
         <scale-loader color="#00A040" />
       </div>
     </v-overlay>
@@ -104,25 +104,21 @@ export default Vue.extend({
           hid: 'og:site_name',
           name: 'og:site_name',
           content:
-            this.$t('（非公式）') +
-            ' ' +
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'og:title',
           name: 'og:title',
           content:
-            this.$t('（非公式）') +
-            ' ' +
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'og:description',
@@ -140,13 +136,11 @@ export default Vue.extend({
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            this.$t('（非公式）') +
-            ' ' +
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'twitter:image',
