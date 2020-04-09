@@ -12,13 +12,13 @@
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
             <img
-              src="https://cdn2.dott.dev/logo.svg"
-              :alt="$t('（非公式）福島県コロナ情報サイト')"
+              src="https://cdn2.dott.dev/logo2.svg"
+              :alt="$t('福島県コロナ対策サイト')"
             />
           </div>
-          {{ $t('（非公式）') }} {{ $t('新型コロナウイルス感染症') }}
+          {{ $t('新型コロナウイルス感染症') }}
           <br />
-          {{ $t('情報サイト') }}
+          {{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
     </header>

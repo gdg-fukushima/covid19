@@ -8,10 +8,10 @@
         }
       </style>
       <div class="noscript-heading">
-        <img src="https://cdn2.dott.dev/logo.svg" :alt="$t('福島県')" />
-        {{ $t('（非公式）') }}{{ $t('新型コロナウイルス感染症') }}
+        <img src="https://cdn2.dott.dev/logo2.svg" :alt="$t('福島県')" />
+        {{ $t('新型コロナウイルス感染症') }}
         <br />
-        {{ $t('情報サイト') }}
+        {{ $t('対策サイト') }}
       </div>
       <div class="noscript-body">
         {{ $t('当サイトではJavaScriptを使用しております。') }}<br />
