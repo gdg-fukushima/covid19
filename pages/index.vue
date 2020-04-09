@@ -18,6 +18,8 @@
       <confirmed-cases-number-card />
       <confirmed-cases-attributes-card />
       <tested-number-card />
+      <telephone-advisory-reports-number-card />
+      <consultation-desk-reports-number-card />
     </v-row>
   </div>
 </template>
@@ -33,6 +35,8 @@ import News from '@/data/news.json'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
 import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttributesCard.vue'
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
+import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
+import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
 
 export default Vue.extend({
   components: {
@@ -41,6 +45,8 @@ export default Vue.extend({
     StaticInfo,
     ConfirmedCasesNumberCard,
     ConfirmedCasesAttributesCard,
+    TelephoneAdvisoryReportsNumberCard,
+    ConsultationDeskReportsNumberCard,
     TestedNumberCard
   },
   data() {
@@ -49,7 +55,7 @@ export default Vue.extend({
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
         title: this.$t('県内の最新感染動向'),
-        date: Data.lastUpdate
+        date: Data.last_update
       },
       newsItems: News.newsItems
     }
