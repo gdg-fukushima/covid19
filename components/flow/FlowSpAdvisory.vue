@@ -57,6 +57,13 @@
             </a>
           </div>
         </dd>
+        <dd>
+          <ul :class="[$style.night]">
+            <span :class="$style.fzMedium">
+              {{ $t('※緊急電話等での対応となります。') }}
+            </span>
+          </ul>
+        </dd>
       </div>
     </dl>
   </div>

@@ -71,6 +71,11 @@
             </v-icon>
           </a>
         </div>
+        <div class="mt-1">
+          <span :class="$style.AdvisoryContentsSubTitle">
+            {{ $t('※緊急電話等での対応となります。') }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
