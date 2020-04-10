@@ -30,7 +30,7 @@
         <span :class="$style.icon">
           <PhoneIcon alt="Phone" />
         </span>
-        <a :class="$style.TelLink" href="tel:024-521-7811">024-521-7811</a>
+        <a :class="$style.TelLink" href="tel:024-521-7871">024-521-7871</a>
       </p>
       <p :class="[$style.phone, $style.fzNumeric]">
         FAX 024-521-7926(耳の不自由な方)
