@@ -135,6 +135,16 @@ export default Vue.extend({
             'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-list.html'
         },
         {
+          title: this.$t('福島県新型コロナウイルス感染症対策本部員会議'),
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-honbukaigi.html'
+        },
+        {
+          title: this.$t('知事からのメッセージ'),
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/governor-message.html'
+        },
+        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         }
