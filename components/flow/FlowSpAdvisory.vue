@@ -50,7 +50,7 @@
               target="_blank"
               rel="noopener"
             >
-              {{ $t('帰国者・接触者相談センターの案内に従って下さい') }}
+              {{ $t('帰国者・接触者相談センターの案内に従ってください') }}
               <v-icon size="16">
                 mdi-open-in-new
               </v-icon>
