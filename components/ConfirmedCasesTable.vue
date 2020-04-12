@@ -28,7 +28,7 @@
       </div>
       <ul class="group">
         <li class="item in-hospital">
-          <div class="gutter oneThird">
+          <div class="gutter">
             <div class="box">
               <span>{{ $t('入院中') }}</span>
               <span>
@@ -37,32 +37,6 @@
               </span>
             </div>
           </div>
-          <ul class="group">
-            <li class="item mild">
-              <div class="gutter">
-                <div class="box short">
-                  <!-- eslint-disable vue/no-v-html-->
-                  <span v-html="$t('軽症・<br />中等症')" />
-                  <!-- eslint-enable vue/no-v-html-->
-                  <span>
-                    <b>{{ 軽症中等症 }}</b>
-                    <span class="unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-            <li class="item serious">
-              <div class="gutter">
-                <div class="box short">
-                  <span>{{ $t('重症') }}</span>
-                  <span>
-                    <b>{{ 重症 }}</b>
-                    <span class="unit">{{ $t('人') }}</span>
-                  </span>
-                </div>
-              </div>
-            </li>
-          </ul>
         </li>
         <li class="item deceased">
           <div class="gutter">
@@ -222,10 +196,9 @@ export default Vue.extend({
 .unit {
   @include font-size(14);
 }
-
 // 検査
 .item.checked {
-  width: calc(100% / 7);
+  width: calc(100% / 5);
   > .gutter > .box {
     border-color: $gray-1;
     color: $gray-1;
@@ -235,19 +208,19 @@ export default Vue.extend({
 .item.positive {
   display: flex;
   justify-content: space-between;
-  width: calc(100% / 7 * 6);
+  width: calc(100% / 4 * 3);
   > .group {
-    width: calc(100% / 6 * 5);
+    width: calc(100% / 4 * 3);
   }
 }
 // 入院
 .item.in-hospital {
   display: flex;
   justify-content: space-between;
-  width: calc(100% / 5 * 3);
-  > .group {
-    width: calc(100% / 3 * 2);
-  }
+  width: calc(100% / 3);
+  // > .group {
+  //   width: calc(100% / 3 * 2);
+  // }
 }
 // 軽症・中等症
 .item.mild {
@@ -259,16 +232,14 @@ export default Vue.extend({
 }
 // 死亡
 .item.deceased {
-  width: calc(100% / 5);
+  width: calc(100% / 3);
 }
 // 退院
 .item.recovered {
-  width: calc(100% / 5);
+  width: calc(100% / 3);
 }
 
 .item.positive > .gutter > .box::before,
-.item.in-hospital > .gutter > .box::before,
-.item.serious > .gutter > .box::before,
 .item.recovered > .gutter > .box::before {
   content: '';
   display: block;
@@ -277,8 +248,7 @@ export default Vue.extend({
   position: absolute;
   height: 32px;
 }
-.item.positive > .gutter > .box::before,
-.item.in-hospital > .gutter > .box::before {
+.item.positive > .gutter > .box::before {
   border-right: none;
   top: -3px;
   right: calc(-100% - 3px - 3px);
@@ -286,17 +256,16 @@ export default Vue.extend({
   border-left: none;
   border-right: none;
 }
-.item.serious > .gutter > .box::before,
 .item.recovered > .gutter > .box::before {
   top: calc(-35px - 3px);
   right: -3px;
   border-left: none;
 }
 .item.serious > .gutter > .box::before {
-  width: 200%;
+  width: 100%;
 }
 .item.recovered > .gutter > .box::before {
-  width: 520%;
+  width: 250%;
 }
 
 @function px2vw($px, $vw) {
