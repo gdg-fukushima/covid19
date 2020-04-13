@@ -24,15 +24,26 @@ export default {
   components: {
     TimeBarChart
   },
+  props: {
+    graphData: {
+      type: Object,
+      required: false,
+      default: Data
+    }
+  },
   data() {
     // 帰国者・接触者 電話相談センター 相談件数
-    const querentsGraph = formatGraph(Data.querents.data)
+    const querentsGraph = formatGraph(this.graphData.querents.data)
 
     const data = {
       Data,
       querentsGraph
     }
     return data
+  },
+  mounted() {
+    this.Data = this.graphData
+    this.querentsGraph = formatGraph(this.graphData.querents.data)
   }
 }
 </script>

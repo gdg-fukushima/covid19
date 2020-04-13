@@ -21,6 +21,13 @@ export default {
   components: {
     TimeBarChart
   },
+  props: {
+    graphData: {
+      type: Object,
+      required: false,
+      default: Data
+    }
+  },
   data() {
     // 検査実施日別状況
     // '県内'の値のみ利用する
@@ -37,6 +44,16 @@ export default {
       inspectionsGraph
     }
     return data
+  },
+  mounted() {
+    this.Data = this.graphData
+    const zipedSummaryData = this.graphData.inspections_summary.labels.map((e, i) => {
+      return {
+        日付: e,
+        小計: this.graphData.inspections_summary.data['県内'][i]
+      }
+    })
+    this.inspectionsGraph = formatGraph(zipedSummaryData)
   }
 }
 </script>
