@@ -57,8 +57,11 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://twitter.com/gdg_fksm" target="_blank" rel="noopener">
+          <a href="https://twitter.com/CODEforFKSM" target="_blank" rel="noopener">
             <img src="https://cdn2.dott.dev/twitter.png" alt="Twitter" />
+          </a>
+          <a href="https://www.facebook.com/Code-for-Fukushima-104771331183649" target="_blank" rel="noopener">
+            <img src="https://cdn2.dott.dev/facebook.png" alt="Facebook" />
           </a>
           <a
             href="https://github.com/gdg-fukushima/covid19"
