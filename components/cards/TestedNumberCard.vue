@@ -7,6 +7,11 @@
       :chart-data="inspectionsGraph"
       :date="Data.inspections_summary.date"
       :unit="$t('件.tested')"
+      :descriptions="[
+        '（注）医療機関が保険適用で行った検査は含まれていない',
+        '（注）チャーター機帰国者、クルーズ船乗客等は含まれていない',
+        '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'
+      ]"
     />
     <!-- 件.tested = 検査数 -->
   </v-col>

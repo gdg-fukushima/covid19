@@ -38,9 +38,11 @@ export default {
     const patientsTable = formatTable(Data.patients.data)
 
     const sumInfoOfPatients = {
-      lText: String(Data.patients.data.length),
+      lText: patientsGraph[
+        patientsGraph.length - 1
+      ].cumulative.toLocaleString(),
       sText: this.$t('{date}の累計', {
-        date: Data.patients.data[Data.patients.data.length - 1].date
+        date: patientsGraph[patientsGraph.length - 1].label
       }),
       unit: this.$t('人')
     }
@@ -79,9 +81,11 @@ export default {
     this.patientsTable = formatTable(this.graphData.patients.data)
 
     this.sumInfoOfPatients = {
-      lText: String(this.graphData.patients.data.length),
+      lText: patientsGraph[
+        patientsGraph.length - 1
+      ].cumulative.toLocaleString(),
       sText: this.$t('{date}の累計', {
-        date: this.graphData.patients.data[this.graphData.patients.data.length - 1].date
+        date: patientsGraph[patientsGraph.length - 1].label
       }),
       unit: this.$t('人')
     }

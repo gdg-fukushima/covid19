@@ -129,6 +129,7 @@
   "第二庁舎計": "No. 2 Bldg. total",
   "議事堂計": "Metropolitan Assembly Bldg. total",
   "※土・日・祝日を除く庁舎開庁日の1週間累計数": "* Weekly number of visitors on days the building was open to the public, excluding Sat., Sun., and holidays.",
+  "検査実施<br />件数": "Total number of testing",
   "陽性者数": "Total number of people testing positive",
   "(累計)": "(Total)",
   "入院中": "Hospitalized",
@@ -309,5 +310,8 @@
   "【新型コロナ】オープンデータ": "COVID-19 Open data",
   "本サイトで公表しているデータは、{dataSite}より誰でも閲覧が可能になっているものです。": "The data published on this site is available for anyone to view from {dataSite}.",
   "Code for Fukushimaとは": "About Code for Fukushima",
-  "新型コロナウイルス感染症（COVID-19）の感染拡大に伴い、福島県を中心に県内外で活動しているコミュニティ・個人が集結し結成されました。": "With the spread of the new coronavirus infectious disease (COVID-19), Code for Fukushima was organized by the community and individuals especially from Fukushima Prefecture."
+  "新型コロナウイルス感染症（COVID-19）の感染拡大に伴い、福島県を中心に県内外で活動しているコミュニティ・個人が集結し結成されました。": "With the spread of the new coronavirus infectious disease (COVID-19), Code for Fukushima was organized by the community and individuals especially from Fukushima Prefecture.",
+  "（注）医療機関が保険適用で行った検査は含まれていない": "(Note) Excluding the examinations covered by insurance conducted at medical institutions.",
+  "（注）チャーター機帰国者、クルーズ船乗客等は含まれていない": "(Note) Excluding the returnees on charter flights or the cruise ship passengers",
+  "（注）速報値として公開するものであり、後日確定データとして修正される場合あり": "(Note) The number is published as preliminary figures and may be revised as confirmed data at a later date "
 }

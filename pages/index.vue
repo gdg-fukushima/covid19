@@ -15,14 +15,12 @@
       :btn-text="$t('公式の情報を見る')"
     />
     <v-row class="DataBlock">
-      <no-ssr>
       <confirmed-cases-details-card :graph-data="Data" />
       <confirmed-cases-attributes-card :graph-data="Data" />
       <confirmed-cases-number-card :graph-data="Data" />
       <tested-number-card :graph-data="Data" />
       <telephone-advisory-reports-number-card :graph-data="Data" />
       <consultation-desk-reports-number-card :graph-data="Data" />
-      </no-ssr>
     </v-row>
   </div>
 </template>
@@ -67,6 +65,7 @@ export default Vue.extend({
     return data
   },
   head(): MetaInfo {
+    console.log("while (Japan.recovering) {\n  we.hack()\;\n}");
     return {
       title: this.$t('県内の最新感染動向') as string
     }

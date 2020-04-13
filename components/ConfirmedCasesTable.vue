@@ -4,11 +4,11 @@
       <div class="gutter">
         <div class="box tall">
           <!-- eslint-disable vue/no-v-html-->
-          <span v-html="$t('検査実施<br />人数')" />
+          <span v-html="$t('検査実施<br />件数')" />
           <!-- eslint-enable vue/no-v-html-->
           <span>
             <b>{{ 検査実施人数 }}</b>
-            <span class="unit">{{ $t('人') }}</span>
+            <span class="unit">{{ $t('件.tested') }}</span>
           </span>
         </div>
       </div>
