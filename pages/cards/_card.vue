@@ -152,8 +152,7 @@ export default {
     let data = {}
     try {
       // TODO: get URI from such as global variables
-      // const dataUri = '<add your external data.json URI>'
-      const dataUri = 'https://storage.googleapis.com/fukushima-covid19/data.json';
+      const dataUri = 'https://cdn2.dott.dev/data.json'
       const graphData = await axios.get(dataUri)
       let updatedAt
       switch (params.card) {
