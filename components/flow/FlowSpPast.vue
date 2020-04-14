@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.container">
     <p :class="$style.heading">
-      <i18n path="{past}の出来ごとと症状" tag="span">
+      <i18n path="{past}の出来事と症状" tag="span">
         <i18n
           :class="$style.fzLarge"
           tag="span"

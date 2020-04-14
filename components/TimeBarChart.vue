@@ -1,6 +1,14 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
+      <v-container v-if="descriptions" class="Graph-Desc">
+        <span
+          v-for="(desc, i) in descriptions"
+          :key="i"
+        >
+          {{ $t(desc) }}<br />
+        </span>
+      </v-container>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
@@ -77,6 +85,7 @@ type Props = {
   date: string
   unit: string
   url: string
+  descriptions: string[]
 }
 
 const options: ThisTypedComponentOptionsWithRecordProps<
@@ -115,6 +124,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     url: {
       type: String,
       default: ''
+    },
+    descriptions: {
+      type: Array,
+      default: null
     }
   },
   data: () => ({
@@ -313,3 +326,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
 
 export default Vue.extend(options)
 </script>
+
+<style lang="scss" scoped>
+.Graph-Desc {
+  width: 100%;
+  margin: 0;
+  font-size: 12px;
+  color: $gray-3;
+}
+</style>

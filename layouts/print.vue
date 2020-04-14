@@ -1,7 +1,7 @@
 <template>
   <v-app class="app-print">
     <div v-if="loading" class="loader">
-      <img src="https://cdn2.dott.dev/logo.svg" :alt="$t('福島県')" />
+      <img src="https://cdn2.dott.dev/logo2.svg" :alt="$t('福島県')" />
       <scale-loader color="#00A040" />
     </div>
     <v-container v-else>
@@ -9,10 +9,10 @@
         <v-col :cols="12" :sm="6">
           <div class="PrintMeta-HeadingWrapper">
             <div class="PrintMeta-Logo">
-              <img src="https://cdn2.dott.dev/logo.svg" :alt="$t('福島県')" />
+              <img src="https://cdn2.dott.dev/logo2.svg" :alt="$t('福島県')" />
             </div>
             <h1 class="PrintMeta-Heading">
-              {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('情報サイト') }}
+              {{ $t('新型コロナウイルス感染症') }}<br />{{ $t('対策サイト') }}
             </h1>
           </div>
         </v-col>

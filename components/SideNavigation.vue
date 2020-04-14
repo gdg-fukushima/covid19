@@ -12,13 +12,13 @@
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
             <img
-              src="https://cdn2.dott.dev/logo.svg"
-              :alt="$t('（非公式）福島県コロナ情報サイト')"
+              src="https://cdn2.dott.dev/logo2.svg"
+              :alt="$t('福島県コロナ対策サイト')"
             />
           </div>
-          {{ $t('（非公式）') }} {{ $t('新型コロナウイルス感染症') }}
+          {{ $t('新型コロナウイルス感染症') }}
           <br />
-          {{ $t('情報サイト') }}
+          {{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
     </header>
@@ -57,8 +57,11 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://twitter.com/gdg_fksm" target="_blank" rel="noopener">
+          <a href="https://twitter.com/CODEforFKSM" target="_blank" rel="noopener">
             <img src="https://cdn2.dott.dev/twitter.png" alt="Twitter" />
+          </a>
+          <a href="https://www.facebook.com/Code-for-Fukushima-104771331183649" target="_blank" rel="noopener">
+            <img src="https://cdn2.dott.dev/facebook.png" alt="Facebook" />
           </a>
           <a
             href="https://github.com/gdg-fukushima/covid19"
@@ -84,6 +87,15 @@
       </v-footer>
       <div class="SideNavigation-SponsorLinkContainer">
         {{ $t('Powered by:') }}<br />
+        <a href="https://www.pref.fukushima.lg.jp/" target="_blank" rel="noopener">
+          <span class="image-title">{{ $t('福島県') }}</span>
+          <img
+            class="fukushima-logo"
+            src="https://storage.googleapis.com/fukushima-covid19/logo_fukushima.svg"
+            :alt="$t('福島県')"
+          />
+        </a>
+        <br />
         <nuxt-link :to="{ path: localePath('/about/') }">
           <span class="image-title">{{ $t('Code for Fukushima') }}</span>
           <img
@@ -155,6 +167,16 @@ export default Vue.extend({
           title: this.$t('福島県【新型コロナ】関連情報一覧'),
           link:
             'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-list.html'
+        },
+        {
+          title: this.$t('福島県新型コロナウイルス感染症対策本部員会議'),
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-honbukaigi.html'
+        },
+        {
+          title: this.$t('知事からのメッセージ'),
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/governor-message.html'
         },
         {
           title: this.$t('当サイトについて'),
