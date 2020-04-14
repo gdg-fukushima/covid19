@@ -2,45 +2,45 @@
   <div>
     <confirmed-cases-details-card
       v-if="this.$route.params.card == 'details-of-confirmed-cases'"
-      :graphData="Data"
+      :graph-data="Data"
     />
     <confirmed-cases-number-card
       v-else-if="this.$route.params.card == 'number-of-confirmed-cases'"
-      :graphData="Data"
+      :graph-data="Data"
     />
     <confirmed-cases-attributes-card
       v-else-if="this.$route.params.card == 'attributes-of-confirmed-cases'"
-      :graphData="Data"
+      :graph-data="Data"
     />
     <tested-number-card
       v-else-if="this.$route.params.card == 'number-of-tested'"
-      :graphData="Data"
+      :graph-data="Data"
     />
     <telephone-advisory-reports-number-card
       v-else-if="
         this.$route.params.card ==
           'number-of-reports-to-covid19-telephone-advisory-center'
       "
-      :graphData="Data"
+      :graph-data="Data"
     />
     <consultation-desk-reports-number-card
       v-else-if="
         this.$route.params.card ==
           'number-of-reports-to-covid19-consultation-desk'
       "
-      :graphData="Data"
+      :graph-data="Data"
     />
     <metro-card
       v-else-if="
         this.$route.params.card == 'predicted-number-of-toei-subway-passengers'
       "
-      :graphData="Data"
+      :graph-data="Data"
     />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 import Data from '@/data/data.json'
 import ConfirmedCasesDetailsCard from '@/components/cards/ConfirmedCasesDetailsCard.vue'
 import ConfirmedCasesNumberCard from '@/components/cards/ConfirmedCasesNumberCard.vue'
@@ -57,6 +57,42 @@ export default {
     TestedNumberCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard
+  },
+  async asyncData({ params }) {
+    // local data.json will override if data exists.
+    let data = {}
+    try {
+      // TODO: get URI from such as global variables
+      const dataUri = 'https://cdn2.dott.dev/data.json'
+      const graphData = await axios.get(dataUri)
+      let updatedAt
+      switch (params.card) {
+        case 'details-of-confirmed-cases':
+          updatedAt = graphData.data.inspections_summary.date
+          break
+        case 'number-of-confirmed-cases':
+          updatedAt = graphData.data.patients.date
+          break
+        case 'attributes-of-confirmed-cases':
+          updatedAt = graphData.data.patients.date
+          break
+        case 'number-of-tested':
+          updatedAt = graphData.data.inspections_summary.date
+          break
+        case 'number-of-reports-to-covid19-telephone-advisory-center':
+          updatedAt = graphData.data.contacts.date
+          break
+        case 'number-of-reports-to-covid19-consultation-desk':
+          updatedAt = graphData.data.querents.date
+          break
+      }
+      data = {
+        Data: graphData.data,
+        updatedAt
+      }
+    } finally {
+    }
+    return data
   },
   data() {
     let title, updatedAt
@@ -102,7 +138,7 @@ export default {
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
     const description = `${this.updatedAt} | ${this.$t(
-      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、Code for Fukushimaの御協力の下、福島県が開設した公式のサイトです。'
+      '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、福島県とCode for Fukushimaが協力し開設した公式のサイトです。'
     )}`
 
     return {
@@ -145,43 +181,6 @@ export default {
           content: ogpImage
         }
       ]
-    }
-  },
-  async asyncData({ params }) {
-    // local data.json will override if data exists.
-    let data = {}
-    try {
-      // TODO: get URI from such as global variables
-      const dataUri = 'https://cdn2.dott.dev/data.json'
-      const graphData = await axios.get(dataUri)
-      let updatedAt
-      switch (params.card) {
-        case 'details-of-confirmed-cases':
-          updatedAt = graphData.data.inspections_summary.date
-          break
-        case 'number-of-confirmed-cases':
-          updatedAt = graphData.data.patients.date
-          break
-        case 'attributes-of-confirmed-cases':
-          updatedAt = graphData.data.patients.date
-          break
-        case 'number-of-tested':
-          updatedAt = graphData.data.inspections_summary.date
-          break
-        case 'number-of-reports-to-covid19-telephone-advisory-center':
-          updatedAt = graphData.data.contacts.date
-          break
-        case 'number-of-reports-to-covid19-consultation-desk':
-          updatedAt = graphData.data.querents.date
-          break
-      }
-      data = {
-        Data: graphData.data,
-        updatedAt
-      }
-    }
-    finally {
-      return data
     }
   }
 }

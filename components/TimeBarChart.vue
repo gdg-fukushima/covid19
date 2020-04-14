@@ -2,10 +2,7 @@
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
       <v-container v-if="descriptions" class="Graph-Desc">
-        <span
-          v-for="(desc, i) in descriptions"
-          :key="i"
-        >
+        <span v-for="(desc, i) in descriptions" :key="i">
           {{ $t(desc) }}<br />
         </span>
       </v-container>

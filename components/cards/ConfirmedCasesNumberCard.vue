@@ -42,7 +42,7 @@ export default {
   mounted() {
     this.Data = this.graphData
     this.patientsGraph = formatGraph(this.graphData.patients_summary.data)
-    this.isReady = true;
+    this.isReady = true
   }
 }
 </script>

@@ -57,10 +57,18 @@
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://twitter.com/CODEforFKSM" target="_blank" rel="noopener">
+          <a
+            href="https://twitter.com/CODEforFKSM"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="https://cdn2.dott.dev/twitter.png" alt="Twitter" />
           </a>
-          <a href="https://www.facebook.com/Code-for-Fukushima-104771331183649" target="_blank" rel="noopener">
+          <a
+            href="https://www.facebook.com/Code-for-Fukushima-104771331183649"
+            target="_blank"
+            rel="noopener"
+          >
             <img src="https://cdn2.dott.dev/facebook.png" alt="Facebook" />
           </a>
           <a
@@ -87,7 +95,11 @@
       </v-footer>
       <div class="SideNavigation-SponsorLinkContainer">
         {{ $t('Powered by:') }}<br />
-        <a href="https://www.pref.fukushima.lg.jp/" target="_blank" rel="noopener">
+        <a
+          href="https://www.pref.fukushima.lg.jp/"
+          target="_blank"
+          rel="noopener"
+        >
           <span class="image-title">{{ $t('福島県') }}</span>
           <img
             class="fukushima-logo"

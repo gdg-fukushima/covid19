@@ -52,12 +52,14 @@ export default {
   },
   mounted() {
     this.Data = this.graphData
-    const zipedSummaryData = this.graphData.inspections_summary.labels.map((e, i) => {
-      return {
-        日付: e,
-        小計: this.graphData.inspections_summary.data['県内'][i]
+    const zipedSummaryData = this.graphData.inspections_summary.labels.map(
+      (e, i) => {
+        return {
+          日付: e,
+          小計: this.graphData.inspections_summary.data['県内'][i]
+        }
       }
-    })
+    )
     this.inspectionsGraph = formatGraph(zipedSummaryData)
   }
 }

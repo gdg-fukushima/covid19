@@ -97,7 +97,7 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、Code for Fukushimaの御協力の下、福島県が開設した公式のサイトです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、福島県とCode for Fukushimaが協力し開設した公式のサイトです。'
           )
         },
         {
@@ -124,7 +124,7 @@ export default Vue.extend({
           hid: 'og:description',
           name: 'og:description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、Code for Fukushimaの御協力の下、福島県が開設した公式のサイトです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、福島県とCode for Fukushimaが協力し開設した公式のサイトです。'
           )
         },
         {

@@ -28,7 +28,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { MetaInfo } from 'vue-meta'
-import axios from 'axios';
+import axios from 'axios'
 import PageHeader from '@/components/PageHeader.vue'
 import WhatsNew from '@/components/WhatsNew.vue'
 import StaticInfo from '@/components/StaticInfo.vue'
@@ -53,6 +53,20 @@ export default Vue.extend({
     ConsultationDeskReportsNumberCard,
     TestedNumberCard
   },
+  async asyncData() {
+    // local data.json will override if data exists.
+    let data = {}
+    try {
+      // TODO: get URI from such as global variables
+      const dataUri = 'https://cdn2.dott.dev/data.json'
+      const graphData = await axios.get(dataUri)
+      data = {
+        Data: graphData.data
+      }
+    } finally {
+    }
+    return data
+  },
   data() {
     const data = {
       Data,
@@ -65,25 +79,15 @@ export default Vue.extend({
     return data
   },
   head(): MetaInfo {
-    console.log("while (Japan.recovering) {\n  we.hack()\;\n}");
     return {
       title: this.$t('県内の最新感染動向') as string
     }
   },
-  async asyncData() {
-    // local data.json will override if data exists.
-    let data = {}
-    try {
-      // TODO: get URI from such as global variables
-      const dataUri = 'https://cdn2.dott.dev/data.json'
-      const graphData = await axios.get(dataUri)
-      data = {
-        Data: graphData.data
-      }
-    }
-    finally {
-      return data
-    }
+  mounted() {
+    /* eslint no-console: 0 */
+    console.log(
+      'while (Japan.recovering) {\n  we.hack();\n}'
+    )
   }
 })
 </script>
