@@ -1,5 +1,4 @@
-# （非公式）福島県 新型コロナウイルス感染症情報サイト
-※福島県の公式ではありません。
+# 福島県 新型コロナウイルス感染症対策サイト
 このリポジトリのプロジェクトは、[東京都のプロジェクト](https://github.com/tokyo-metropolitan-gov/covid19)から派生させたものです。
 
 [![福島県 新型コロナウイルス感染症情報サイト](https://user-images.githubusercontent.com/1407941/76877130-4c337a00-68b6-11ea-9fbc-ae0d065a9e41.png)](https://fukushima-covid19.web.app/)
