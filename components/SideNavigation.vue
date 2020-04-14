@@ -85,6 +85,37 @@
           2020 Code for Fukushima
         </small>
       </v-footer>
+      <div class="SideNavigation-SponsorLinkContainer">
+        {{ $t('Powered by:') }}<br />
+        <a href="https://www.pref.fukushima.lg.jp/" target="_blank" rel="noopener">
+          <span class="image-title">{{ $t('福島県') }}</span>
+          <img
+            class="fukushima-logo"
+            src="https://storage.googleapis.com/fukushima-covid19/logo_fukushima.svg"
+            :alt="$t('福島県')"
+          />
+        </a>
+        <br />
+        <nuxt-link :to="{ path: localePath('/about/') }">
+          <span class="image-title">{{ $t('Code for Fukushima') }}</span>
+          <img
+            class="cff-logo"
+            src="https://storage.googleapis.com/fukushima-covid19/logo_cff.svg"
+            :alt="$t('Code for Fukushima')"
+          />
+        </nuxt-link>
+        <br />
+        {{ $t('Sponsored by:') }}
+        <br />
+        <a href="https://cloud.google.com/" target="_blank" rel="noopener">
+          <span class="image-title">{{ $t('Google Cloud') }}</span>
+          <img
+            class="google-logo"
+            src="https://storage.googleapis.com/fukushima-covid19/logo_google_cloud.svg"
+            :alt="$t('Google Cloud')"
+          />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -167,6 +198,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .SideNavigation {
+  background: #fff;
   position: relative;
   height: 100%;
   background: $white;
@@ -231,6 +263,48 @@ export default Vue.extend({
   &-Footer {
     padding: 20px;
     background-color: $white;
+  }
+  &-SponsorLinkContainer {
+    overflow: visible;
+    padding-left: 1.2rem;
+    white-space: normal;
+    font-size: 0.82rem;
+    color: $gray-1;
+    & a {
+      color: #333;
+      text-decoration: none;
+    }
+    & a:hover {
+      opacity: 0.6;
+    }
+    & img {
+      padding-bottom: 0.9rem;
+    }
+    & img.fukushima-logo {
+      margin: 0 0 0 5px;
+      width: 100px;
+    }
+    & img.cff-logo {
+      margin: 0 0 0 5px;
+      width: 100px;
+    }
+    & img.google-logo {
+      margin: 5px 0 0 10px;
+      width: 130px;
+    }
+    & .image-title {
+      display: inline-block;
+      width: 0;
+      height: 1.5rem;
+      overflow: hidden;
+    }
+    & .no-image-title {
+      display: inline-block;
+      line-height: 1.8rem;
+      color: #444;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
   }
   &-SocialLinkContainer {
     display: flex;
