@@ -1,14 +1,14 @@
 <template>
   <data-view :title="title" :title-id="titleId" :date="date" :url="url">
     <template v-slot:button>
-      <p v-if="descriptions" class="Graph-Desc">
+      <v-container v-if="descriptions" class="Graph-Desc">
         <span
           v-for="(desc, i) in descriptions"
           :key="i"
         >
           {{ $t(desc) }}<br />
         </span>
-      </p>
+      </v-container>
       <data-selector v-model="dataKind" :target-id="chartId" />
     </template>
     <bar
