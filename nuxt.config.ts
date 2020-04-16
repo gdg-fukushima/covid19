@@ -12,7 +12,8 @@ const config: Configuration = {
   head: {
     script: [
       {
-        src: 'https://polyfill.io/v3/polyfill.min.js?features=default%2CString.prototype.endsWith'
+        src:
+          'https://polyfill.io/v3/polyfill.min.js?features=default%2CString.prototype.endsWith'
       }
     ],
     htmlAttrs: {
