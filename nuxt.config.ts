@@ -10,6 +10,11 @@ const config: Configuration = {
    ** Headers of the page
    */
   head: {
+    script: [
+      {
+        src: 'https://polyfill.io/v3/polyfill.min.js?features=default%2CString.prototype.endsWith'
+      }
+    ],
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
