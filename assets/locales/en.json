@@ -247,7 +247,7 @@
   "※最新の情報はWebページをご覧ください": "* Please check the latest information from the web site.",
   "〇": "✔",
   "ogp": {
-    "og:image": "https://fukushima-covid19.web.app/ogp.png"
+    "og:image": "https://cdn2.dott.dev/ogp.png"
   },
   "お問い合わせ先一覧": "List of contacts",
   "お問い合わせ内容": "Contents of inquiries",
@@ -312,6 +312,10 @@
   "新型コロナウイルス感染症（COVID-19）の感染拡大に伴い、福島県を中心に県内外で活動しているコミュニティ・個人が集結し結成されました。": "With the spread of the new coronavirus infectious disease (COVID-19), Code for Fukushima was organized by the community and individuals especially from Fukushima Prefecture.",
   "（注）医療機関が保険適用で行った検査は含まれていない": "(Note) Excluding the examinations covered by insurance conducted at medical institutions.",
   "（注）チャーター機帰国者、クルーズ船乗客等は含まれていない": "(Note) Excluding the returnees on charter flights or the cruise ship passengers",
+  "（注）以下は検査実施数に含まれていない": "(Note) Excluding the following examinations",
+  "　　・医療機関が保険適用で行った検査": "- covered by insurance conducted at medical institutions.",
+  "　　・チャーター機帰国者、クルーズ船乗客等": "- charter flights or the cruise ship passengers",
+  "　　・退院のための検査": "for discharging",
   "（注）速報値として公開するものであり、後日確定データとして修正される場合あり": "(Note) The number is published as preliminary figures and may be revised as confirmed data at a later date ",
   "新型コロナウイルス関連感染症について": "New coronavirus-related infections",
   "当サイトのサーバー運用費は、Google社よりサポートを受けています。": "This site is sponsored by Google for server fees.",
