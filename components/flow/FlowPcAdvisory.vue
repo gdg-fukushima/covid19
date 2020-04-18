@@ -64,12 +64,17 @@
             rel="noopener"
           >
             <span>{{
-              $t('帰国者・接触者相談センターの案内に従って下さい')
+              $t('帰国者・接触者相談センターの案内に従ってください')
             }}</span>
             <v-icon size="18">
               mdi-open-in-new
             </v-icon>
           </a>
+        </div>
+        <div class="mt-1">
+          <span :class="$style.AdvisoryContentsSubTitle">
+            {{ $t('※緊急電話等での対応となります。') }}
+          </span>
         </div>
       </div>
     </div>

@@ -53,13 +53,13 @@
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:024-521-7811">
+        <a :class="$style.TelLink" href="tel:024-521-7871">
           <img
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
           />
-          024-521-7811
+          024-521-7871
         </a>
       </div>
       <div :class="$style.Tel">

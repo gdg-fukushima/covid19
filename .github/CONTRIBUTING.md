@@ -18,7 +18,7 @@
 * good first issue / help wanted / bug を優先して対応いただけると助かります
 
 ## コミュニケーションへの参加方法
-* [こちらから登録](https://join.slack.com/t/gdg-fukushima/shared_invite/zt-cwoyaes6-C9xbM4qgKb8kLpOLBD16Gw)してください
+* [こちらから登録](https://join.slack.com/t/code-for-fukushima/shared_invite/zt-df5sscci-JAN_dkHut8AxAxGvnz9Myg)してください
 * `#op-covid19` チャンネルにご参加ください。
 
 ## 参加にあたって
@@ -44,8 +44,8 @@
 [#1](https://github.com/gdg-fukushima/covid19/issues/1) の Issue に、掲載名、リンク先（あれば）、役割をコメントください。
 
 ## 開発に関する情報
-<!-- * 開発サイト https://dev-fukushima-covid19.web.app/ -->
-<!-- * ステージングサイト https://stg-fukushima-covid19.web.app/ -->
+* 開発サイト https://dev-fukushima-covid19.web.app/
+* ステージングサイト https://stg-fukushima-covid19.web.app/
 * 本番サイト https://fukushima-covid19.web.app/
 <!-- * [デザイン](https://www.figma.com/file/V7vt80p2gauhdgTZeVNbgj/UI%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3?node-id=121%3A156) -->
 <!-- * [翻訳スプレッドシート](https://docs.google.com/spreadsheets/d/1avT6QGInyQseYjoc_TxL8RPZfutyvrv4BtJkXfk1Nko) -->
