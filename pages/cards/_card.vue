@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="dataLoaded">
     <confirmed-cases-details-card
       v-if="this.$route.params.card == 'details-of-confirmed-cases'"
       :graph-data="Data"
@@ -58,77 +58,44 @@ export default {
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard
   },
-  async asyncData({ params }) {
-    // local data.json will override if data exists.
-    let data = {}
-    try {
-      // TODO: get URI from such as global variables
-      const dataUri = 'https://cdn2.dott.dev/data.json'
-      const graphData = await axios.get(dataUri)
-      let updatedAt
-      switch (params.card) {
-        case 'details-of-confirmed-cases':
-          updatedAt = graphData.data.inspections_summary.date
-          break
-        case 'number-of-confirmed-cases':
-          updatedAt = graphData.data.patients.date
-          break
-        case 'attributes-of-confirmed-cases':
-          updatedAt = graphData.data.patients.date
-          break
-        case 'number-of-tested':
-          updatedAt = graphData.data.inspections_summary.date
-          break
-        case 'number-of-reports-to-covid19-telephone-advisory-center':
-          updatedAt = graphData.data.contacts.date
-          break
-        case 'number-of-reports-to-covid19-consultation-desk':
-          updatedAt = graphData.data.querents.date
-          break
-      }
-      data = {
-        Data: graphData.data,
-        updatedAt
-      }
-    } finally {
-    }
-    return data
-  },
   data() {
-    let title, updatedAt
+    let title
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = this.$t('検査陽性者の状況')
-        updatedAt = Data.inspections_summary.date
         break
       case 'number-of-confirmed-cases':
         title = this.$t('陽性患者数')
-        updatedAt = Data.patients.date
         break
       case 'attributes-of-confirmed-cases':
         title = this.$t('陽性患者の属性')
-        updatedAt = Data.patients.date
         break
       case 'number-of-tested':
         title = this.$t('検査実施数')
-        updatedAt = Data.inspections_summary.date
         break
       case 'number-of-reports-to-covid19-telephone-advisory-center':
         title = this.$t('新型コロナコールセンター相談件数')
-        updatedAt = Data.contacts.date
         break
       case 'number-of-reports-to-covid19-consultation-desk':
         title = this.$t('帰国者・接触者相談センター相談件数')
-        updatedAt = Data.querents.date
         break
     }
 
     const data = {
       Data,
-      title,
-      updatedAt
+      dataLoaded: false,
+      title
     }
     return data
+  },
+  async created() {
+    try {
+      const dataUri = 'https://cdn2.dott.dev/data.json'
+      const graphData = await axios.get(dataUri)
+      this.Data = graphData.data
+      this.dataLoaded = true
+    } finally {
+    }
   },
   head() {
     const url = 'https://fukushima-covid19.web.app'
@@ -137,7 +104,7 @@ export default {
       this.$i18n.locale === 'ja'
         ? `${url}/ogp/${this.$route.params.card}.png?t=${timestamp}`
         : `${url}/ogp/${this.$i18n.locale}/${this.$route.params.card}.png?t=${timestamp}`
-    const description = `${this.updatedAt} | ${this.$t(
+    const description = `${this.$t(
       '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、福島県とCode for Fukushimaが協力し開設した公式のサイトです。'
     )}`
 
