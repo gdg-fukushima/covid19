@@ -103,7 +103,7 @@
           <span class="image-title">{{ $t('福島県') }}</span>
           <img
             class="fukushima-logo"
-            src="https://storage.googleapis.com/fukushima-covid19/logo_fukushima.svg"
+            src="https://cdn2.dott.dev/logo_fukushima.svg"
             :alt="$t('福島県')"
           />
         </a>
@@ -112,7 +112,7 @@
           <span class="image-title">{{ $t('Code for Fukushima') }}</span>
           <img
             class="cff-logo"
-            src="https://storage.googleapis.com/fukushima-covid19/logo_cff.svg"
+            src="https://cdn2.dott.dev/logo_cff.svg"
             :alt="$t('Code for Fukushima')"
           />
         </nuxt-link>
@@ -123,7 +123,7 @@
           <span class="image-title">{{ $t('Google Cloud') }}</span>
           <img
             class="google-logo"
-            src="https://storage.googleapis.com/fukushima-covid19/logo_google_cloud.svg"
+            src="https://cdn2.dott.dev/logo_google_cloud.svg"
             :alt="$t('Google Cloud')"
           />
         </a>

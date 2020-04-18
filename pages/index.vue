@@ -3,7 +3,7 @@
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
-      :date="Data.last_update"
+      :date="headerItem.date"
     />
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
@@ -14,14 +14,16 @@
       :text="$t('自分や家族の症状に不安や心配がある場合（県公式サイト）')"
       :btn-text="$t('公式の情報を見る')"
     />
-    <v-row class="DataBlock">
-      <confirmed-cases-details-card :graph-data="Data" />
-      <confirmed-cases-attributes-card :graph-data="Data" />
-      <confirmed-cases-number-card :graph-data="Data" />
-      <tested-number-card :graph-data="Data" />
-      <telephone-advisory-reports-number-card :graph-data="Data" />
-      <consultation-desk-reports-number-card :graph-data="Data" />
-    </v-row>
+    <div v-if="dataLoaded">
+      <v-row class="DataBlock">
+        <confirmed-cases-details-card :graph-data="Data" />
+        <confirmed-cases-attributes-card :graph-data="Data" />
+        <confirmed-cases-number-card :graph-data="Data" />
+        <tested-number-card :graph-data="Data" />
+        <telephone-advisory-reports-number-card :graph-data="Data" />
+        <consultation-desk-reports-number-card :graph-data="Data" />
+      </v-row>
+    </div>
   </div>
 </template>
 
@@ -53,26 +55,27 @@ export default Vue.extend({
     ConsultationDeskReportsNumberCard,
     TestedNumberCard
   },
-  async asyncData() {
+  async created() {
     // local data.json will override if data exists.
     let data = {}
     try {
       // TODO: get URI from such as global variables
       const dataUri = 'https://cdn2.dott.dev/data.json'
       const graphData = await axios.get(dataUri)
-      data = {
-        Data: graphData.data
-      }
+      this.Data = graphData.data
+      this.headerItem.date = graphData.data.last_update
+      this.dataLoaded = true
     } finally {
     }
-    return data
   },
   data() {
     const data = {
       Data,
+      dataLoaded: false,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('県内の最新感染動向')
+        title: this.$t('県内の最新感染動向'),
+        date: ''
       },
       newsItems: News.newsItems
     }
