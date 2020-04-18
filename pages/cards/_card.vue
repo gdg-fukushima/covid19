@@ -58,17 +58,8 @@ export default {
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard
   },
-  async created() {
-    try {
-      const dataUri = 'https://cdn2.dott.dev/data.json'
-      const graphData = await axios.get(dataUri)
-      this.Data = graphData.data
-      this.dataLoaded = true
-    } finally {
-    }
-  },
   data() {
-    let title, updatedAt
+    let title
     switch (this.$route.params.card) {
       case 'details-of-confirmed-cases':
         title = this.$t('検査陽性者の状況')
@@ -96,6 +87,15 @@ export default {
       title
     }
     return data
+  },
+  async created() {
+    try {
+      const dataUri = 'https://cdn2.dott.dev/data.json'
+      const graphData = await axios.get(dataUri)
+      this.Data = graphData.data
+      this.dataLoaded = true
+    } finally {
+    }
   },
   head() {
     const url = 'https://fukushima-covid19.web.app'

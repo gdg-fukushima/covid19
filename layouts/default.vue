@@ -67,6 +67,8 @@ export default Vue.extend({
     }
   },
   mounted() {
+    /* eslint no-console: 0 */
+    console.log('while (Japan.recovering) {\n  we.hack();\n}')
     this.loading = false
   },
   methods: {

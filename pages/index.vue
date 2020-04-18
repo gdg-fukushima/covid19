@@ -55,19 +55,6 @@ export default Vue.extend({
     ConsultationDeskReportsNumberCard,
     TestedNumberCard
   },
-  async created() {
-    // local data.json will override if data exists.
-    let data = {}
-    try {
-      // TODO: get URI from such as global variables
-      const dataUri = 'https://cdn2.dott.dev/data.json'
-      const graphData = await axios.get(dataUri)
-      this.Data = graphData.data
-      this.headerItem.date = graphData.data.last_update
-      this.dataLoaded = true
-    } finally {
-    }
-  },
   data() {
     const data = {
       Data,
@@ -81,16 +68,22 @@ export default Vue.extend({
     }
     return data
   },
+  async created() {
+    // local data.json will override if data exists.
+    try {
+      // TODO: get URI from such as global variables
+      const dataUri = 'https://cdn2.dott.dev/data.json'
+      const graphData = await axios.get(dataUri)
+      this.Data = graphData.data
+      this.headerItem.date = graphData.data.last_update
+      this.dataLoaded = true
+    } finally {
+    }
+  },
   head(): MetaInfo {
     return {
       title: this.$t('県内の最新感染動向') as string
     }
-  },
-  mounted() {
-    /* eslint no-console: 0 */
-    console.log(
-      'while (Japan.recovering) {\n  we.hack();\n}'
-    )
   }
 })
 </script>
