@@ -2,7 +2,6 @@
   <data-view class="SvgCard" :title="title" :title-id="titleId" :date="date">
     <template v-slot:button>
       <p class="Graph-Desc">
-        {{ $t('（注）医療機関が保険適用で行った検査は含まれていない') }}<br />
         {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
       </p>
     </template>
