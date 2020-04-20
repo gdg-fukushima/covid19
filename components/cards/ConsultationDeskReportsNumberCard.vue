@@ -32,7 +32,7 @@ export default {
     }
   },
   data() {
-    // 帰国者・接触者 電話相談センター 相談件数
+    // 帰国者・接触者相談センター 相談件数
     const querentsGraph = formatGraph(this.graphData.querents.data)
 
     const data = {
