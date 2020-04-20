@@ -1,7 +1,7 @@
 <template>
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
-      <i18n path="{past}の出来ごとと症状" tag="span">
+      <i18n path="{past}の出来事と症状" tag="span">
         <i18n
           :class="$style.FlowLText"
           tag="span"

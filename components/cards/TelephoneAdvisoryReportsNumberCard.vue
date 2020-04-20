@@ -24,6 +24,13 @@ export default {
   components: {
     TimeBarChart
   },
+  props: {
+    graphData: {
+      type: Object,
+      required: false,
+      default: Data
+    }
+  },
   data() {
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
@@ -33,6 +40,10 @@ export default {
       contactsGraph
     }
     return data
+  },
+  mounted() {
+    this.Data = this.graphData
+    this.contactsGraph = formatGraph(this.graphData.contacts.data)
   }
 }
 </script>

@@ -1,0 +1,15 @@
+[
+    {
+        "maxAgeSeconds": 60,
+        "method": ["GET", "PUT", "OPTIONS"],
+        "origin": [
+            "*"
+        ],
+        "responseHeader": [
+            "Content-Type",
+            "Accept",
+            "X-Requested-With",
+            "Access-Control-Allow-Credentials"
+        ]
+    }
+]

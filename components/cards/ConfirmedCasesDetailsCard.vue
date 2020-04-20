@@ -24,6 +24,13 @@ export default {
     SvgCard,
     ConfirmedCasesTable
   },
+  props: {
+    graphData: {
+      type: Object,
+      required: false,
+      default: Data
+    }
+  },
   data() {
     // 検査陽性者の状況
     const confirmedCases = formatConfirmedCases(Data.main_summary)
@@ -33,6 +40,10 @@ export default {
       confirmedCases
     }
     return data
+  },
+  mounted() {
+    this.Data = this.graphData
+    this.confirmedCases = formatConfirmedCases(this.graphData.main_summary)
   }
 }
 </script>

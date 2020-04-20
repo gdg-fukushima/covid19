@@ -1,0 +1,11 @@
+# 前提条件
+このスクリプトは、Google Cloud Functions / Py3 環境で動作をする想定で作っています。
+
+CDNが参照しているdata.jsonが保存されているCloud Storageのバケットにアクセス権限があるFunctionsのサービスアカウントによって実行されると、CDN上のdata.jsonを上書きするスクリプトです。このFunctionsを、同一プロジェクト内のCloud Schedulerによってトリガーします。
+
+Functionsは以下の設定になっています。
+- HTTPトリガー
+- Allow unauthenticated
+
+それぞれのデータ更新日時には、取得してきたCSVの最終更新日の時間が入るようになっています。
+サイトのトップに出てくる更新日時は、ファイルの中で最も新しいものを採用するようになっています。

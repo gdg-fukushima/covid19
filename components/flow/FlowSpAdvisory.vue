@@ -3,7 +3,7 @@
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
       {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
       <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者 電話相談センター')
+        $t('帰国者・接触者相談センター')
       }}</small>
     </h4>
     <p :class="[$style.open, $style.fzMedium]">
@@ -11,9 +11,6 @@
     </p>
     <dl>
       <div :class="$style.daytime">
-        <dt :class="[$style.title, $style.fzMedium]">
-          {{ $t('平日（日中）') }}
-        </dt>
         <dd :class="$style.link">
           <a
             href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
@@ -25,37 +22,6 @@
               mdi-open-in-new
             </v-icon>
           </a>
-        </dd>
-      </div>
-      <div>
-        <dt>
-          <ul :class="[$style.night]">
-            <li>
-              <span :class="[$style.fzMedium, $style.break, $style.mb10]">
-                {{ $t('平日（夜間）') }}
-              </span>
-              {{ $t('午後5時から翌朝午前9時') }}
-            </li>
-            <li>
-              <span :class="$style.fzMedium">
-                {{ $t('土日祝 終日') }}
-              </span>
-            </li>
-          </ul>
-        </dt>
-        <dd>
-          <div :class="[$style.night]">
-            <a
-              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
-              target="_blank"
-              rel="noopener"
-            >
-              {{ $t('帰国者・接触者相談センターの案内に従って下さい') }}
-              <v-icon size="16">
-                mdi-open-in-new
-              </v-icon>
-            </a>
-          </div>
         </dd>
       </div>
     </dl>
@@ -104,7 +70,7 @@
     flex-basis: 40%;
   }
   .link {
-    flex-basis: 60%;
+    flex-basis: 100%;
     > a {
       text-decoration: none;
     }

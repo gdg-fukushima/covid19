@@ -1,5 +1,6 @@
 {
-  "hosting": {
+  "hosting": [{
+    "site": "fukushima-covid19",
     "public": "dist",
     "ignore": [
       "firebase.json",
@@ -12,5 +13,33 @@
         "destination": "/index.html"
       }
     ]
-  }
+  }, {
+    "site": "dev-fukushima-covid19",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }, {
+    "site": "stg-fukushima-covid19",
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }]
 }

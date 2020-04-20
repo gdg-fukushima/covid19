@@ -10,10 +10,16 @@ const config: Configuration = {
    ** Headers of the page
    */
   head: {
+    script: [
+      {
+        src:
+          'https://polyfill.io/v3/polyfill.min.js?features=default%2CString.prototype.endsWith'
+      }
+    ],
     htmlAttrs: {
       prefix: 'og: http://ogp.me/ns#'
     },
-    titleTemplate: '%s | （非公式）福島県 新型コロナウイルス感染症情報サイト',
+    titleTemplate: '%s | 福島県 新型コロナウイルス感染症対策サイト',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -135,7 +141,7 @@ const config: Configuration = {
     hardSource: process.env.NODE_ENV === 'development'
   },
   manifest: {
-    name: '（非公式）福島県 新型コロナウイルス感染症情報サイト',
+    name: '福島県 新型コロナウイルス感染症対策サイト',
     theme_color: '#00a040',
     background_color: '#ffffff',
     display: 'standalone',
