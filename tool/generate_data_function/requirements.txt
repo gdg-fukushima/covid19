@@ -1,0 +1,2 @@
+google-coloud-storage
+beautifulsoup4

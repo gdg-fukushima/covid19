@@ -9,7 +9,6 @@
       :unit="$t('件.tested')"
       :descriptions="[
         '（注）以下は検査実施数に含まれていない',
-        '　　・医療機関が保険適用で行った検査', // eslint-disable-line
         '　　・チャーター機帰国者、クルーズ船乗客等', // eslint-disable-line
         '　　・退院のための検査', // eslint-disable-line
         '（注）速報値として公開するものであり、後日確定データとして修正される場合あり'

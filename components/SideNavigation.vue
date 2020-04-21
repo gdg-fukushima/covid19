@@ -181,6 +181,11 @@ export default Vue.extend({
             'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-list.html'
         },
         {
+          title: this.$t('YouTube: 新型コロナウイルス感染症関連【速報】'),
+          link:
+            'https://www.youtube.com/playlist?list=PLX7ij_QBlO5QlNpkBrYDwWEJ-LcBrUq4G'
+        },
+        {
           title: this.$t('福島県新型コロナウイルス感染症対策本部員会議'),
           link:
             'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-honbukaigi.html'
