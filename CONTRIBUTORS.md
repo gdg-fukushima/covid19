@@ -16,6 +16,7 @@ Fukushima Covid-19 information site contributors
 |  水樹素子（株式会社チームミズキ） | [@MizukiSonoko](https://github.com/MizukiSonoko) | [@mizuki_sonoko](https://twitter.com/mizuki_sonoko) | Developer |
 |  [森本望](https://ozomoto.me) | [@nozo-moto](https://github.com/nozo-moto) | [@nozo_moto](https://twitter.com/nozo_moto) | Developer |
 |  清水 万里子（GDGFukushima, デザイニウム） | | [@marikocco](https://twitter.com/marikocco) | 裏方 |
+|  草野俊輔（GDGFukushima, 株式会社dott） | [@kusanoshunsuke](https://github.com/kusanoshunsuke) | | Developer |
 
 ご協力に感謝です！！！
 

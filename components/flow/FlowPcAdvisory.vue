@@ -29,7 +29,7 @@
             ]"
           >
             <a
-              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+              href="https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html#center"
               target="_blank"
               rel="noopener"
             >
