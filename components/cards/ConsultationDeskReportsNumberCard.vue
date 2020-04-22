@@ -44,7 +44,7 @@ export default {
     const data = {
       Data,
       querentsGraph,
-      lastAcquisiteDate: `${this.$t('最終公表日')}: ${lad.getMonth() +
+      lastAcquisiteDate: `${this.$t('相談受付日')}: ${lad.getMonth() +
         1}/${lad.getDate()}`
     }
     return data
