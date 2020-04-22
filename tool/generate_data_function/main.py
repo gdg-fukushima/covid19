@@ -91,7 +91,7 @@ def generate_patiens_data(patients, patients_csv_datetime):
   died_count = 0
   discharged_count = 0
   start_date = None
-  end_date = patients_csv_datetime.replace(tzinfo=None)
+  end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=24)
   for patient_info in patients[1:]:
     patient = Patient(*patient_info)
     if patient.number == '':
