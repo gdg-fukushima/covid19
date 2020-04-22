@@ -1,9 +1,9 @@
-name: deploy pull request environment
+name: Deploy pull request environment
 
 on:
   pull_request:
     branches:
-      - develop
+      - development
 
 jobs:
   deploy:
