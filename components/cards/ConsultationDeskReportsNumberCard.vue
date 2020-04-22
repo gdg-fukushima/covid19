@@ -6,6 +6,7 @@
       :chart-id="'time-bar-chart-querents'"
       :chart-data="querentsGraph"
       :date="Data.querents.date"
+      :last-acquisite-date="lastAcquisiteDate"
       :unit="$t('件.reports')"
       :url="
         'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'
@@ -37,7 +38,8 @@ export default {
 
     const data = {
       Data,
-      querentsGraph
+      querentsGraph,
+      lastAcquisiteDate: `相談受付日: `
     }
     return data
   },

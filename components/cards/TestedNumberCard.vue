@@ -5,6 +5,7 @@
       :title-id="'number-of-tested'"
       :chart-id="'time-bar-chart-inspections'"
       :chart-data="inspectionsGraph"
+      :last-acquisite-date="lastAcquisiteDate"
       :date="Data.inspections_summary.date"
       :unit="$t('件.tested')"
       :descriptions="[
@@ -44,10 +45,11 @@ export default {
       }
     })
     const inspectionsGraph = formatGraph(zipedSummaryData)
-
+    const lastAcquisiteDate = ''
     const data = {
       Data,
-      inspectionsGraph
+      inspectionsGraph,
+      lastAcquisiteDate
     }
     return data
   },
@@ -62,6 +64,11 @@ export default {
       }
     )
     this.inspectionsGraph = formatGraph(zipedSummaryData)
+    if (this.inspectionsGraph.length !== 0) {
+      this.lastAcquisiteDate =
+        '検査実施日: ' +
+        this.inspectionsGraph[this.inspectionsGraph.length - 1].label
+    }
   }
 }
 </script>

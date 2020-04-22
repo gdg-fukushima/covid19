@@ -81,6 +81,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: GraphDataType[]
+  lastAcquisiteDate: string
   date: string
   unit: string
   url: string
@@ -111,6 +112,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     chartData: {
       type: Array,
       default: () => []
+    },
+    lastAcquisiteDate: {
+      type: String,
+      required: true
     },
     date: {
       type: String,
@@ -150,7 +155,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
           } ${this.unit}）`,
-          cText: '公表日 2020/04/22',
+          cText: this.lastAcquisiteDate,
           unit: this.unit
         }
       }
@@ -164,7 +169,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
-        cText: '公表日 2020/04/22',
+        cText: this.lastAcquisiteDate,
         unit: this.unit
       }
     },
