@@ -49,21 +49,22 @@
         {{ $t('新型コロナコールセンター') }}
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('午前8時30分から午後9時（平日のみ）') }}
+        {{ $t('平日：午前8時30分から午後9時 (一般相談窓口)') }}<br />
+        {{ $t('土日祝日：午前8時30分から午後5時15分') }}
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:024-521-7811">
+        <a :class="$style.TelLink" href="tel:0120-567-177">
           <img
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
           />
-          024-521-7811
+          0120-567-177
         </a>
       </div>
       <div :class="$style.Tel">
-        FAX 024-521-7926(耳の不自由な方)
+        {{ $t('FAX 024-521-7926(耳の不自由な方)') }}
       </div>
     </div>
   </div>

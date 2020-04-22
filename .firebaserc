@@ -1,5 +1,20 @@
 {
   "projects": {
     "default": "fukushima-covid19"
+  },
+  "targets": {
+    "fukushima-covid19": {
+      "hosting": {
+        "fukushima-covid19": [
+          "fukushima-covid19"
+        ],
+        "dev-fukushima-covid19": [
+          "dev-fukushima-covid19"
+        ],
+        "stg-fukushima-covid19": [
+          "stg-fukushima-covid19"
+        ]
+      }
+    }
   }
 }

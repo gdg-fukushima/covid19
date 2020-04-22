@@ -12,13 +12,13 @@
         <h1 class="SideNavigation-Heading">
           <div class="SideNavigation-Logo">
             <img
-              src="/logo.svg"
-              :alt="$t('（非公式）福島県コロナ情報サイト')"
+              src="https://cdn2.dott.dev/logo2.svg"
+              :alt="$t('福島県コロナ対策サイト')"
             />
           </div>
-          {{ $t('（非公式）') }} {{ $t('新型コロナウイルス感染症') }}
+          {{ $t('新型コロナウイルス感染症') }}
           <br />
-          {{ $t('情報サイト') }}
+          {{ $t('対策サイト') }}
         </h1>
       </nuxt-link>
     </header>
@@ -43,21 +43,40 @@
             <v-divider v-show="item.divider" class="SideNavigation-Divider" />
           </v-container>
         </v-list>
-        <!-- <div class="SideNavigation-LanguageMenu">
-          <LanguageSelector />
-        </div> -->
+        <div class="SideNavigation-LanguageMenu">
+          <div
+            v-if="this.$i18n.locales.length > 1"
+            class="SideNavigation-Language"
+          >
+            <label class="SideNavigation-LanguageLabel" for="LanguageSelector">
+              {{ $t('多言語対応選択メニュー') }}
+            </label>
+            <LanguageSelector />
+          </div>
+        </div>
       </nav>
       <v-footer class="SideNavigation-Footer">
         <div class="SideNavigation-SocialLinkContainer">
-          <a href="https://twitter.com/gdg_fksm" target="_blank" rel="noopener">
-            <img src="/twitter.png" alt="Twitter" />
+          <a
+            href="https://twitter.com/CODEforFKSM"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="https://cdn2.dott.dev/twitter.png" alt="Twitter" />
+          </a>
+          <a
+            href="https://www.facebook.com/Code-for-Fukushima-104771331183649"
+            target="_blank"
+            rel="noopener"
+          >
+            <img src="https://cdn2.dott.dev/facebook.png" alt="Facebook" />
           </a>
           <a
             href="https://github.com/gdg-fukushima/covid19"
             target="_blank"
             rel="noopener"
           >
-            <img src="/github.png" alt="GitHub" />
+            <img src="https://cdn2.dott.dev/github.png" alt="GitHub" />
           </a>
         </div>
         <small class="SideNavigation-Copyright">
@@ -74,6 +93,41 @@
           2020 Code for Fukushima
         </small>
       </v-footer>
+      <div class="SideNavigation-SponsorLinkContainer">
+        {{ $t('Powered by:') }}<br />
+        <a
+          href="https://www.pref.fukushima.lg.jp/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="image-title">{{ $t('福島県') }}</span>
+          <img
+            class="fukushima-logo"
+            src="https://cdn2.dott.dev/logo_fukushima.svg"
+            :alt="$t('福島県')"
+          />
+        </a>
+        <br />
+        <nuxt-link :to="{ path: localePath('/about/') }">
+          <span class="image-title">{{ $t('Code for Fukushima') }}</span>
+          <img
+            class="cff-logo"
+            src="https://cdn2.dott.dev/logo_cff.svg"
+            :alt="$t('Code for Fukushima')"
+          />
+        </nuxt-link>
+        <br />
+        {{ $t('Sponsored by:') }}
+        <br />
+        <a href="https://cloud.google.com/" target="_blank" rel="noopener">
+          <span class="image-title">{{ $t('Google Cloud') }}</span>
+          <img
+            class="google-logo"
+            src="https://cdn2.dott.dev/logo_google_cloud.svg"
+            :alt="$t('Google Cloud')"
+          />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -81,8 +135,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { TranslateResult } from 'vue-i18n'
+import LanguageSelector from '@/components/LanguageSelector.vue'
 import ListItem from '@/components/ListItem.vue'
-// import LanguageSelector from '@/components/LanguageSelector.vue'
 
 type Item = {
   icon?: string
@@ -93,8 +147,8 @@ type Item = {
 
 export default Vue.extend({
   components: {
-    ListItem
-    // LanguageSelector
+    ListItem,
+    LanguageSelector
   },
   props: {
     isNaviOpen: {
@@ -127,6 +181,21 @@ export default Vue.extend({
             'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-list.html'
         },
         {
+          title: this.$t('YouTube: 新型コロナウイルス感染症関連【速報】'),
+          link:
+            'https://www.youtube.com/playlist?list=PLX7ij_QBlO5QlNpkBrYDwWEJ-LcBrUq4G'
+        },
+        {
+          title: this.$t('福島県新型コロナウイルス感染症対策本部員会議'),
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-honbukaigi.html'
+        },
+        {
+          title: this.$t('知事からのメッセージ'),
+          link:
+            'https://www.pref.fukushima.lg.jp/sec/21045c/governor-message.html'
+        },
+        {
           title: this.$t('当サイトについて'),
           link: this.localePath('/about')
         }
@@ -146,6 +215,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .SideNavigation {
+  background: #fff;
   position: relative;
   height: 100%;
   background: $white;
@@ -210,6 +280,48 @@ export default Vue.extend({
   &-Footer {
     padding: 20px;
     background-color: $white;
+  }
+  &-SponsorLinkContainer {
+    overflow: visible;
+    padding-left: 1.2rem;
+    white-space: normal;
+    font-size: 0.82rem;
+    color: $gray-1;
+    & a {
+      color: #333;
+      text-decoration: none;
+    }
+    & a:hover {
+      opacity: 0.6;
+    }
+    & img {
+      padding-bottom: 0.9rem;
+    }
+    & img.fukushima-logo {
+      margin: 0 0 0 5px;
+      width: 100px;
+    }
+    & img.cff-logo {
+      margin: 0 0 0 5px;
+      width: 100px;
+    }
+    & img.google-logo {
+      margin: 5px 0 0 10px;
+      width: 130px;
+    }
+    & .image-title {
+      display: inline-block;
+      width: 0;
+      height: 1.5rem;
+      overflow: hidden;
+    }
+    & .no-image-title {
+      display: inline-block;
+      line-height: 1.8rem;
+      color: #444;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
   }
   &-SocialLinkContainer {
     display: flex;

@@ -8,7 +8,7 @@
           }}</span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
-          {{ $t('帰国者・接触者 電話相談センター') }}
+          {{ $t('帰国者・接触者相談センター') }}
         </div>
         <div>
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
@@ -21,9 +21,6 @@
 
       <div :class="$style.AdvisoryContents">
         <div class="py-8">
-          <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（日中）') }}
-          </div>
           <div
             :class="[
               $style.AdvisoryLink,
@@ -32,7 +29,7 @@
             ]"
           >
             <a
-              href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
+              href="https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html#center"
               target="_blank"
               rel="noopener"
             >
@@ -42,34 +39,6 @@
               </v-icon>
             </a>
           </div>
-        </div>
-      </div>
-
-      <div :class="$style.AdvisoryContents">
-        <div class="pt-8">
-          <div :class="$style.AdvisoryContentsTitle2">
-            {{ $t('平日（夜間）') }}
-          </div>
-          <span>{{ $t('午後5時から翌朝午前9時') }}</span>
-        </div>
-        <div class="mt-1">
-          <span :class="$style.AdvisoryContentsSubTitle">
-            {{ $t('土日祝 終日') }}
-          </span>
-        </div>
-        <div :class="[$style.AdvisoryContentsSubTitle, 'mt-1']">
-          <a
-            href="https://www.pref.fukushima.lg.jp/sec/21045c/kansenkangokango69.html#soudannsennta-"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{
-              $t('帰国者・接触者相談センターの案内に従って下さい')
-            }}</span>
-            <v-icon size="18">
-              mdi-open-in-new
-            </v-icon>
-          </a>
         </div>
       </div>
     </div>
@@ -87,7 +56,7 @@
     background-color: $gray-5;
     border-radius: 4px;
     height: 100%;
-    padding: 30px 20px 20px 20px;
+    padding: 180px 20px 20px 20px;
     margin-bottom: 10px;
     text-align: center;
   }

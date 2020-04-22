@@ -5,7 +5,7 @@
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
-      :date="Data.patients.date"
+      :date="graphData.patients.date"
       :unit="$t('人')"
       :url="
         'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'
@@ -23,15 +23,26 @@ export default {
   components: {
     TimeBarChart
   },
+  props: {
+    graphData: {
+      type: Object,
+      required: false,
+      default: Data
+    }
+  },
   data() {
     // 感染者数グラフ
-    const patientsGraph = formatGraph(Data.patients_summary.data)
-
+    const patientsGraph = formatGraph(this.graphData.patients_summary.data)
     const data = {
-      Data,
-      patientsGraph
+      patientsGraph,
+      isReady: false
     }
     return data
+  },
+  mounted() {
+    this.Data = this.graphData
+    this.patientsGraph = formatGraph(this.graphData.patients_summary.data)
+    this.isReady = true
   }
 }
 </script>

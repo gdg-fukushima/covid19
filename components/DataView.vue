@@ -68,15 +68,24 @@
 
             <div class="Buttons">
               <button @click="line">
-                <img src="/line.png" class="icon-resize line" />
+                <img
+                  src="https://cdn2.dott.dev/line.png"
+                  class="icon-resize line"
+                />
               </button>
 
               <button @click="twitter">
-                <img src="/twitter.png" class="icon-resize twitter" />
+                <img
+                  src="https://cdn2.dott.dev/twitter.png"
+                  class="icon-resize twitter"
+                />
               </button>
 
               <button @click="facebook">
-                <img src="/facebook.png" class="icon-resize facebook" />
+                <img
+                  src="https://cdn2.dott.dev/facebook.png"
+                  class="icon-resize facebook"
+                />
               </button>
             </div>
           </div>
@@ -188,10 +197,9 @@ export default Vue.extend({
         'https://twitter.com/intent/tweet?text=' +
         this.title +
         ' / ' +
-        this.$t('（非公式）') +
         this.$t('福島県') +
         this.$t('新型コロナウイルス感染症') +
-        this.$t('情報サイト') +
+        this.$t('対策サイト') +
         '&url=' +
         this.permalink(true) +
         '&' +

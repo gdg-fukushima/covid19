@@ -2,7 +2,7 @@
   <v-app class="app">
     <v-overlay v-if="loading" color="#F8F9FA" opacity="1" z-index="9999">
       <div class="loader">
-        <img src="/logo.svg" alt="福島県" />
+        <img src="https://cdn2.dott.dev/logo2.svg" alt="福島県" />
         <scale-loader color="#00A040" />
       </div>
     </v-overlay>
@@ -67,6 +67,8 @@ export default Vue.extend({
     }
   },
   mounted() {
+    /* eslint no-console: 0 */
+    console.log('while (Japan.recovering) {\n  we.hack();\n}')
     this.loading = false
   },
   methods: {
@@ -97,38 +99,34 @@ export default Vue.extend({
           hid: 'description',
           name: 'description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志の技術者が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、福島県とCode for Fukushimaが協力し開設した公式のサイトです。'
           )
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
           content:
-            this.$t('（非公式）') +
-            ' ' +
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'og:title',
           name: 'og:title',
           content:
-            this.$t('（非公式）') +
-            ' ' +
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'og:description',
           name: 'og:description',
           content: this.$tc(
-            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、有志の技術者が開設したものです。'
+            '当サイトは新型コロナウイルス感染症 (COVID-19) に関する最新情報を提供するために、福島県とCode for Fukushimaが協力し開設した公式のサイトです。'
           )
         },
         {
@@ -140,13 +138,11 @@ export default Vue.extend({
           hid: 'apple-mobile-web-app-title',
           name: 'apple-mobile-web-app-title',
           content:
-            this.$t('（非公式）') +
-            ' ' +
             this.$t('福島県') +
             ' ' +
             this.$t('新型コロナウイルス感染症') +
             ' ' +
-            this.$t('情報サイト')
+            this.$t('対策サイト')
         },
         {
           hid: 'twitter:image',
