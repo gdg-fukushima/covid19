@@ -36,10 +36,16 @@ export default {
     // 帰国者・接触者相談センター 相談件数
     const querentsGraph = formatGraph(this.graphData.querents.data)
 
+    // 直近の相談受付日
+    const lad = new Date(
+      this.graphData.querents.data[this.graphData.querents.data.length - 1].date
+    )
+
     const data = {
       Data,
       querentsGraph,
-      lastAcquisiteDate: `相談受付日: `
+      lastAcquisiteDate: `${this.$t('最終公表日')}: ${lad.getMonth() +
+        1}/${lad.getDate()}`
     }
     return data
   },

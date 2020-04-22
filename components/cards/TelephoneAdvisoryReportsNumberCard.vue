@@ -36,19 +36,16 @@ export default {
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
 
-    // 直近の集計日
-    let lud = new Date('2000-01-01')
-    for (const p of this.graphData.patients.data) {
-      const updateDate = new Date(p.date)
-      if (updateDate > lud) {
-        lud = updateDate
-      }
-    }
+    // 直近の相談受付日
+    const lad = new Date(
+      this.graphData.contacts.data[this.graphData.contacts.data.length - 1].date
+    )
 
     const data = {
       Data,
       contactsGraph,
-      lastAcquisiteDate: `相談受付日: ${lud.getMonth() + 1}/${lud.getDate()}`
+      lastAcquisiteDate: `${this.$t('最終公表日')}: ${lad.getMonth() +
+        1}/${lad.getDate()}`
     }
     return data
   },

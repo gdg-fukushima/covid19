@@ -159,7 +159,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           unit: this.unit
         }
       }
-      console.log(`chartData ${this.chartData}`)
       return {
         lText: this.chartData[
           this.chartData.length - 1

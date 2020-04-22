@@ -45,7 +45,10 @@ export default {
       }
     })
     const inspectionsGraph = formatGraph(zipedSummaryData)
-    const lastAcquisiteDate = ''
+    const lastAcquisiteDate = `${this.$t('最終検査実施日')}: ${
+      inspectionsGraph[inspectionsGraph.length - 1].label
+    }`
+
     const data = {
       Data,
       inspectionsGraph,
@@ -64,11 +67,9 @@ export default {
       }
     )
     this.inspectionsGraph = formatGraph(zipedSummaryData)
-    if (this.inspectionsGraph.length !== 0) {
-      this.lastAcquisiteDate =
-        '検査実施日: ' +
-        this.inspectionsGraph[this.inspectionsGraph.length - 1].label
-    }
+    this.lastAcquisiteDate = `${this.$t('最終検査実施日')}: ${
+      this.inspectionsGraph[this.inspectionsGraph.length - 1].label
+    }`
   }
 }
 </script>
