@@ -1,5 +1,6 @@
 <template>
   <div class="DataView-DataInfo">
+    <span class="DataView-DataInfo-DataCollection-date">{{ cText }}</span>
     <span class="DataView-DataInfo-summary">
       {{ lText }}
       <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
@@ -47,6 +48,10 @@ export default Vue.extend({
       required: true
     },
     sText: {
+      type: String,
+      required: true
+    },
+    cText: {
       type: String,
       required: true
     },

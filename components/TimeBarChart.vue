@@ -18,6 +18,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
+        :c-text="displayInfo.cText"
         :unit="displayInfo.unit"
       />
     </template>
@@ -46,6 +47,7 @@ type Computed = {
   displayInfo: {
     lText: string
     sText: string
+    cText: string
     unit: string
   }
   displayData: {
@@ -148,9 +150,11 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
           } ${this.unit}）`,
+          cText: '公表日 2020/04/22',
           unit: this.unit
         }
       }
+      console.log(`chartData ${this.chartData}`)
       return {
         lText: this.chartData[
           this.chartData.length - 1
@@ -160,6 +164,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
+        cText: '公表日 2020/04/22',
         unit: this.unit
       }
     },
