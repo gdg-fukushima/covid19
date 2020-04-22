@@ -1,3 +1,7 @@
+![production deploy](https://github.com/gdg-fukushima/covid19/workflows/production%20deploy/badge.svg)
+![staging deploy](https://github.com/gdg-fukushima/covid19/workflows/staging%20deploy/badge.svg)
+![development deploy](https://github.com/gdg-fukushima/covid19/workflows/development%20deploy/badge.svg)
+
 # 福島県 新型コロナウイルス感染症対策サイト
 このリポジトリのプロジェクトは、[東京都のプロジェクト](https://github.com/tokyo-metropolitan-gov/covid19)から派生させたものです。
 
@@ -47,3 +51,21 @@ $ yarn install
 ```bash
 $ docker-compose run --rm app yarn install
 ```
+
+### GitHub Actionsについて
+
+このリポジトリでは、Actionsによる自動デプロイにはFirebase Hostingのマルチサイトホスティングを利用して、本番・開発・ステージングに対してデプロイを行うようになっています。
+
+**現在は、フォークした先ではFirebase Hostingでのデプロイは機能していません**
+https://help.github.com/ja/github/administering-a-repository/disabling-or-limiting-github-actions-for-a-repository
+
+リポジトリ上でActionsによるFirebase Hostingの各環境へデプロイを行う場合は以下のsecretを設定する必要があります。
+
+- FIREBASE_TOKEN（`firebase login:ci`にて得られるトークン）
+- HOSTING_DEV_ID（マルチホスティングで設定した開発用サイトのID）
+- HOSTING_PRD_ID（マルチホスティングで設定した本番用サイトのID）
+- HOSTING_STG_ID（マルチホスティングで設定したステージング用サイトのID）
+- PROJECT_ID (GCP/FirebaseのプロジェクトID)
+
+secretsには[@hitokuno](https://github.com/hitokuno)さんのPRで設定する箇所が書いてあります。
+https://github.com/gdg-fukushima/covid19/pull/26

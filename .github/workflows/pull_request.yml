@@ -1,0 +1,56 @@
+name: Deploy pull request environment
+
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: GCP Authenticate
+        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '285.0.0'
+          project_id: ${{ secrets.PROJECT_ID }}
+          service_account_email: ${{ secrets.GCP_SA_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+      - run: gcloud info
+      
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '10.x'
+
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - run: yarn install --frozen-lockfile
+      - run: yarn run test
+      - run: yarn run generate:dev --fail-on-page-error
+      - run: "echo \"User-agent: *\nDisallow: /\" > ./dist/robots.txt"
+
+      - name: GAE Deploy for review
+        if: github.event_name == 'pull_request'
+        run: gcloud app deploy app.yaml --no-promote -v ${{ github.event.number }}
+
+      - name: Post comment review app URL by GitHub API
+        if: github.event_name == 'pull_request'
+        run: >
+          curl
+          -X POST
+          -H "Authorization: token $GITHUB_TOKEN"
+          -H "Accept: application/vnd.github.v3+json"
+          --data "{ \"body\": \"Review environment was deployed on...\nhttps://${{ github.event.number }}-dot-${{ secrets.PROJECT_ID }}.appspot.com\" }"
+          ${{ github.event.pull_request.comments_url }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
