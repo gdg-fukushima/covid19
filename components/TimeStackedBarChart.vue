@@ -23,7 +23,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
-        :c-text="displayInfo.cText"
+        :lad-text="displayInfo.ladText"
         :unit="displayInfo.unit"
       />
     </template>
@@ -55,7 +55,7 @@ type Computed = {
   displayInfo: {
     lText: string
     sText: string
-    cText: string
+    ladText: string
     unit: string
   }
   displayData: {
@@ -153,7 +153,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           sText: `${this.$t('{date}の合計', {
             date: this.labels[this.labels.length - 1]
           })}`,
-          cText: 'sss',
+          ladText: '',
           unit: this.unit
         }
       }
@@ -162,7 +162,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         sText: `${this.$t('{date}の全体累計', {
           date: this.labels[this.labels.length - 1]
         })}`,
-        cText: 'sss!',
+        ladText: '',
         unit: this.unit
       }
     },

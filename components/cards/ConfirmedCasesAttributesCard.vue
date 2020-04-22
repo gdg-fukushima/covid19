@@ -64,11 +64,10 @@ export default {
         row['年代'] = this.$t('{age}代', { age })
       }
     }
-    if (patientsTable.datasets.length !== 0) {
-      sumInfoOfPatients.cText = '公表日: ' + patientsTable.datasets[0]['公表日']
-    } else {
-      sumInfoOfPatients.cText = ''
-    }
+
+    sumInfoOfPatients.ladText = `${this.$t('公表日')}: ${
+      this.patientsTable.datasets[0]['公表日']
+    }`
 
     const data = {
       Data,
@@ -112,13 +111,9 @@ export default {
         row['年代'] = this.$t('{age}代', { age })
       }
     }
-
-    if (this.patientsTable.datasets.length !== 0) {
-      this.sumInfoOfPatients.cText =
-        '公表日: ' + this.patientsTable.datasets[0]['公表日']
-    } else {
-      this.sumInfoOfPatients.cText = ''
-    }
+    this.sumInfoOfPatients.ladText = `${this.$t('公表日')}: ${
+      this.patientsTable.datasets[0]['公表日']
+    }`
   }
 }
 </script>
