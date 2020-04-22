@@ -64,6 +64,8 @@ export default {
         row['年代'] = this.$t('{age}代', { age })
       }
     }
+    this.sumInfoOfPatients.cText =
+      '公表日: ' + this.patientsTable.datasets[0]['公表日']
 
     const data = {
       Data,
@@ -107,6 +109,8 @@ export default {
         row['年代'] = this.$t('{age}代', { age })
       }
     }
+    this.sumInfoOfPatients.cText =
+      '公表日: ' + this.patientsTable.datasets[0]['公表日']
   }
 }
 </script>
