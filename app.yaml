@@ -1,0 +1,12 @@
+runtime: python37
+
+handlers:
+  # This configures Google App Engine to serve the files in the app's static
+  # directory.
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
+
+- url: /(.*)
+  static_files: dist/\1
+  upload: dist/(.*)
