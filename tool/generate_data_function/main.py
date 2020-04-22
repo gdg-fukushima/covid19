@@ -85,20 +85,19 @@ class Patient():
     self.has_died = True if has_died == '1' else False
     self.note = note
 
-def generate_patiens_data(patients):
+def generate_patiens_data(patients, patients_csv_datetime):
   patients_data = []
   patients_count_index = {}
   died_count = 0
   discharged_count = 0
   start_date = None
-  end_date = None
+  end_date = patients_csv_datetime.replace(tzinfo=None)
   for patient_info in patients[1:]:
     patient = Patient(*patient_info)
     if patient.number == '':
       continue
     if start_date is None:
       start_date = patient.announcemented_at
-    end_date = patient.announcemented_at
     announce_iso_time_str = generate_datetime_iso(patient.announcemented_at)
     patients_data.append({
       'リリース日': announce_iso_time_str,
@@ -234,7 +233,7 @@ def generate_patiens_json():
     logging.info(patients_file_latest_uri)
     patients_csv_string, patients_csv_datetime = fetch_csv_as_string(patients_file_latest_uri)
     patients = csv_string_to_list(patients_csv_string)
-    patients_data, patients_summary, discharges_summary, patient_dided, patient_discharged = generate_patiens_data(patients)
+    patients_data, patients_summary, discharges_summary, patient_dided, patient_discharged = generate_patiens_data(patients, patients_csv_datetime)
     DATETIME_LIST.append(patients_csv_datetime)
     COVID19_DATA['patients']['date'] = generate_datetime_readable(patients_csv_datetime)
     COVID19_DATA['patients']['data'] = patients_data
