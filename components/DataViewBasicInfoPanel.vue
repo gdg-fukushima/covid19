@@ -1,10 +1,7 @@
 <template>
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
-      <small
-        v-if="ladText"
-        class="DataView-DataInfo-summary-date"
-      >
+      <small v-if="ladText" class="DataView-DataInfo-summary-date">
         {{ ladText }}
       </small>
       {{ lText }}
