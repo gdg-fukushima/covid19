@@ -43,8 +43,7 @@ export default {
     const data = {
       patientsGraph,
       isReady: false,
-      lastAcquisiteDate: `${this.$t('最終公表日')}: ${lad.getMonth() +
-        1}/${lad.getDate()}`
+      lastAcquisiteDate: `${lad.getMonth() + 1}/${lad.getDate()}`
     }
     return data
   },

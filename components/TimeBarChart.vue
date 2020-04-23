@@ -168,7 +168,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
-        ladText: this.lastAcquisiteDate,
+        ladText: '',
         unit: this.unit
       }
     },

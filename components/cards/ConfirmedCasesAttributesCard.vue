@@ -65,10 +65,6 @@ export default {
       }
     }
 
-    sumInfoOfPatients.ladText = `${this.$t('公表日')}: ${
-      patientsTable.datasets[0]['公表日']
-    }`
-
     const data = {
       Data,
       patientsTable,
@@ -111,9 +107,6 @@ export default {
         row['年代'] = this.$t('{age}代', { age })
       }
     }
-    this.sumInfoOfPatients.ladText = `${this.$t('公表日')}: ${
-      this.patientsTable.datasets[0]['公表日']
-    }`
   }
 }
 </script>

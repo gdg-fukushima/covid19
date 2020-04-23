@@ -45,7 +45,7 @@ export default {
       }
     })
     const inspectionsGraph = formatGraph(zipedSummaryData)
-    const lastAcquisiteDate = `${this.$t('最終検査実施日')}: ${
+    const lastAcquisiteDate = `${
       inspectionsGraph[inspectionsGraph.length - 1].label
     }`
 
@@ -67,7 +67,7 @@ export default {
       }
     )
     this.inspectionsGraph = formatGraph(zipedSummaryData)
-    this.lastAcquisiteDate = `${this.$t('最終検査実施日')}: ${
+    this.lastAcquisiteDate = `${
       this.inspectionsGraph[this.inspectionsGraph.length - 1].label
     }`
   }
