@@ -1,3 +1,7 @@
+![production deploy](https://github.com/gdg-fukushima/covid19/workflows/production%20deploy/badge.svg)
+![staging deploy](https://github.com/gdg-fukushima/covid19/workflows/staging%20deploy/badge.svg)
+![development deploy](https://github.com/gdg-fukushima/covid19/workflows/development%20deploy/badge.svg)
+
 # 福島県 新型コロナウイルス感染症対策サイト
 このリポジトリのプロジェクトは、[東京都のプロジェクト](https://github.com/tokyo-metropolitan-gov/covid19)から派生させたものです。
 

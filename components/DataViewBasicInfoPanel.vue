@@ -1,10 +1,12 @@
 <template>
   <div class="DataView-DataInfo">
     <span class="DataView-DataInfo-summary">
+      <small v-if="ladText" class="DataView-DataInfo-summary-date">
+        {{ ladText }}
+      </small>
       {{ lText }}
       <small class="DataView-DataInfo-summary-unit">{{ unit }}</small>
     </span>
-    <br />
     <small class="DataView-DataInfo-date">{{ sText }}</small>
   </div>
 </template>
@@ -24,6 +26,10 @@
       line-height: 30px;
       &-unit {
         font-size: 0.6em;
+      }
+      &-date {
+        font-size: 0.4em;
+        margin-right: 0.4em;
       }
     }
     &-date {
@@ -49,6 +55,11 @@ export default Vue.extend({
     sText: {
       type: String,
       required: true
+    },
+    ladText: {
+      type: String,
+      required: false,
+      default: ''
     },
     unit: {
       type: String,
