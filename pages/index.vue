@@ -64,7 +64,7 @@ export default Vue.extend({
         title: this.$t('県内の最新感染動向'),
         date: ''
       },
-      newsItems: News.newsItems
+      newsItems: News.news_items
     }
     return data
   },
