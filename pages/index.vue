@@ -1,5 +1,5 @@
 <template>
-  <div class="MainPage" v-if="dataLoaded">
+  <div v-if="dataLoaded" class="MainPage">
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
@@ -54,7 +54,6 @@ export default Vue.extend({
     TestedNumberCard
   },
   data() {
-    console.log(News.news_items)
     const data = {
       Data,
       dataLoaded: false,
