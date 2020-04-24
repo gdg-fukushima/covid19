@@ -110,5 +110,7 @@ def generate_news_json():
 
 
 def main(request):
-    news_data = generate_news_json()
+    news_data = {
+      'news_items': generate_news_json()
+    }
     upload_json('fukushima-covid19', 'news.json', json.dumps(news_data, ensure_ascii=False))
