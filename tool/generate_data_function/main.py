@@ -52,7 +52,7 @@ class Patient():
   comune_code = None
   pref_name = None
   city_name = None
-  announcemented_at = None
+  announced_at = None
   develop_at = None
   residence = None
   generation = None
@@ -65,14 +65,14 @@ class Patient():
   has_died = None
   note = None
 
-  def __init__(self, number, comune_code, pref_name, city_name, announcemented_at,
+  def __init__(self, number, comune_code, pref_name, city_name, announced_at,
                develop_at, residence, generation, gender, occupation, status,
                symptom, has_travel_history, is_discharged, has_died, note):
     self.number = number
     self.comune_code = comune_code
     self.pref_name = pref_name
     self.city_name = city_name
-    self.announcemented_at = get_datetime(announcemented_at)
+    self.announced_at = get_datetime(announced_at)
     self.develop_at = get_datetime(develop_at)
     self.residence = residence
     self.generation = generation
@@ -91,14 +91,16 @@ def generate_patiens_data(patients, patients_csv_datetime):
   died_count = 0
   discharged_count = 0
   start_date = None
-  end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=24)
+  end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=12)
+  last_date = None
   for patient_info in patients[1:]:
     patient = Patient(*patient_info)
     if patient.number == '':
       continue
+    last_date = patient.announced_at
     if start_date is None:
-      start_date = patient.announcemented_at
-    announce_iso_time_str = generate_datetime_iso(patient.announcemented_at)
+      start_date = patient.announced_at
+    announce_iso_time_str = generate_datetime_iso(patient.announced_at)
     patients_data.append({
       'リリース日': announce_iso_time_str,
       '曜日': '',
@@ -106,7 +108,7 @@ def generate_patiens_data(patients, patients_csv_datetime):
       '年代': patient.generation,
       '性別': patient.gender,
       '退院': '退院' if patient.is_discharged else '',
-      'date': generate_datetime_iso(patient.announcemented_at)
+      'date': generate_datetime_iso(patient.announced_at)
     })
     if patient.has_died:
       died_count += 1
@@ -119,7 +121,8 @@ def generate_patiens_data(patients, patients_csv_datetime):
 
   patients_summary = []
   discharges_summary = []
-  diff_days = (end_date - start_date).days
+  destination_date = last_date if last_date > end_date else end_date
+  diff_days = (destination_date - start_date).days
 
   for i in range(0, diff_days + 1):
     date = start_date + timedelta(days=i)
