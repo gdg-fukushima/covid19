@@ -47,6 +47,25 @@ def generate_short_datetime(datetime):
   return '{}/{}'.format(datetime.month, datetime.day)
 
 
+def list_dir(url, ext=''):
+    page = requests.get(url).text
+    soup = BeautifulSoup(page, 'html.parser')
+    return [url + '/' + node.get('href') for node in soup.find_all('a') if node.get('href').endswith(ext)]
+
+
+def upload_json(bucket_name, destination_blob_name, data):
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+    blob.cache_control = 'max-age=10'
+    blob.upload_from_string(data, content_type='application/json')
+    logging.info(
+        "File {} uploaded to {}.".format(
+            data, destination_blob_name
+        )
+    )
+
+
 class Patient():
   number = None
   comune_code = None
@@ -93,10 +112,9 @@ def generate_patiens_data(patients, patients_csv_datetime):
   start_date = None
   end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=12)
   last_date = None
-  for patient_info in patients[1:]:
-    patient = Patient(*patient_info)
-    if patient.number == '':
-      continue
+  patients = [Patient(*row) for row in patients[1:] if row[0]]
+  patients = sorted(patients, key=lambda t: t.announced_at)
+  for patient in patients:
     last_date = patient.announced_at
     if start_date is None:
       start_date = patient.announced_at
@@ -165,15 +183,14 @@ def generate_inspections_data(inspections):
   data_etc = []
   labels = []
   total_num = 0
-  for inspection_info in inspections[1:]:
-    ins = Inspection(*inspection_info[:6])
-    if ins.implemented_at is None:
-      continue
-    data_pref.append(ins.people_count)
+  inspections = [Inspection(*row[:6]) for row in inspections[1:] if row[0]]
+  inspections = sorted(inspections, key=lambda t: t.implemented_at)
+  for inspection in inspections:
+    data_pref.append(inspection.people_count)
     data_etc.append(0)
-    date_time_iso = generate_datetime_iso(ins.implemented_at)
+    date_time_iso = generate_datetime_iso(inspection.implemented_at)
     labels.append(date_time_iso)
-    total_num += ins.people_count
+    total_num += inspection.people_count
 
   return data_pref, data_etc, labels, total_num
 
@@ -196,10 +213,9 @@ class Querent():
 
 def generate_querents_data(querents):
   querents_data = []
-  for querents_info in querents[1:]:
-    que = Querent(*querents_info[:5])
-    if que.accepted_at is None:
-      continue
+  querents = [Querent(*row[:5]) for row in querents[1:] if row[0]]
+  querents = sorted(querents, key=lambda t: t.accepted_at)
+  for que in querents:
     querents_data.append({
       '日付': generate_datetime_iso(que.accepted_at),
       '曜日': '',
@@ -208,25 +224,6 @@ def generate_querents_data(querents):
       '小計': que.count
     })
   return querents_data
-
-
-def list_dir(url, ext=''):
-    page = requests.get(url).text
-    soup = BeautifulSoup(page, 'html.parser')
-    return [url + '/' + node.get('href') for node in soup.find_all('a') if node.get('href').endswith(ext)]
-
-
-def upload_json(bucket_name, destination_blob_name, data):
-    storage_client = storage.Client()
-    bucket = storage_client.bucket(bucket_name)
-    blob = bucket.blob(destination_blob_name)
-    blob.cache_control = 'max-age=10'
-    blob.upload_from_string(data, content_type='application/json')
-    logging.info(
-        "File {} uploaded to {}.".format(
-            data, destination_blob_name
-        )
-    )
 
 
 # Patients 福島県_新型コロナウイルス陽性患者属性
