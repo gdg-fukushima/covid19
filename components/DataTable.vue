@@ -17,6 +17,7 @@
       <data-view-basic-info-panel
         :l-text="info.lText"
         :s-text="info.sText"
+        :lad-text="info.ladText"
         :unit="info.unit"
       />
     </template>

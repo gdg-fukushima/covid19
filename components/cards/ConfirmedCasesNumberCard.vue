@@ -6,6 +6,7 @@
       :chart-id="'time-bar-chart-patients'"
       :chart-data="patientsGraph"
       :date="graphData.patients.date"
+      :last-acquisite-date="lastAcquisiteDate"
       :unit="$t('人')"
       :url="
         'https://www.pref.fukushima.lg.jp/sec/21045c/fukushima-hasseijyoukyou.html'
@@ -33,9 +34,16 @@ export default {
   data() {
     // 感染者数グラフ
     const patientsGraph = formatGraph(this.graphData.patients_summary.data)
+
+    // 直近の公表日の取得
+    const lad = new Date(
+      this.graphData.patients.data[this.graphData.patients.data.length - 1].date
+    )
+
     const data = {
       patientsGraph,
-      isReady: false
+      isReady: false,
+      lastAcquisiteDate: `${lad.getMonth() + 1}/${lad.getDate()}`
     }
     return data
   },

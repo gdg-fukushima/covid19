@@ -18,6 +18,7 @@
       <data-view-basic-info-panel
         :l-text="displayInfo.lText"
         :s-text="displayInfo.sText"
+        :lad-text="displayInfo.ladText"
         :unit="displayInfo.unit"
       />
     </template>
@@ -46,6 +47,7 @@ type Computed = {
   displayInfo: {
     lText: string
     sText: string
+    ladText: string
     unit: string
   }
   displayData: {
@@ -79,6 +81,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: GraphDataType[]
+  lastAcquisiteDate: string
   date: string
   unit: string
   url: string
@@ -109,6 +112,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     chartData: {
       type: Array,
       default: () => []
+    },
+    lastAcquisiteDate: {
+      type: String,
+      required: true
     },
     date: {
       type: String,
@@ -148,6 +155,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
           } ${this.unit}）`,
+          ladText: this.lastAcquisiteDate,
           unit: this.unit
         }
       }
@@ -160,6 +168,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
         )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
           this.unit
         }）`,
+        ladText: '',
         unit: this.unit
       }
     },

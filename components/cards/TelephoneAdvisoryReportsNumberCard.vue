@@ -5,6 +5,7 @@
       :title-id="'number-of-reports-to-covid19-telephone-advisory-center'"
       :chart-id="'time-bar-chart-contacts'"
       :chart-data="contactsGraph"
+      :last-acquisite-date="lastAcquisiteDate"
       :date="Data.contacts.date"
       :unit="$t('件.reports')"
       :url="
@@ -35,9 +36,15 @@ export default {
     // 相談件数
     const contactsGraph = formatGraph(Data.contacts.data)
 
+    // 直近の相談受付日
+    const lad = new Date(
+      this.graphData.contacts.data[this.graphData.contacts.data.length - 1].date
+    )
+
     const data = {
       Data,
-      contactsGraph
+      contactsGraph,
+      lastAcquisiteDate: `${lad.getMonth() + 1}/${lad.getDate()}`
     }
     return data
   },
