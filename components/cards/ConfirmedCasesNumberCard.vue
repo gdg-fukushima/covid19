@@ -36,8 +36,9 @@ export default {
     const patientsGraph = formatGraph(this.graphData.patients_summary.data)
 
     // 直近の公表日の取得
+    const lastIndex = this.graphData.patients_summary.data.length - 1
     const lad = new Date(
-      this.graphData.patients.data[this.graphData.patients.data.length - 1].date
+      this.graphData.patients_summary.data[lastIndex]['日付']
     )
 
     const data = {
@@ -49,7 +50,13 @@ export default {
   },
   mounted() {
     this.Data = this.graphData
+    const lastIndex = this.graphData.patients_summary.data.length - 1
+    // 直近の公表日の取得
+    const lad = new Date(
+      this.graphData.patients_summary.data[lastIndex]['日付']
+    )
     this.patientsGraph = formatGraph(this.graphData.patients_summary.data)
+    this.lastAcquisiteDate = `${lad.getMonth() + 1}/${lad.getDate()}`
     this.isReady = true
   }
 }
