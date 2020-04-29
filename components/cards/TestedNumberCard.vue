@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
+      id="number-of-tested"
       :title="$t('検査実施数')"
       :title-id="'number-of-tested'"
       :chart-id="'time-bar-chart-inspections'"
