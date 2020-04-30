@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-table
+      id="attributes-of-confirmed-cases"
       :title="$t('陽性患者の属性')"
       :title-id="'attributes-of-confirmed-cases'"
       :chart-data="patientsTable"
