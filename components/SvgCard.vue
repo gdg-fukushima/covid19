@@ -3,6 +3,8 @@
     <template v-slot:button>
       <p class="Graph-Desc">
         {{ $t('（注）チャーター機帰国者、クルーズ船乗客等は含まれていない') }}
+        <br />
+        {{ $t('（注）入院中には宿泊療養を含む') }}
       </p>
     </template>
     <slot />
