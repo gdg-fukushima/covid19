@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
+      id="number-of-confirmed-cases"
       :title="$t('陽性患者数')"
       :title-id="'number-of-confirmed-cases'"
       :chart-id="'time-bar-chart-patients'"
