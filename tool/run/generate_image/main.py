@@ -55,7 +55,7 @@ def get_card_image(browser, id_name):
 
 
 @app.route("/images/generate")
-def generate_image():
+def generate_all_images():
     # Initialize a new browser
     browser = webdriver.Chrome(chrome_options=chrome_options)
     browser.get(BASE_URL)
@@ -65,3 +65,19 @@ def generate_image():
         upload_png(GCS_BUCKET_ID, 'images/{}.png'.format(id_name), image)
     browser.close()
     return 'OK'
+
+
+@app.route("/image/generate/<id_name>")
+def generate_image(id_name):
+    # Initialize a new browser
+    browser = webdriver.Chrome(chrome_options=chrome_options)
+    browser.get(BASE_URL)
+    time.sleep(1)
+    image = get_card_image(browser, id_name)
+    upload_png(GCS_BUCKET_ID, 'images/{}.png'.format(id_name), image)
+    browser.close()
+    tmp_file_name = './tmp_image_{}.png'.format(id_name)
+    with open(tmp_file_name, 'wb') as f:
+        f.write(image)
+
+    return send_file(tmp_file_name)
