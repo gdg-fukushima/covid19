@@ -41,7 +41,7 @@ def upload_png(bucket_name, destination_blob_name, image):
 
 def get_card_image(browser, id_name):
     browser.get(CARD_URL.format(id_name))
-    time.sleep(2)
+    time.sleep(5)
     remove_share_btn = 'var elements = document.querySelectorAll(".Footer-Right"); for (let i = 0; i < elements.length; i++) {const element = elements[i];element.remove();}'
     browser.execute_script(remove_share_btn)
     add_prefix = 'var titles = document.querySelectorAll(".DataView-Title"); var prefNamePrefix = "福島:"; for (let i = 0; i < titles.length; i++) { const element = titles[i]; element.innerHTML = prefNamePrefix + element.innerHTML }'
