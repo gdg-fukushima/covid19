@@ -15,7 +15,7 @@ GCP_PROJECT = os.environ.get('GCP_PROJECT')
 UPDATE_TOPIC = os.environ.get('UPDATE_TOPIC')
 IMAGE_GENERATOR_BASE_URL = os.environ.get('IMAGE_GENERATOR_BASE_URL')
 CDN_BASE_URL = os.environ.get('CDN_BASE_URL')
-MESSAGE_SITE_TITLE = '福島県 新型コロナ感染対策サイト'
+MESSAGE_SITE_TITLE = '福島県 新型コロナウイルス感染症対策サイト'
 SHORTEN_SITE_URL = 'https://fukushima-covid19.web.app/'
 DATA_URL = 'https://cdn2.dott.dev/data.json'
 
