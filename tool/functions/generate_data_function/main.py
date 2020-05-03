@@ -253,15 +253,16 @@ def generate_patiens_json():
   patients = csv_string_to_list(patients_csv_string)
   patients_data, patients_summary, discharges_summary, patient_dided, patient_discharged = generate_patiens_data(patients, patients_csv_datetime)
   DATETIME_LIST.append(patients_csv_datetime)
-  DATA['new']['patients']['date'] = generate_datetime_readable(patients_csv_datetime)
   DATA['new']['patients']['data'] = patients_data
   DATA['new']['main_summary']['children'][0]['value'] = len(patients_data)
   DATA['new']['main_summary']['children'][0]['children'][0]['value'] = len(patients_data) - patient_discharged
   DATA['new']['main_summary']['children'][0]['children'][1]['value'] = patient_discharged
   DATA['new']['main_summary']['children'][0]['children'][2]['value'] = patient_dided
-  DATA['new']['patients']['date'] = generate_datetime_readable(patients_csv_datetime)
+  patients_csv_datetime_str = generate_datetime_readable(patients_csv_datetime)
+  DATA['new']['patients']['date'] = patients_csv_datetime_str
+  DATA['new']['patients_summary']['date'] = patients_csv_datetime_str
   DATA['new']['patients_summary']['data'] = patients_summary
-  DATA['new']['discharges_summary']['date'] = generate_datetime_readable(patients_csv_datetime)
+  DATA['new']['discharges_summary']['date'] = patients_csv_datetime_str
   DATA['new']['discharges_summary']['data'] = discharges_summary
 
 
