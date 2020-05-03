@@ -2,7 +2,7 @@
     "news_items": [
         {
             "date": "2020\/05\/02",
-            "text": "Code for FukushimaのTwitterアカウントで、更新情報の自動ツイートを開始しました",
+            "text": "Code for FukushimaのTwitterアカウントで、更新時に最新情報をお知らせできるようになりました。",
             "url": "https://twitter.com/CODEforFKSM"
         }, {
             "date": "2020\/04\/24",
