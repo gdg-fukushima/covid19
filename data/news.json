@@ -1,6 +1,10 @@
 {
     "news_items": [
         {
+            "date": "2020\/05\/02",
+            "text": "Code for FukushimaのTwitterアカウントで、更新時に最新情報をお知らせできるようになりました。",
+            "url": "https://twitter.com/CODEforFKSM"
+        }, {
             "date": "2020\/04\/24",
             "text": "軽症者等の宿泊療養施設について",
             "url": "https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-shukuhaku.html"

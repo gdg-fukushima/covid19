@@ -61,7 +61,7 @@ export default Vue.extend({
       dataLoaded: false,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('県内の最新感染動向'),
+        title: this.$t('福島県内の最新感染動向'),
         date: ''
       },
       newsItems: News.news_items
@@ -82,7 +82,7 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('県内の最新感染動向') as string
+      title: this.$t('福島県内の最新感染動向') as string
     }
   }
 })
