@@ -54,7 +54,7 @@
             </div>
 
             <h4>{{ $t('埋め込み用コード') }}</h4>
-
+            <h5>iframe</h5>
             <div class="EmbedCode">
               <v-icon
                 v-if="isCopyAvailable()"
@@ -64,6 +64,17 @@
                 far fa-clipboard
               </v-icon>
               {{ graphEmbedValue }}
+            </div>
+            <h5>img</h5>
+            <div class="EmbedCode">
+              <v-icon
+                v-if="isCopyAvailable()"
+                class="EmbedCode-Copy"
+                @click="copyImageCode"
+              >
+                far fa-clipboard
+              </v-icon>
+              {{ graphImageValue }}
             </div>
 
             <div class="Buttons">
@@ -157,6 +168,13 @@ export default Vue.extend({
         this.permalink(true, true) +
         '" frameborder="0"></iframe>'
       return graphEmbedValue
+    },
+    graphImageValue(): string {
+      const siteUrl = location.protocol + '//' + location.host
+      const cdnBaseUrl = 'https://cdn2.dott.dev/images'
+      const imageTag = `<img src="${cdnBaseUrl}/${this.titleId}.png" />`
+      const imageLink = `<a href="${siteUrl}">${imageTag}</a>`
+      return imageLink
     }
   },
   methods: {
@@ -172,6 +190,17 @@ export default Vue.extend({
     copyEmbedCode() {
       const self = this
       navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
+        self.closeShareMenu()
+
+        self.showOverlay = true
+        setTimeout(() => {
+          self.showOverlay = false
+        }, 2000)
+      })
+    },
+    copyImageCode() {
+      const self = this
+      navigator.clipboard.writeText(this.graphImageValue).then(() => {
         self.closeShareMenu()
 
         self.showOverlay = true

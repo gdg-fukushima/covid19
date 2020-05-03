@@ -1,0 +1,6 @@
+Flask==1.1.2
+gunicorn==20.0.4
+selenium==3.141.0
+chromedriver-binary==81.0.4044.69.0
+Pillow
+google-cloud-storage
