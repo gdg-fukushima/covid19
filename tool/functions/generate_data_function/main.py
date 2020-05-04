@@ -77,11 +77,14 @@ def upload_json(bucket_name, destination_blob_name, data):
   blob = bucket.blob(destination_blob_name)
   blob.cache_control = 'max-age=10'
   blob.upload_from_string(data, content_type='application/json')
-  logging.info(
-      "File {} uploaded to {}.".format(
-          data, destination_blob_name
-      )
-  )
+
+
+def upload_csv(bucket_name, destination_blob_name, data):
+  storage_client = storage.Client()
+  bucket = storage_client.bucket(bucket_name)
+  blob = bucket.blob(destination_blob_name)
+  blob.cache_control = 'max-age=10'
+  blob.upload_from_string(data, content_type='text/csv')
 
 
 class Patient():
@@ -250,6 +253,7 @@ def generate_patiens_json():
   patients_file_latest_uri = patients_dir_list[-1]
   logging.info(patients_file_latest_uri)
   patients_csv_string, patients_csv_datetime = fetch_csv_as_string(patients_file_latest_uri)
+  upload_csv(GCP_PROJECT, 'csv/patients.csv', patients_csv_string)
   patients = csv_string_to_list(patients_csv_string)
   patients_data, patients_summary, discharges_summary, patient_dided, patient_discharged = generate_patiens_data(patients, patients_csv_datetime)
   DATETIME_LIST.append(patients_csv_datetime)
@@ -272,6 +276,7 @@ def generate_inspection_json():
   inspections_file_latest_uri = inspections_dir_list[-1]
   logging.info(inspections_file_latest_uri)
   inspections_csv_string, inspections_csv_datetime = fetch_csv_as_string(inspections_file_latest_uri)
+  upload_csv(GCP_PROJECT, 'csv/inspections.csv', inspections_csv_string)
   inspections = csv_string_to_list(inspections_csv_string)
   data_perf, data_etc, labels, total_num = generate_inspections_data(inspections)
   DATETIME_LIST.append(inspections_csv_datetime)
@@ -289,6 +294,7 @@ def generate_contacts_json():
   contacts_file_latest_uri = contacts_dir_list[-1]
   logging.info(contacts_file_latest_uri)
   contacts_csv_string, contacts_csv_datetime = fetch_csv_as_string(contacts_file_latest_uri)
+  upload_csv(GCP_PROJECT, 'csv/contacts.csv', contacts_csv_string)
   contacts = csv_string_to_list(contacts_csv_string)
   contacts_data = generate_querents_data(contacts)
   DATETIME_LIST.append(contacts_csv_datetime)
@@ -302,6 +308,7 @@ def generate_querents_json():
   querents_file_latest_uri = querents_dir_list[-1]
   logging.info(querents_file_latest_uri)
   querents_csv_string, querents_csv_datetime = fetch_csv_as_string(querents_file_latest_uri)
+  upload_csv(GCP_PROJECT, 'csv/querents.csv', querents_csv_string)
   querents = csv_string_to_list(querents_csv_string)
   querents_data = generate_querents_data(querents)
   DATETIME_LIST.append(querents_csv_datetime)
