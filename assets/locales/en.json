@@ -167,6 +167,7 @@
   "（注）県内において疑い例または患者の濃厚接触者として検査を行ったものについて掲載": "(Note) Figures are patients in Fukushima who underwent testing due to suspected infection or because of close contact with such persons.",
   "（チャーター機帰国者、クルーズ船乗客等は含まれていない）": " (excluding the Wuhan charter flight returnees and the cruise ship passengers)",
   "（注）入院中には宿泊療養を含む": "(Note) The hospitalized number includes medical treatment in accommodation",
+  "（注）入院中には県外入院者1名も含む": "(Note) The hospitalized number includes a patient from outside of Fukushima prefecture.",
   "検査実施人数は、速報値として公開するものであり、後日確定データとして修正される場合があります": "The number of people tested is a preliminary figures, and may be revised at a later date after finalization of data.",
   "（注）同一の対象者について複数の検体を検査する場合あり": "(Note) More than one sample from the same subject may be tested.",
   "合計": " Total",
@@ -382,5 +383,6 @@
   "新地町": "Shinchi Town",
   "飯舘村": "Iitate Village",
   "いわき市": "Iwaki City",
-  "仙台市": "Sendai City"
+  "仙台市": "Sendai City",
+  "宇都宮市": "Utsunomiya City"
 }
