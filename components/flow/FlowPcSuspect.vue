@@ -23,15 +23,7 @@
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
           />
-          {{ $t('微熱') }}
-        </div>
-        <div :class="$style.CheckBox">
-          <img
-            :class="$style.CheckBoxIcon"
-            src="/flow/check_circle-24px.svg"
-            aria-hidden="true"
-          />
-          {{ $t('軽い咳') }}
+          {{ $t('健康の不安') }}
         </div>
         <div :class="$style.CheckBox">
           <img
@@ -63,9 +55,12 @@
           0120-567-177
         </a>
       </div>
-      <div :class="$style.Tel">
-        {{ $t('FAX 024-521-7926(耳の不自由な方)') }}
-      </div>
+      <span :class="$style.SmallerText">
+        {{ $t('耳の不自由な方') }}
+      </span>
+      <span :class="$style.LargerText">
+        {{ $t('FAX 024-521-7926') }}
+      </span>
     </div>
   </div>
 </template>
