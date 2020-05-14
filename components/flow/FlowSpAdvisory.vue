@@ -1,11 +1,15 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
-      <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者相談センター')
-      }}</small>
+      {{ $t('帰国者・接触者') }}<br />
+      {{ $t('相談センター') }}
     </h4>
+    <p :class="[$style.phone, $style.fzNumeric]">
+      <span :class="$style.icon">
+        <PhoneIcon alt="Phone" />
+      </span>
+      <a :class="$style.TelLink" href="tel:0120-567-747">0120-567-747</a>
+    </p>
     <p :class="[$style.open, $style.fzMedium]">
       <span>{{ $t('24時間対応') }}</span>
     </p>
@@ -17,7 +21,7 @@
             target="_blank"
             rel="noopener"
           >
-            {{ $t('帰国者・接触者相談センター') }}
+            {{ $t('帰国者・接触者相談センターについて') }}
             <v-icon size="16">
               mdi-open-in-new
             </v-icon>
@@ -29,11 +33,11 @@
 </template>
 
 <script lang="ts">
-// import PhoneIcon from '@/static/flow/responsive/phone.svg'
+import PhoneIcon from '@/static/flow/responsive/phone.svg'
 
-// export default {
-//   components: { PhoneIcon }
-// }
+export default {
+  components: { PhoneIcon }
+}
 </script>
 
 <style module lang="scss">
@@ -60,7 +64,7 @@
   border-top: 1px solid $gray-4;
   border-bottom: 1px solid $gray-4;
   > * {
-    padding: px2vw(30) px2vw(10);
+    padding: px2vw(30) px2vw(40);
     display: flex;
     align-items: center;
     justify-content: center;

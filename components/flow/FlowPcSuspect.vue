@@ -38,10 +38,11 @@
 
     <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナコールセンター') }}
+        {{ $t('一般相談') }}
+        <span :class="$style.SmallerText">({{ $t('コールセンター') }})</span>
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('平日：午前8時30分から午後9時 (一般相談窓口)') }}<br />
+        {{ $t('平日：午前8時30分から午後9時') }}<br />
         {{ $t('土日祝日：午前8時30分から午後5時15分') }}
       </div>
 
