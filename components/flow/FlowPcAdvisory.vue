@@ -3,12 +3,22 @@
     <div :class="$style.AdvisoryContainer">
       <div :class="$style.AdvisoryContents">
         <div>
-          <span :class="$style.AdvisoryContentsTitle">{{
-            $t('新型コロナ受診相談窓口（日本語のみ）')
-          }}</span>
+          <span :class="$style.AdvisoryContentsTitle">
+            {{ $t('帰国者・接触者') }}<br />
+            {{ $t('相談センター') }}
+          </span>
         </div>
         <div :class="[$style.AdvisoryContentsColsSentense, 'mt-4']">
-          {{ $t('帰国者・接触者相談センター') }}
+          <div :class="$style.Tel">
+            <a :class="$style.TelLink" href="tel:0120-567-747">
+              <img
+                :class="$style.TelLinkIcon"
+                src="/flow/phone-24px.svg"
+                aria-hidden="true"
+              />
+              0120-567-747
+            </a>
+          </div>
         </div>
         <div>
           <div :class="[$style.AdvisoryBoxContainer, $style.AdvisoryWhiteBox]">
@@ -33,7 +43,7 @@
               target="_blank"
               rel="noopener"
             >
-              <span>{{ $t('帰国者・接触者相談センター') }}</span>
+              <span>{{ $t('帰国者・接触者相談センターについて') }}</span>
               <v-icon size="18">
                 mdi-open-in-new
               </v-icon>
@@ -62,6 +72,7 @@
   }
   &Contents {
     font-weight: bold;
+    padding: 20px;
     &:not(:first-child) {
       border-top: 0.5px solid $gray-4;
     }
@@ -94,29 +105,6 @@
       }
     }
   }
-  &TelephoneArea {
-    display: inline-flex;
-  }
-  &Telephone {
-    display: flex;
-    align-items: center;
-    font-size: 27px;
-    font-weight: bold;
-    &:link,
-    &:visited,
-    &:hover,
-    &:active,
-    &:focus {
-      color: inherit;
-      text-decoration: none;
-    }
-    &Icon {
-      display: inline-block;
-      margin-right: 5px;
-      width: 26px;
-      height: 26px;
-    }
-  }
   &BoxContainer {
     border-radius: 4px;
     text-align: center;
@@ -132,6 +120,32 @@
       font-size: 18px;
       font-weight: bold;
     }
+  }
+}
+.Tel {
+  @include largerThan($medium) {
+    font-size: larger;
+  }
+}
+.TelLink {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  justify-content: center;
+  margin-left: -12px;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+  &Icon {
+    display: inline-block;
+    margin-right: 5px;
+    width: 26px;
+    height: 26px;
   }
 }
 </style>

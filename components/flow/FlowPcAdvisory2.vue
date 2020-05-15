@@ -25,5 +25,7 @@
   width: 80%;
   text-align: center;
   justify-content: center;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
 }
 </style>
