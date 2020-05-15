@@ -23,15 +23,7 @@
             src="/flow/check_circle-24px.svg"
             aria-hidden="true"
           />
-          {{ $t('微熱') }}
-        </div>
-        <div :class="$style.CheckBox">
-          <img
-            :class="$style.CheckBoxIcon"
-            src="/flow/check_circle-24px.svg"
-            aria-hidden="true"
-          />
-          {{ $t('軽い咳') }}
+          {{ $t('健康の不安') }}
         </div>
         <div :class="$style.CheckBox">
           <img
@@ -46,10 +38,11 @@
 
     <div :class="[$style.SubtleBox, $style.Box2, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナコールセンター') }}
+        {{ $t('一般相談') }}
+        <span :class="$style.SmallerText">({{ $t('コールセンター') }})</span>
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('平日：午前8時30分から午後9時 (一般相談窓口)') }}<br />
+        {{ $t('平日：午前8時30分から午後9時') }}<br />
         {{ $t('土日祝日：午前8時30分から午後5時15分') }}
       </div>
 
@@ -63,9 +56,12 @@
           0120-567-177
         </a>
       </div>
-      <div :class="$style.Tel">
-        {{ $t('FAX 024-521-7926(耳の不自由な方)') }}
-      </div>
+      <span :class="$style.SmallerText">
+        {{ $t('耳の不自由な方') }}
+      </span>
+      <span :class="$style.LargerText">
+        {{ $t('FAX 024-521-7926') }}
+      </span>
     </div>
   </div>
 </template>

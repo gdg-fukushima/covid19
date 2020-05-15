@@ -8,11 +8,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="
-        'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html'
-      "
-      :text="$t('自分や家族の症状に不安や心配がある場合（県公式サイト）')"
-      :btn-text="$t('公式の情報を見る')"
+      :url="localePath('/flow')"
+      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
+      :btn-text="$t('相談の手順を見る')"
     />
     <div v-if="dataLoaded">
       <v-row class="DataBlock">
