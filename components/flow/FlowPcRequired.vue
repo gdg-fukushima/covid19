@@ -43,6 +43,7 @@
 <style module lang="scss">
 .Container {
   @include card-container();
+
   display: flex;
   flex-direction: column;
   position: relative;

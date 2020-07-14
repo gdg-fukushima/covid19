@@ -9,6 +9,7 @@
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: false);
+
   position: relative;
   padding: 20px;
   color: $gray-2;

@@ -17,6 +17,7 @@
 }
 .AdvisoryBoxContainer {
   @include font-size(20);
+
   align-items: center;
   background-color: $gray-2;
   border-radius: 4px;
