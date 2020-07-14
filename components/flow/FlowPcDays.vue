@@ -132,6 +132,7 @@
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: true);
+
   display: flex;
   flex-direction: row;
   padding: 20px 20px !important;
@@ -166,9 +167,6 @@
         margin: 16px 0;
         text-align: left;
         list-style: none;
-        &Item + &Item {
-          margin-top: 14px;
-        }
         &Item {
           display: flex;
           align-items: center;
@@ -177,6 +175,9 @@
             width: 30px;
             height: 30px;
           }
+        }
+        &Item + &Item {
+          margin-top: 14px;
         }
       }
     }

@@ -91,6 +91,7 @@ export default {
   display: flex;
   flex-direction: column;
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
   word-break: break-word;
@@ -106,7 +107,6 @@ export default {
 }
 .Outer {
   display: grid;
-  grid-gap: 12px;
   &Upper {
     grid-template-columns: 70% 30%;
     -ms-grid-columns: 70% 12px 30%;
@@ -135,6 +135,7 @@ export default {
       -ms-grid-column: 3;
       -ms-grid-row: 5;
     }
+
     margin-bottom: 36px;
   }
   &Lower {
@@ -166,6 +167,7 @@ export default {
 }
 .Title {
   @include font-size(28);
+
   color: $green-1;
   &Small {
     @include font-size(20);
@@ -222,19 +224,6 @@ export default {
     transform: rotateZ(30deg);
   }
 }
-.Advisory {
-  position: relative;
-  &::after {
-    content: url('/flow/flow_arrow.svg');
-    position: absolute;
-    left: calc(50% - 23px);
-    transform: rotate(-90deg);
-    z-index: 1;
-    display: block;
-    width: 46px;
-    height: 46px;
-  }
-}
 .Past {
   grid-column: 1 / 2;
   grid-row: 1 / 1;
@@ -255,6 +244,18 @@ export default {
   grid-row: 5 / 5;
 }
 .Advisory {
+  position: relative;
+  &::after {
+    content: url('/flow/flow_arrow.svg');
+    position: absolute;
+    left: calc(50% - 23px);
+    transform: rotate(-90deg);
+    z-index: 1;
+    display: block;
+    width: 46px;
+    height: 46px;
+  }
+
   grid-column: 2 / 3;
   grid-row: 1 / 4;
 }

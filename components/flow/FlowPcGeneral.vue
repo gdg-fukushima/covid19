@@ -70,6 +70,7 @@
 <style module lang="scss">
 .Flow {
   @include card-container($withDivider: false);
+
   display: flex;
   flex-direction: row;
   padding: 10px 20px !important;
@@ -104,9 +105,6 @@
         padding-left: 0 !important;
         text-align: left;
         list-style: none;
-        &Item + &Item {
-          margin-top: 14px;
-        }
         &Item {
           display: flex;
           align-items: center;
@@ -115,6 +113,9 @@
             width: 30px;
             height: 30px;
           }
+        }
+        &Item + &Item {
+          margin-top: 14px;
         }
       }
     }

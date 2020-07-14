@@ -33,7 +33,7 @@ export default {
     }
   },
   data() {
-    // 感染者数グラフ
+    // 陽性患者数
     const patientsGraph = formatGraph(this.graphData.patients_summary.data)
 
     // 直近の公表日の取得

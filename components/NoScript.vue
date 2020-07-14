@@ -45,6 +45,7 @@
   justify-content: center;
   align-items: center;
   @include font-size(13);
+
   color: #898989;
   img {
     margin-right: 16px;
@@ -53,6 +54,7 @@
 .noscript-body {
   @include font-size(13);
   @include card-container();
+
   border-radius: 4px;
   margin-top: 16px;
   padding: 1em;

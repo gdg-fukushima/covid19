@@ -61,6 +61,7 @@ export default Vue.extend({
 <style lang="scss">
 .WhatsNew {
   @include card-container();
+
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -69,6 +70,7 @@ export default Vue.extend({
   display: flex;
   align-items: center;
   @include card-h2();
+
   margin-bottom: 12px;
   color: $gray-2;
   margin-left: 12px;
@@ -79,7 +81,7 @@ export default Vue.extend({
 }
 
 .WhatsNew .WhatsNew-list {
-  padding-left: 0px;
+  padding-left: 0;
   list-style-type: none;
 
   &-item {
@@ -99,6 +101,7 @@ export default Vue.extend({
         @include lessThan($medium) {
           flex: 0 0 100%;
         }
+
         color: $gray-1;
       }
 

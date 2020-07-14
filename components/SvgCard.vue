@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
 .SvgCard {
-  ::v-deep svg {
+  svg {
     width: 100%;
   }
   .Graph-Desc {

@@ -34,8 +34,8 @@ export default {
     }
   },
   data() {
-    // 相談件数
-    const contactsGraph = formatGraph(Data.contacts.data)
+    // 新型コロナコールセンター相談件数
+    const contactsGraph = formatGraph(this.graphData.contacts.data)
 
     // 直近の相談受付日
     const lad = new Date(

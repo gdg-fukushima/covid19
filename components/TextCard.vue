@@ -52,15 +52,20 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+/* stylelint-disable no-descending-specificity */
+
 .TextCard {
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
   &-Heading {
     @include card-h1();
+
     margin-bottom: 12px;
     a {
       @include card-h1();
+
       color: $link !important;
       text-decoration: none;
       &:hover {

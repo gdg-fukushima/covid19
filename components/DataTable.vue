@@ -26,37 +26,38 @@
 
 <style lang="scss">
 .cardTable {
+  margin: 16px 0;
   &.v-data-table {
     th {
-      padding: 8px 10px;
-      height: auto;
-      border-bottom: 1px solid $gray-4;
-      white-space: nowrap;
-      color: $gray-2;
-      font-size: 12px;
+      padding: 8px 10px !important;
+      height: auto !important;
+      border-bottom: 1px solid $gray-4 !important;
+      white-space: nowrap !important;
+      color: $gray-2 !important;
+      font-size: 12px !important;
       &.text-center {
-        text-align: center;
+        text-align: center !important;
       }
     }
     tbody {
       tr {
-        color: $gray-1;
+        color: $gray-1 !important;
         td {
-          padding: 8px 10px;
-          height: auto;
-          font-size: 12px;
+          padding: 8px 10px !important;
+          height: auto !important;
+          font-size: 12px !important;
           &.text-center {
-            text-align: center;
+            text-align: center !important;
           }
         }
         &:nth-child(odd) {
           td {
-            background: rgba($gray-4, 0.3);
+            background: rgba($gray-4, 0.3) !important;
           }
         }
         &:not(:last-child) {
           td:not(.v-data-table__mobile-row) {
-            border: none;
+            border: none !important;
           }
         }
       }
