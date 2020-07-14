@@ -45,14 +45,14 @@ import Vue from 'vue'
 import { ThisTypedComponentOptionsWithRecordProps } from 'vue/types/options'
 import { Chart } from 'chart.js'
 import dayjs from 'dayjs'
-import { GraphDataType } from '@/utils/formatGraph'
+import { TranslateResult } from 'vue-i18n'
 import DataView from '@/components/DataView.vue'
 import DataSelector from '@/components/DataSelector.vue'
 import DataViewBasicInfoPanel from '@/components/DataViewBasicInfoPanel.vue'
 import ScrollableChart from '@/components/ScrollableChart.vue'
 import { DisplayData, yAxesBgPlugin } from '@/plugins/vue-chart'
-import { TranslateResult } from 'vue-i18n'
 import { getComplementedDate } from '@/utils/formatDate'
+import { GraphDataType } from '@/utils/formatGraph'
 
 type TableHeader = {
   text: TranslateResult
@@ -119,7 +119,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     DataView,
     DataSelector,
     DataViewBasicInfoPanel,
-    ScrollableChart,
+    ScrollableChart
   },
   props: {
     title: {
@@ -249,7 +249,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       }
     },
     displayOption() {
-      const self = this
       const unit = this.unit
       const scaledTicksYAxisMax = this.scaledTicksYAxisMax
       const options: Chart.ChartOptions = {
