@@ -37,12 +37,12 @@ export default {
     }
   },
   data() {
-    // 検査実施日別状況
+    // 検査実施数
     // '県内'の値のみ利用する
-    const zipedSummaryData = Data.inspections_summary.labels.map((e, i) => {
+    const zipedSummaryData = this.graphData.inspections_summary.labels.map((e, i) => {
       return {
         日付: e,
-        小計: Data.inspections_summary.data['県内'][i]
+        小計: this.graphData.inspections_summary.data['県内'][i]
       }
     })
     const inspectionsGraph = formatGraph(zipedSummaryData)

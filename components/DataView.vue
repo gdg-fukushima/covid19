@@ -311,7 +311,7 @@ export default Vue.extend({
     }
   }
   &-CardText {
-    margin: 16px 0;
+    margin: 0 0;
   }
   &-CardTextForXS {
     margin-bottom: 46px;
