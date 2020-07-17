@@ -63,6 +63,7 @@ export default {
   display: flex;
   flex-direction: column;
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
   word-break: break-word;

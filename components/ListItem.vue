@@ -103,7 +103,37 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+svg.isActive {
+  > path:not(:first-of-type) {
+    fill: $green-1;
+  }
+}
 .ListItem {
+  &-Text {
+    color: $gray-1;
+  }
+  &-ExternalLinkIcon {
+    margin-left: 2px;
+    color: $gray-3 !important;
+  }
+  &-TextContainer {
+    display: inline-block;
+    flex: none;
+  }
+  &-Icon {
+    color: $gray-2 !important;
+  }
+  &-IconContainer {
+    margin: 8px 3px 8px 0 !important;
+    > svg {
+      > path:not(:first-of-type) {
+        fill: $gray-2;
+      }
+
+      width: 20px;
+      height: 20px;
+    }
+  }
   &-Container {
     min-height: 30px;
     padding: 0;
@@ -144,38 +174,9 @@ export default Vue.extend({
       }
     }
   }
-  &-Text {
-    color: $gray-1;
-  }
-  &-IconContainer {
-    margin: 8px 3px 8px 0 !important;
-    > svg {
-      > path:not(:first-of-type) {
-        fill: $gray-2;
-      }
-      width: 20px;
-      height: 20px;
-    }
-  }
-  &-Icon {
-    color: $gray-2 !important;
-  }
-  &-TextContainer {
-    display: inline-block;
-    flex: none;
-  }
-  &-ExternalLinkIcon {
-    margin-left: 2px;
-    color: $gray-3 !important;
-  }
 }
 .isActive {
   color: $green-1 !important;
   font-weight: 600;
-}
-svg.isActive {
-  > path:not(:first-of-type) {
-    fill: $green-1;
-  }
 }
 </style>

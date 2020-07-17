@@ -1,11 +1,12 @@
-import { Configuration } from '@nuxt/types'
+import { NuxtConfig } from '@nuxt/types'
 import i18n from './nuxt-i18n.config'
 const purgecss = require('@fullhuman/postcss-purgecss')
 const autoprefixer = require('autoprefixer')
 const environment = process.env.NODE_ENV || 'development'
 
-const config: Configuration = {
+const config: NuxtConfig = {
   mode: 'universal',
+  target: 'static',
   /*
    ** Headers of the page
    */
@@ -136,6 +137,10 @@ const config: Configuration = {
           whitelistPatterns: [/(col|row)/]
         })
       ]
+    },
+    extend(config) {
+      // default externals option is undefined
+      config.externals = [{ moment: 'moment' }]
     },
     // https://ja.nuxtjs.org/api/configuration-build/#hardsource
     hardSource: process.env.NODE_ENV === 'development'

@@ -34,7 +34,7 @@ export default {
     }
   },
   data() {
-    // 帰国者・接触者相談センター 相談件数
+    // 帰国者・接触者相談センター相談件数
     const querentsGraph = formatGraph(this.graphData.querents.data)
 
     // 直近の相談受付日

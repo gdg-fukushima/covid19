@@ -167,6 +167,7 @@ export default Vue.extend({
 }
 .box {
   $box-height: 170px;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -177,6 +178,7 @@ export default Vue.extend({
   border: 3px solid $green-1;
   color: $green-1;
   @include font-size(14);
+
   text-align: center;
   line-height: 1.2;
   &.tall {
@@ -185,6 +187,7 @@ export default Vue.extend({
   &.short {
     height: $box-height - 35px;
   }
+
   span:last-child {
     margin-top: 0.2em;
   }
@@ -254,18 +257,16 @@ export default Vue.extend({
   right: calc(-100% - 3px - 3px);
   width: calc(100% + 3px + 3px);
   border-left: none;
-  border-right: none;
+  // border-right: none;
 }
 .item.recovered > .gutter > .box::before {
   top: calc(-35px - 3px);
   right: -3px;
   border-left: none;
+  width: 250%;
 }
 .item.serious > .gutter > .box::before {
   width: 100%;
-}
-.item.recovered > .gutter > .box::before {
-  width: 250%;
 }
 
 @function px2vw($px, $vw) {

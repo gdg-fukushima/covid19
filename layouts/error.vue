@@ -49,9 +49,11 @@ export default Vue.extend({
 .Error {
   &-Heading {
     @include font-size(30);
+
     color: $gray-2;
     font-weight: normal;
     margin-top: 28px;
+
     @include lessThan($small) {
       margin-top: 12px;
     }
@@ -59,6 +61,7 @@ export default Vue.extend({
   &-BodyContainer {
     margin-top: 12px;
     @include card-container();
+
     padding: 20px;
   }
   &-Body {
@@ -70,6 +73,7 @@ export default Vue.extend({
   }
   &-Button {
     @include button-text('md');
+
     text-decoration: none;
     max-width: 300px;
     width: 100%;

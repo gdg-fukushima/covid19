@@ -97,7 +97,7 @@ export default class LanguageSelector extends Vue {
       right: 6px;
       height: 28px;
     }
-    &:before {
+    &::before {
       content: 'Lang:';
       display: inline-block;
       position: absolute;

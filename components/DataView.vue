@@ -253,6 +253,7 @@ export default Vue.extend({
 <style lang="scss">
 .DataView {
   @include card-container();
+
   height: 100%;
   &-Header {
     display: flex;
@@ -272,7 +273,7 @@ export default Vue.extend({
   &-DataInfo {
     &-summary {
       color: $gray-2;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
@@ -290,8 +291,6 @@ export default Vue.extend({
       display: inline-block;
     }
   }
-}
-.DataView {
   &-Inner {
     display: flex;
     flex-flow: column;
@@ -312,7 +311,7 @@ export default Vue.extend({
     }
   }
   &-CardText {
-    margin: 16px 0;
+    margin: 0 0;
   }
   &-CardTextForXS {
     margin-bottom: 46px;
@@ -323,6 +322,7 @@ export default Vue.extend({
   }
   &-Footer {
     @include font-size(12);
+
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -346,7 +346,6 @@ export default Vue.extend({
 
     .Footer-Right {
       position: relative;
-
       display: flex;
       align-items: flex-end;
       .DataView-Share-Opener {
@@ -370,7 +369,7 @@ export default Vue.extend({
         z-index: 9000;
 
         > * {
-          padding: 4px 0px;
+          padding: 4px 0;
         }
 
         > .Close-Button {
@@ -386,7 +385,6 @@ export default Vue.extend({
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
-
           font-size: 12px;
 
           .EmbedCode-Copy {
