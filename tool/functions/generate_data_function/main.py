@@ -68,7 +68,7 @@ def generate_short_datetime(datetime):
 def list_dir(url, ext=''):
   page = requests.get(url).text
   soup = BeautifulSoup(page, 'html.parser')
-  return [url + '/' + node.get('href') for node in soup.find_all('a') if node.get('href').endswith(ext)]
+  return [url + node.get('href') for node in soup.find_all('a') if node.get('href').endswith(ext)]
 
 
 def upload_json(bucket_name, destination_blob_name, data):
@@ -128,8 +128,6 @@ class Patient():
 def generate_patiens_data(patients, patients_csv_datetime):
   patients_data = []
   patients_count_index = {}
-  died_count = 0
-  discharged_count = 0
   start_date = None
   end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=12)
   last_date = None
@@ -146,13 +144,9 @@ def generate_patiens_data(patients, patients_csv_datetime):
       '居住地': patient.residence,
       '年代': patient.generation,
       '性別': patient.gender,
-      '退院': '退院' if patient.is_discharged else '',
+      '退院': '',
       'date': generate_datetime_iso(patient.announced_at)
     })
-    if patient.has_died:
-      died_count += 1
-    if patient.is_discharged:
-      discharged_count += 1
     if announce_iso_time_str not in patients_count_index:
       patients_count_index[announce_iso_time_str] = 1
     else:
@@ -178,7 +172,34 @@ def generate_patiens_data(patients, patients_csv_datetime):
         '小計': 0
     })
 
-  return patients_data, patients_summary, discharges_summary, died_count, discharged_count
+  return patients_data, patients_summary, discharges_summary
+
+class Pcount():
+  confirmed_at = None
+  comune_code = None
+  pref_name = None
+  city_name = None
+  patients = None
+  dead = None
+  discharged = None
+
+  def __init__(self, confirmed_at, comune_code, pref_name, city_name, patients, dead, discharged):
+    self.confirmed_at = get_datetime(confirmed_at)
+    self.comune_code = comune_code
+    self.pref_name = pref_name
+    self.city_name = city_name
+    self.patients = int(patients)
+    self.dead = int(dead)
+    self.discharged = int(discharged)
+
+
+def generate_pcounts_data(pcounts):
+  data_pref = []
+  data_etc = []
+  labels = []
+  pcounts = [Pcount(*row) for row in pcounts[1:] if row[0]]
+  pcounts = sorted(pcounts, key=lambda t: t.confirmed_at)
+  return pcounts[-1]
 
 
 class Inspection():
@@ -255,19 +276,31 @@ def generate_patiens_json():
   patients_csv_string, patients_csv_datetime = fetch_csv_as_string(patients_file_latest_uri)
   upload_csv(GCP_PROJECT, 'csv/patients.csv', patients_csv_string)
   patients = csv_string_to_list(patients_csv_string)
-  patients_data, patients_summary, discharges_summary, patient_dided, patient_discharged = generate_patiens_data(patients, patients_csv_datetime)
+  patients_data, patients_summary, discharges_summary = generate_patiens_data(patients, patients_csv_datetime)
   DATETIME_LIST.append(patients_csv_datetime)
   DATA['new']['patients']['data'] = patients_data
-  DATA['new']['main_summary']['children'][0]['value'] = len(patients_data)
-  DATA['new']['main_summary']['children'][0]['children'][0]['value'] = len(patients_data) - patient_discharged
-  DATA['new']['main_summary']['children'][0]['children'][1]['value'] = patient_discharged
-  DATA['new']['main_summary']['children'][0]['children'][2]['value'] = patient_dided
   patients_csv_datetime_str = generate_datetime_readable(patients_csv_datetime)
   DATA['new']['patients']['date'] = patients_csv_datetime_str
   DATA['new']['patients_summary']['date'] = patients_csv_datetime_str
   DATA['new']['patients_summary']['data'] = patients_summary
   DATA['new']['discharges_summary']['date'] = patients_csv_datetime_str
   DATA['new']['discharges_summary']['data'] = discharges_summary
+
+
+def generate_summary_json():
+  pcounts_dir_list = list_dir('http://www.pref.fukushima.lg.jp/w4/covid19/pcount/')
+  pcounts_file_latest_uri = pcounts_dir_list[-1]
+  logging.info(pcounts_file_latest_uri)
+  pcounts_csv_string, pcounts_csv_datetime = fetch_csv_as_string(pcounts_file_latest_uri)
+  upload_csv(GCP_PROJECT, 'csv/pcounts.csv', pcounts_csv_string)
+  pcounts = csv_string_to_list(pcounts_csv_string)
+  pcount = generate_pcounts_data(pcounts)
+  DATETIME_LIST.append(pcounts_csv_datetime)
+  total = pcount.patients + pcount.dead + pcount.discharged
+  DATA['new']['main_summary']['children'][0]['value'] = total
+  DATA['new']['main_summary']['children'][0]['children'][0]['value'] = pcount.patients
+  DATA['new']['main_summary']['children'][0]['children'][1]['value'] = pcount.discharged
+  DATA['new']['main_summary']['children'][0]['children'][2]['value'] = pcount.dead
 
 
 # Inspections 福島県_新型コロナウイルス検査件数
@@ -456,6 +489,7 @@ def check_update():
 def main(request):
   DATA['prev'] = load_prev_data()
   generate_patiens_json()
+  generate_summary_json()
   generate_inspection_json()
   generate_contacts_json()
   generate_querents_json()
