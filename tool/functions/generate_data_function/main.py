@@ -129,7 +129,7 @@ def generate_patiens_data(patients, patients_csv_datetime):
   patients_data = []
   patients_count_index = {}
   start_date = None
-  end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=12)
+  end_date = patients_csv_datetime.replace(tzinfo=None) - timedelta(hours=24)
   last_date = None
   patients = [Patient(*row) for row in patients[1:] if row[0]]
   patients = sorted(patients, key=lambda t: t.announced_at)
