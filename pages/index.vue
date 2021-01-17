@@ -133,8 +133,8 @@ export default Vue.extend({
                 }
               },{
                 "@type": "Dataset",
-                "name" : "福島県 帰国者・接触者相談センター 相談件数",
-                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）における帰国者・接触者相談センターが受け付けた相談件数",
+                "name" : "福島県 受診・相談センター 相談件数",
+                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）における受診・相談センターが受け付けた相談件数",
                 "sameAs": "https://www.pref.fukushima.lg.jp/sec/21045c/covid19-opendata.html",
                 "license": "https://creativecommons.org/licenses/by/2.1/jp/",
                 "distribution" : {
