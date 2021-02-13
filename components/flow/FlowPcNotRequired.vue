@@ -1,14 +1,14 @@
 <template>
   <div :class="$style.flowContainer">
     <h3 :class="$style.sectionTitle">
-      <i18n path=" {advice} と判断された場合" tag="p">
+      <i18n path="{advice}と判断された場合" tag="p">
         <strong place="advice">
           {{ $t('検査が不要') }}
         </strong>
       </i18n>
     </h3>
     <h3 :class="$style.sectionTitle">
-      <i18n path=" {advice} の場合" tag="p">
+      <i18n path="{advice}の場合" tag="p">
         <strong place="advice">
           {{ $t('検査結果が陰性') }}
         </strong>

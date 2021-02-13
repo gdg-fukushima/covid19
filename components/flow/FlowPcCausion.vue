@@ -2,7 +2,9 @@
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
       {{
-        $t('注意・対応が必要なため医療機関に行く前に必ず電話で相談して下さい。')
+        $t(
+          '注意・対応が必要なため、医療機関に行く前に必ず電話で相談してください。'
+        )
       }}
     </div>
   </section>

@@ -8,7 +8,7 @@
             src="/flow/accessibility-24px.svg"
             aria-hidden="true"
           />
-          {{ $t('一般の方') }}
+          {{ $t('症状のある方') }}
         </p>
         <div :class="$style.FlowRowCondition">
           <p>{{ $t('発熱がある') }}</p>

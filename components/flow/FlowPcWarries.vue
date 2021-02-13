@@ -8,7 +8,7 @@
             src="/flow/sentiment_very_dissatisfied-24px.svg"
             aria-hidden="true"
           />
-          {{ $t('相談したい方') }}
+          {{ $t('相談をしたい方') }}
         </p>
       </div>
     </div>

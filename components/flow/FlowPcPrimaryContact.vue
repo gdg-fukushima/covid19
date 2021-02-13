@@ -2,8 +2,8 @@
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('先ずは身近な医療機関に') }} <br />
-        {{ $t('電話で相談ください') }}
+        {{ $t('まずは身近な医療機関に') }} <br />
+        {{ $t('電話でご相談ください') }}
       </div>
     </div>
   </div>

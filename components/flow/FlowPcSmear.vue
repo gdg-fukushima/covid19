@@ -2,7 +2,7 @@
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('新型コロナウイルス感染症に関する誹謗中傷被害の相談窓口') }}
+        {{ $t('新型コロナウイルス感染症に関する誹謗中傷等被害の相談窓口') }}
       </div>
       <div :class="$style.SmallerText">
         {{ $t('平日：午前9時から午後5時') }}

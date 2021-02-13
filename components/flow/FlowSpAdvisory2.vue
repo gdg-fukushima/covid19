@@ -1,34 +1,25 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('帰国者・接触者') }}<br />
-      {{ $t('相談センター') }}
+      {{ $t('一般相談') }}<br />
+      {{ $t('コールセンター') }}
     </h4>
     <p :class="[$style.phone, $style.fzNumeric]">
       <span :class="$style.icon">
         <PhoneIcon alt="Phone" />
       </span>
-      <a :class="$style.TelLink" href="tel:0120-567-747">0120-567-747</a>
+      <a :class="$style.TelLink" href="tel:120-567-177">120-567-177</a>
     </p>
     <p :class="[$style.open, $style.fzMedium]">
-      <span>{{ $t('24時間対応') }}</span>
+      <span>
+        {{ $t('平日：午前8時30分から午後9時') }}<br />
+        {{ $t('土日祝日：午前8時30分から午後5時15分') }}
+      </span>
     </p>
-    <dl>
-      <div :class="$style.daytime">
-        <dd :class="$style.link">
-          <a
-            href="https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html#center"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('帰国者・接触者相談センターについて') }}
-            <v-icon size="16">
-              mdi-open-in-new
-            </v-icon>
-          </a>
-        </dd>
-      </div>
-    </dl>
+    <p :class="[$style.text, $style.fzMedium]">
+      {{ $t('耳の不自由な方') }}<br />
+      {{ $t('FAX 024-521-7926') }}
+    </p>
   </div>
 </template>
 
@@ -57,6 +48,12 @@ export default {
     padding: px2vw(20) px2vw(40);
     border-radius: px2vw(6);
   }
+}
+.text {
+  margin-top: px2vw(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .daytime {
   margin-top: px2vw(20);

@@ -7,10 +7,10 @@
           src="/flow/hotel-24px.svg"
           aria-hidden="true"
         />
-        {{ $t('入院となります') }}
+        {{ $t('感染症指定医療機関等') }}
       </p>
       <p :class="$style.FlowPcHospitalizedsubHeading">
-        {{ $t('感染症指定医療機関等') }}
+        {{ $t('入院') }}
       </p>
     </div>
     <div :class="$style.TwoRow">

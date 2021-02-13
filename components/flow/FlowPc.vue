@@ -63,7 +63,7 @@
       <i18n
         :class="$style.TitleSmall"
         tag="span"
-        path="{advisory}による相談結果"
+        path="{advisory}による相談・診察結果"
       >
         <span :class="$style.TitleLarge" place="advisory">
           {{ $t('かかりつけ医等の医療機関') }}

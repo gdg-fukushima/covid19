@@ -4,13 +4,28 @@
       {{ $t('新型コロナウイルス感染症にかかる相談窓口について') }}
     </h3>
     <div :class="$style.FlowCard">
-      <flow-sp-general />
+      <flow-sp-select />
     </div>
     <div :class="$style.FlowCard">
-      <flow-sp-suspect />
+      <flow-sp-general />
     </div>
     <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
-      <flow-sp-advisory />
+      <flow-sp-primary-care />
+    </div>
+    <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
+      <flow-sp-advisory-center />
+    </div>
+    <div :class="$style.FlowCard">
+      <flow-sp-warries />
+    </div>
+    <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
+      <flow-sp-mental />
+    </div>
+    <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
+      <flow-sp-smear />
+    </div>
+    <div :class="[$style.FlowCard, $style.FlowCardGrayBg]">
+      <flow-sp-advisory2 />
     </div>
     <div :class="$style.FlowCard">
       <flow-sp-according />
@@ -24,17 +39,27 @@
 <script>
 import VueScrollTo from 'vue-scrollto'
 
+import FlowSpSelect from './FlowSpSelect.vue'
 import FlowSpGeneral from './FlowSpGeneral.vue'
-import FlowSpSuspect from './FlowSpSuspect.vue'
-import FlowSpAdvisory from './FlowSpAdvisory.vue'
+import FlowSpPrimaryCare from './FlowSpPrimaryCare.vue'
+import FlowSpAdvisoryCenter from './FlowSpAdvisoryCenter.vue'
+import FlowSpWarries from './FlowSpWarries.vue'
+import FlowSpMental from './FlowSpMental.vue'
+import FlowSpSmear from './FlowSpSmear.vue'
+import FlowSpAdvisory2 from './FlowSpAdvisory2.vue'
 import FlowSpAccording from './FlowSpAccording.vue'
 import FlowSpHospitalized from './FlowSpHospitalized.vue'
 
 export default {
   components: {
+    FlowSpSelect,
     FlowSpGeneral,
-    FlowSpSuspect,
-    FlowSpAdvisory,
+    FlowSpPrimaryCare,
+    FlowSpAdvisoryCenter,
+    FlowSpWarries,
+    FlowSpMental,
+    FlowSpSmear,
+    FlowSpAdvisory2,
     FlowSpAccording,
     FlowSpHospitalized
   },

@@ -18,10 +18,8 @@
           0120-567-747
         </a>
       </div>
-      <span :class="$style.SmallerText">
-        {{ $t('耳の不自由な方') }}
-      </span>
-      <span :class="$style.LargerText">
+      <span :class="$style.fzSmall">
+        {{ $t('耳の不自由な方') }}<br />
         {{ $t('FAX 024-521-7926') }}
       </span>
     </div>
