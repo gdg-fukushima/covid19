@@ -72,6 +72,12 @@
       }
     }
   }
+  &.triple {
+    flex-wrap: wrap;
+    > .symptom {
+      flex-basis: 31%;
+    }
+  }
 }
 // general, elder
 .duration {
@@ -202,6 +208,12 @@
         &:nth-child(n + 3) {
           margin-top: px2vw(45, $vw);
         }
+      }
+    }
+    &.triple {
+      flex-wrap: wrap;
+      > .symptom {
+        flex-basis: 31%;
       }
     }
   }

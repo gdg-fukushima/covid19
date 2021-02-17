@@ -4,10 +4,13 @@
       <span :class="[$style.icon, $style.top]">
         <HotelIcon aria-hidden="true" />
       </span>
-      <span :class="$style.fzMedium">{{ $t('入院となります') }}</span>
+      <span :class="$style.fzMedium">{{ $t('入院') }}</span>
     </p>
     <p :class="[$style.facility, $style.fzXLarge]">
-      {{ $t('感染症指定医療機関等') }}
+      {{ $t('感染症指定医療機関等') }}<br />
+      <span :class="$style.fzMedium">
+        {{ $t('軽症者療養施設への宿泊の場合があります') }}
+      </span>
     </p>
   </div>
 </template>

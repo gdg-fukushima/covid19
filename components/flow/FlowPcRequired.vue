@@ -1,20 +1,9 @@
 <template>
   <div :class="$style.Container">
     <div :class="$style.Row">
-      <i18n
-        :class="$style.Catch"
-        tag="p"
-        path="新型コロナ外来 {advice} と判断された場合"
-      >
-        <span :class="$style.Emphasis" place="advice">
-          {{ $t('受診が必要') }}
-        </span>
-      </i18n>
-    </div>
-    <div :class="$style.Row">
       <div :class="[$style.Card, $style.CardLarge, $style.CardGray]">
         <p :class="$style.Outpatient">
-          {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
+          {{ $t('かかりつけ医等の医療機関') }}
         </p>
         <p :class="$style.Judge">
           {{ $t('医師による判断') }}
@@ -43,6 +32,7 @@
 <style module lang="scss">
 .Container {
   @include card-container();
+
   display: flex;
   flex-direction: column;
   position: relative;

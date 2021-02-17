@@ -8,11 +8,9 @@
     <whats-new class="mb-4" :items="newsItems" />
     <static-info
       class="mb-4"
-      :url="
-        'https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html'
-      "
-      :text="$t('自分や家族の症状に不安や心配がある場合（県公式サイト）')"
-      :btn-text="$t('公式の情報を見る')"
+      :url="localePath('/flow')"
+      :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
+      :btn-text="$t('相談の手順を見る')"
     />
     <div v-if="dataLoaded">
       <v-row class="DataBlock">
@@ -61,7 +59,7 @@ export default Vue.extend({
       dataLoaded: false,
       headerItem: {
         icon: 'mdi-chart-timeline-variant',
-        title: this.$t('県内の最新感染動向'),
+        title: this.$t('福島県内の最新感染動向'),
         date: ''
       },
       newsItems: News.news_items
@@ -82,7 +80,74 @@ export default Vue.extend({
   },
   head(): MetaInfo {
     return {
-      title: this.$t('県内の最新感染動向') as string
+      title: this.$t('福島県内の最新感染動向') as string,
+      __dangerouslyDisableSanitizers: ['script'],
+      script: [
+        {
+          innerHTML: `{
+              "@context": "https://schema.org",
+              "@type": "SpecialAnnouncement",
+              "name": "福島県内の新型コロナウイルス感染動向",
+              "text": "福島県内における新型コロナウイルスの陽性患者数や属性、PCR検査数などをお知らせしています。",
+              "url": "https://fukushima-covid19.web.app/",
+              "datePosted": "2020-05-05T00:00",
+              "expires": "2021-03-31T23:59",
+              "spatialCoverage": [{
+                "@context":"https://schema.org/",
+                "@type": "AdministrativeArea",
+                "name": "福島県"
+              }],
+              "category": "https://www.wikidata.org/wiki/Q81068910",
+              "diseaseSpreadStatistics" : [{
+                "@type": "Dataset",
+                "name" : "福島県 新型コロナウイルス陽性患者属性",
+                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）陽性患者の公表日・居住地・年代・性別・退院・死亡に関するデータ。（注）チャーター機帰国者、クルーズ船乗客等は含まれていない（注）入院中には宿泊療養を含む",
+                "sameAs": "https://www.pref.fukushima.lg.jp/sec/21045c/covid19-opendata.html",
+                "license": "https://creativecommons.org/licenses/by/2.1/jp/",
+                "distribution" : {
+                    "@type": "DataDownload",
+                    "contentUrl": "https://storage.googleapis.com/fukushima-covid19/csv/patients.csv",
+                    "encodingFormat" : "text/csv"
+                }
+              },{
+                "@type": "Dataset",
+                "name" : "福島県 新型コロナウイルス検査件数",
+                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）におけるPCR検査件数の日次データ。（注）以下は検査実施数に含まれていない 1)チャーター機帰国者、クルーズ船乗客等 2)退院のための検査（注）速報値として公開するものであり、後日確定データとして修正される場合あり",
+                "sameAs": "https://www.pref.fukushima.lg.jp/sec/21045c/covid19-opendata.html",
+                "license": "https://creativecommons.org/licenses/by/2.1/jp/",
+                "distribution" : {
+                    "@type": "DataDownload",
+                    "contentUrl": "https://storage.googleapis.com/fukushima-covid19/csv/inspections.csv",
+                    "encodingFormat" : "text/csv"
+                }
+              },{
+                "@type": "Dataset",
+                "name" : "福島県 相談窓口 相談件数",
+                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）における受診相談窓口が受け付けた相談件数",
+                "sameAs": "https://www.pref.fukushima.lg.jp/sec/21045c/covid19-opendata.html",
+                "license": "https://creativecommons.org/licenses/by/2.1/jp/",
+                "distribution" : {
+                    "@type": "DataDownload",
+                    "contentUrl": "https://storage.googleapis.com/fukushima-covid19/csv/contacts.csv",
+                    "encodingFormat" : "text/csv"
+                }
+              },{
+                "@type": "Dataset",
+                "name" : "福島県 受診・相談センター 相談件数",
+                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）における受診・相談センターが受け付けた相談件数",
+                "sameAs": "https://www.pref.fukushima.lg.jp/sec/21045c/covid19-opendata.html",
+                "license": "https://creativecommons.org/licenses/by/2.1/jp/",
+                "distribution" : {
+                    "@type": "DataDownload",
+                    "contentUrl": "https://storage.googleapis.com/fukushima-covid19/csv/querents.csv",
+                    "encodingFormat" : "text/csv"
+                }
+              }]
+            }
+          `,
+          type: 'application/ld+json'
+        }
+      ]
     }
   }
 })

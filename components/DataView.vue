@@ -54,7 +54,7 @@
             </div>
 
             <h4>{{ $t('埋め込み用コード') }}</h4>
-
+            <h5>iframe</h5>
             <div class="EmbedCode">
               <v-icon
                 v-if="isCopyAvailable()"
@@ -64,6 +64,17 @@
                 far fa-clipboard
               </v-icon>
               {{ graphEmbedValue }}
+            </div>
+            <h5>img</h5>
+            <div class="EmbedCode">
+              <v-icon
+                v-if="isCopyAvailable()"
+                class="EmbedCode-Copy"
+                @click="copyImageCode"
+              >
+                far fa-clipboard
+              </v-icon>
+              {{ graphImageValue }}
             </div>
 
             <div class="Buttons">
@@ -157,6 +168,13 @@ export default Vue.extend({
         this.permalink(true, true) +
         '" frameborder="0"></iframe>'
       return graphEmbedValue
+    },
+    graphImageValue(): string {
+      const siteUrl = location.protocol + '//' + location.host
+      const cdnBaseUrl = 'https://cdn2.dott.dev/images'
+      const imageTag = `<img src="${cdnBaseUrl}/${this.titleId}.png" />`
+      const imageLink = `<a href="${siteUrl}">${imageTag}</a>`
+      return imageLink
     }
   },
   methods: {
@@ -172,6 +190,17 @@ export default Vue.extend({
     copyEmbedCode() {
       const self = this
       navigator.clipboard.writeText(this.graphEmbedValue).then(() => {
+        self.closeShareMenu()
+
+        self.showOverlay = true
+        setTimeout(() => {
+          self.showOverlay = false
+        }, 2000)
+      })
+    },
+    copyImageCode() {
+      const self = this
+      navigator.clipboard.writeText(this.graphImageValue).then(() => {
         self.closeShareMenu()
 
         self.showOverlay = true
@@ -224,6 +253,7 @@ export default Vue.extend({
 <style lang="scss">
 .DataView {
   @include card-container();
+
   height: 100%;
   &-Header {
     display: flex;
@@ -243,7 +273,7 @@ export default Vue.extend({
   &-DataInfo {
     &-summary {
       color: $gray-2;
-      font-family: Hiragino Sans;
+      font-family: Hiragino Sans, sans-serif;
       font-style: normal;
       font-size: 30px;
       line-height: 30px;
@@ -261,8 +291,6 @@ export default Vue.extend({
       display: inline-block;
     }
   }
-}
-.DataView {
   &-Inner {
     display: flex;
     flex-flow: column;
@@ -283,7 +311,7 @@ export default Vue.extend({
     }
   }
   &-CardText {
-    margin: 16px 0;
+    margin: 0 0;
   }
   &-CardTextForXS {
     margin-bottom: 46px;
@@ -294,6 +322,7 @@ export default Vue.extend({
   }
   &-Footer {
     @include font-size(12);
+
     padding: 0 !important;
     display: flex;
     justify-content: space-between;
@@ -317,7 +346,6 @@ export default Vue.extend({
 
     .Footer-Right {
       position: relative;
-
       display: flex;
       align-items: flex-end;
       .DataView-Share-Opener {
@@ -341,7 +369,7 @@ export default Vue.extend({
         z-index: 9000;
 
         > * {
-          padding: 4px 0px;
+          padding: 4px 0;
         }
 
         > .Close-Button {
@@ -357,7 +385,6 @@ export default Vue.extend({
           color: rgb(3, 3, 3);
           border: solid 1px #eee;
           border-radius: 8px;
-
           font-size: 12px;
 
           .EmbedCode-Copy {

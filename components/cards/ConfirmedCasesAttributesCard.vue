@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <data-table
+      id="attributes-of-confirmed-cases"
       :title="$t('陽性患者の属性')"
       :title-id="'attributes-of-confirmed-cases'"
       :chart-data="patientsTable"
@@ -49,8 +50,7 @@ export default {
 
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+      header.text = this.$t(header.value)
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of patientsTable.datasets) {
@@ -59,6 +59,8 @@ export default {
 
       if (row['年代'] === '10歳未満') {
         row['年代'] = this.$t('10歳未満')
+      } else if (row['年代'] === '90歳以上') {
+        row['年代'] = this.$t('90歳以上')
       } else {
         const age = row['年代'].substring(0, 2)
         row['年代'] = this.$t('{age}代', { age })
@@ -92,8 +94,7 @@ export default {
 
     // 陽性患者の属性 ヘッダー翻訳
     for (const header of this.patientsTable.headers) {
-      header.text =
-        header.value === '退院' ? this.$t('退院※') : this.$t(header.value)
+      header.text = this.$t(header.value)
     }
     // 陽性患者の属性 中身の翻訳
     for (const row of this.patientsTable.datasets) {
@@ -102,6 +103,8 @@ export default {
 
       if (row['年代'] === '10歳未満') {
         row['年代'] = this.$t('10歳未満')
+      } else if (row['年代'] === '90歳以上') {
+        row['年代'] = this.$t('90歳以上')
       } else {
         const age = row['年代'].substring(0, 2)
         row['年代'] = this.$t('{age}代', { age })

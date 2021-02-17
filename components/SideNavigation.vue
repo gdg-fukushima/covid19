@@ -161,7 +161,7 @@ export default Vue.extend({
       return [
         {
           icon: 'mdi-chart-timeline-variant',
-          title: this.$t('県内の最新感染動向'),
+          title: this.$t('福島県内の最新感染動向'),
           link: this.localePath('/')
         },
         {
@@ -215,11 +215,10 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .SideNavigation {
-  background: #fff;
+  background: $white;
   position: relative;
   height: 100%;
-  background: $white;
-  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.15);
   &-HeadingContainer {
     padding: 1.25em 0 1.25em 1.25em;
     align-items: center;
@@ -235,6 +234,7 @@ export default Vue.extend({
       display: flex;
       align-items: center;
     }
+
     text-decoration: none;
   }
   &-ListContainerIcon {
@@ -265,7 +265,7 @@ export default Vue.extend({
     }
   }
   &-HeadingDivider {
-    margin: 0px 20px 4px;
+    margin: 0 20px 4px;
     @include lessThan($small) {
       display: none;
     }

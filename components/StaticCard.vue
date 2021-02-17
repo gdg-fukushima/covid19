@@ -13,6 +13,7 @@ export default Vue.extend()
 <style lang="scss">
 .StaticCard {
   @include card-container();
+
   padding: 20px;
   margin-bottom: 20px;
   > *:not(:first-child) {
@@ -70,6 +71,7 @@ export default Vue.extend()
   }
   a {
     @include text-link();
+
     font-size: inherit;
   }
   a[target='_blank']::after {
@@ -78,21 +80,12 @@ export default Vue.extend()
     margin-right: 0.2em;
     display: inline-block;
     text-decoration: none;
-    font: normal normal normal 24px/1 'Material Design Icons';
+    font: normal normal normal 24px/1 'Material Design Icons', sans-serif;
     font-size: inherit;
     text-rendering: auto;
     line-height: inherit;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  &-Note {
-    display: flex;
-    span {
-      display: block;
-      &:first-child {
-        margin-right: 0.5em;
-      }
-    }
   }
   &-Notes {
     padding-left: 0 !important;

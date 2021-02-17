@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
+      id="number-of-tested"
       :title="$t('検査実施数')"
       :title-id="'number-of-tested'"
       :chart-id="'time-bar-chart-inspections'"
@@ -36,14 +37,16 @@ export default {
     }
   },
   data() {
-    // 検査実施日別状況
+    // 検査実施数
     // '県内'の値のみ利用する
-    const zipedSummaryData = Data.inspections_summary.labels.map((e, i) => {
-      return {
-        日付: e,
-        小計: Data.inspections_summary.data['県内'][i]
+    const zipedSummaryData = this.graphData.inspections_summary.labels.map(
+      (e, i) => {
+        return {
+          日付: e,
+          小計: this.graphData.inspections_summary.data['県内'][i]
+        }
       }
-    })
+    )
     const inspectionsGraph = formatGraph(zipedSummaryData)
     const lastAcquisiteDate = `${
       inspectionsGraph[inspectionsGraph.length - 1].label

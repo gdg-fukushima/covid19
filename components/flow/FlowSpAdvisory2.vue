@@ -1,39 +1,34 @@
 <template>
   <div :class="$style.container">
     <h4 id="consult" :class="[$style.heading, $style.fzXLarge]">
-      {{ $t('新型コロナ受診相談窓口（日本語のみ）') }}
-      <small :class="[$style.break, $style.fzRegular, $style.mt5]">{{
-        $t('帰国者・接触者相談センター')
-      }}</small>
+      {{ $t('一般相談') }}<br />
+      {{ $t('コールセンター') }}
     </h4>
-    <p :class="[$style.open, $style.fzMedium]">
-      <span>{{ $t('24時間対応') }}</span>
+    <p :class="[$style.phone, $style.fzNumeric]">
+      <span :class="$style.icon">
+        <PhoneIcon alt="Phone" />
+      </span>
+      <a :class="$style.TelLink" href="tel:120-567-177">120-567-177</a>
     </p>
-    <dl>
-      <div :class="$style.daytime">
-        <dd :class="$style.link">
-          <a
-            href="https://www.pref.fukushima.lg.jp/sec/21045c/coronavirus-taiou.html#center"
-            target="_blank"
-            rel="noopener"
-          >
-            {{ $t('帰国者・接触者相談センター') }}
-            <v-icon size="16">
-              mdi-open-in-new
-            </v-icon>
-          </a>
-        </dd>
-      </div>
-    </dl>
+    <p :class="[$style.open, $style.fzMedium]">
+      <span>
+        {{ $t('平日：午前8時30分から午後9時') }}<br />
+        {{ $t('土日祝日：午前8時30分から午後5時15分') }}
+      </span>
+    </p>
+    <p :class="[$style.text, $style.fzMedium]">
+      {{ $t('耳の不自由な方') }}<br />
+      {{ $t('FAX 024-521-7926') }}
+    </p>
   </div>
 </template>
 
 <script lang="ts">
-// import PhoneIcon from '@/static/flow/responsive/phone.svg'
+import PhoneIcon from '@/static/flow/responsive/phone.svg'
 
-// export default {
-//   components: { PhoneIcon }
-// }
+export default {
+  components: { PhoneIcon }
+}
 </script>
 
 <style module lang="scss">
@@ -54,13 +49,19 @@
     border-radius: px2vw(6);
   }
 }
+.text {
+  margin-top: px2vw(20);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .daytime {
   margin-top: px2vw(20);
   display: flex;
   border-top: 1px solid $gray-4;
   border-bottom: 1px solid $gray-4;
   > * {
-    padding: px2vw(30) px2vw(10);
+    padding: px2vw(30) px2vw(40);
     display: flex;
     align-items: center;
     justify-content: center;

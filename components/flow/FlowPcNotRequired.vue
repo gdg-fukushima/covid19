@@ -1,9 +1,16 @@
 <template>
   <div :class="$style.flowContainer">
     <h3 :class="$style.sectionTitle">
-      <i18n path="新型コロナ外来 {advice} と判断された場合" tag="p">
+      <i18n path="{advice}と判断された場合" tag="p">
         <strong place="advice">
-          {{ $t('受診が不要') }}
+          {{ $t('検査が不要') }}
+        </strong>
+      </i18n>
+    </h3>
+    <h3 :class="$style.sectionTitle">
+      <i18n path="{advice}の場合" tag="p">
+        <strong place="advice">
+          {{ $t('検査結果が陰性') }}
         </strong>
       </i18n>
     </h3>
@@ -17,21 +24,14 @@
           />
           {{ $t('自宅で安静に過ごす') }}
         </li>
-        <li :class="$style.actionsList">
-          <img
-            :class="$style.actionsListIcon"
-            src="/flow/apartment-24px.svg"
-            aria-hidden="true"
-          />
-          {{ $t('一般の医療機関を受診') }}
-        </li>
       </ul>
       <div :class="$style.nextAction">
-        <i18n path="{getWorse}{advisory}に相談" :class="$style.content">
+        <i18n path="{getWorse}{advisory}に改めて相談" :class="$style.content">
           <span place="getWorse">{{ $t('症状が良くならない場合は') }}</span>
-          <strong place="advisory">{{
-            $t('新型コロナ受診相談窓口（日本語のみ）')
-          }}</strong>
+          <strong place="advisory">
+            {{ $t('受診した') }}<br />
+            {{ $t('医療機関') }}
+          </strong>
         </i18n>
       </div>
     </div>
@@ -41,6 +41,7 @@
 <style module lang="scss">
 .flowContainer {
   @include card-container();
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

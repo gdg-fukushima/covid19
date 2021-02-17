@@ -1,6 +1,7 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
     <time-bar-chart
+      id="number-of-reports-to-covid19-consultation-desk"
       :title="$t('帰国者・接触者相談センター相談件数')"
       :title-id="'number-of-reports-to-covid19-consultation-desk'"
       :chart-id="'time-bar-chart-querents'"
@@ -33,7 +34,7 @@ export default {
     }
   },
   data() {
-    // 帰国者・接触者相談センター 相談件数
+    // 帰国者・接触者相談センター相談件数
     const querentsGraph = formatGraph(this.graphData.querents.data)
 
     // 直近の相談受付日

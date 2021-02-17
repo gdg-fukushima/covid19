@@ -60,6 +60,7 @@ export default Vue.extend({
     }
     &-Title {
       @include font-size(30);
+
       font-weight: normal;
       color: $gray-2;
       margin-left: 8px;
@@ -68,6 +69,7 @@ export default Vue.extend({
   &-Card-Button {
     @include button-text('md');
     @include font-size(20);
+
     font-weight: bold;
     display: inline-block;
     text-decoration: none;
