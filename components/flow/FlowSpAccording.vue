@@ -2,21 +2,12 @@
   <div :class="[$style.container, $style.according]">
     <i18n tag="div" :class="$style.heading" path="{advisory}による相談結果">
       <span :class="[$style.fzLarge, $style.break]" place="advisory">
-        {{ $t('新型コロナ受診相談窓口') }}
-      </span>
-    </i18n>
-    <i18n
-      tag="p"
-      :class="$style.diag"
-      path="新型コロナ外来 {advice} と判断された場合"
-    >
-      <span :class="[$style.fzXLLarge, $style.break]" place="advice">
-        {{ $t('受診が必要') }}
+        {{ $t('かかりつけ医等の医療機関') }}
       </span>
     </i18n>
     <p :class="$style.decision">
       <span :class="$style.fzSmall">
-        {{ $t('新型コロナ外来（帰国者・接触者外来）') }}
+        {{ $t('かかりつけ医等の医療機関') }}
       </span>
       <span :class="[$style.fzLarge, $style.break]">{{
         $t('医師による判断')
@@ -114,19 +105,13 @@
         </div>
         <p>{{ $t('自宅で安静に過ごす') }}</p>
       </div>
-      <div :class="[$style.rect, $style.solution]">
-        <div :class="$style.icon" aria-hidden="true">
-          <Apartment />
-        </div>
-        <p>{{ $t('一般の医療機関を受診') }}</p>
-      </div>
       <div :class="[$style.rect, $style.consult]">
         <p>
-          <i18n path="{getWorse}{advisory}に相談">
+          <i18n path="{getWorse}{advisory}に改めて相談">
             <i18n place="getWorse" path="症状が良くならない場合は" />
             <strong :class="$style.advisory" place="advisory">
-              {{ $t('帰国者・接触者') }}<br />
-              {{ $t('相談センター') }}
+              {{ $t('受診した') }}<br />
+              {{ $t('医療機関') }}
             </strong>
           </i18n>
         </p>
@@ -136,14 +121,12 @@
 </template>
 
 <script>
-import Apartment from '@/static/flow/responsive/apartment.svg'
 import House from '@/static/flow/responsive/house.svg'
 import Arrow from '@/static/flow/responsive/arrow_downward.svg'
 import GreenArrow from '@/static/flow/responsive/arrow_green.svg'
 
 export default {
   components: {
-    Apartment,
     House,
     Arrow,
     GreenArrow

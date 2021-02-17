@@ -1,42 +1,43 @@
 <template>
-  <div :class="$style.container">
-    <p id="symptom" :class="$style.heading">
-      <span :class="[$style.icon, $style.top]" aria-hidden="true">
-        <HumanIcon />
+  <div id="warries" :class="$style.container">
+    <p :class="$style.heading">
+      <span :class="[$style.icon, $style.top]">
+        <SentimentIcon aria-hidden="true" />
       </span>
-      <span :class="$style.fzMedium">{{ $t('症状のある方') }}</span>
+      <span :class="$style.fzMedium">{{ $t('相談をしたい方') }}</span>
     </p>
-    <ul :class="[$style.rectContainer, $style.triple]">
-      <li :class="$style.symptom">
-        {{ $t('発熱がある') }}
-      </li>
-      <li :class="$style.symptom">
-        {{ $t('咳が出る') }}
-      </li>
-      <li :class="$style.symptom">
-        {{ $t('喉が痛い') }}
-      </li>
-    </ul>
     <div :class="[$style.rectContainer, $style.double]">
       <a
-        v-scroll-to="'#primary-care'"
+        v-scroll-to="'#mental'"
         :class="[$style.rect, $style.result, $style.clickable]"
-        href="#primary-care"
+        href="#mental"
       >
         <p>
-          {{ $t('かかりつけ医がある') }}
+          <i18n path="ストレスや不安" />
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <Arrow />
         </div>
       </a>
       <a
-        v-scroll-to="'#advisory-center'"
+        v-scroll-to="'#smear'"
         :class="[$style.rect, $style.result, $style.clickable]"
-        href="#advisory-center"
+        href="#smear"
       >
         <p>
-          {{ $t('かかりつけ医がない') }}
+          <i18n path="誹謗中傷の被害" />
+        </p>
+        <div :class="$style.arrow" aria-hidden="true">
+          <Arrow />
+        </div>
+      </a>
+      <a
+        v-scroll-to="'#consult'"
+        :class="[$style.rect, $style.result, $style.clickable]"
+        href="#consult"
+      >
+        <p>
+          <i18n path="県の対策や予防法" />
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <Arrow />
@@ -48,13 +49,13 @@
 
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
-import HumanIcon from '@/static/flow/responsive/accessibility.svg'
+import SentimentIcon from '@/static/flow/responsive/sentiment_very_dissatisfied.svg'
 import Arrow from '@/static/flow/responsive/arrow_downward.svg'
 
 export default {
   components: {
-    HumanIcon,
-    Arrow
+    Arrow,
+    SentimentIcon
   },
   methods: { onDoneScroll }
 }

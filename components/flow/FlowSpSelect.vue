@@ -1,42 +1,34 @@
 <template>
   <div :class="$style.container">
-    <p id="symptom" :class="$style.heading">
-      <span :class="[$style.icon, $style.top]" aria-hidden="true">
-        <HumanIcon />
+    <p :class="$style.heading">
+      <span :class="$style.fzMedium">
+        {{
+          $t(
+            '注意・対応が必要なため、医療機関に行く前に必ず電話で相談してください。'
+          )
+        }}
       </span>
-      <span :class="$style.fzMedium">{{ $t('症状のある方') }}</span>
     </p>
-    <ul :class="[$style.rectContainer, $style.triple]">
-      <li :class="$style.symptom">
-        {{ $t('発熱がある') }}
-      </li>
-      <li :class="$style.symptom">
-        {{ $t('咳が出る') }}
-      </li>
-      <li :class="$style.symptom">
-        {{ $t('喉が痛い') }}
-      </li>
-    </ul>
     <div :class="[$style.rectContainer, $style.double]">
       <a
-        v-scroll-to="'#primary-care'"
+        v-scroll-to="'#symptom'"
         :class="[$style.rect, $style.result, $style.clickable]"
-        href="#primary-care"
+        href="#symptom"
       >
         <p>
-          {{ $t('かかりつけ医がある') }}
+          <i18n path="症状のある方" />
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <Arrow />
         </div>
       </a>
       <a
-        v-scroll-to="'#advisory-center'"
+        v-scroll-to="'#warries'"
         :class="[$style.rect, $style.result, $style.clickable]"
-        href="#advisory-center"
+        href="#warries"
       >
         <p>
-          {{ $t('かかりつけ医がない') }}
+          <i18n path="相談をしたい方" />
         </p>
         <div :class="$style.arrow" aria-hidden="true">
           <Arrow />
@@ -48,12 +40,10 @@
 
 <script lang="ts">
 import { onDoneScroll } from '@/utils/vueScrollTo'
-import HumanIcon from '@/static/flow/responsive/accessibility.svg'
 import Arrow from '@/static/flow/responsive/arrow_downward.svg'
 
 export default {
   components: {
-    HumanIcon,
     Arrow
   },
   methods: { onDoneScroll }
