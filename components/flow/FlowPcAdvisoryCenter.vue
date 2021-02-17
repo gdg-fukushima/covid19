@@ -2,28 +2,24 @@
   <div :class="$style.FlowComponent">
     <div :class="[$style.SubtleBox, $style.Box1, $style.Center]">
       <div :class="$style.LargerText">
-        {{ $t('一般相談') }}
-        <span :class="$style.SmallerText">({{ $t('コールセンター') }})</span>
+        {{ $t('受診・相談センター') }}
       </div>
       <div :class="$style.SmallerText">
-        {{ $t('平日：午前8時30分から午後9時') }}<br />
-        {{ $t('土日祝日：午前8時30分から午後5時15分') }}
+        {{ $t('24時間対応') }}
       </div>
 
       <div :class="$style.Tel">
-        <a :class="$style.TelLink" href="tel:0120-567-177">
+        <a :class="$style.TelLink" href="tel:0120-567-747">
           <img
             :class="$style.TelLinkIcon"
             src="/flow/phone-24px.svg"
             aria-hidden="true"
           />
-          0120-567-177
+          0120-567-747
         </a>
       </div>
-      <span :class="$style.SmallerText">
-        {{ $t('耳の不自由な方') }}
-      </span>
-      <span :class="$style.LargerText">
+      <span :class="$style.fzSmall">
+        {{ $t('耳の不自由な方') }}<br />
         {{ $t('FAX 024-521-7926') }}
       </span>
     </div>
@@ -36,6 +32,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 100%;
 }
 
 .Tel {

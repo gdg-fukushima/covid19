@@ -1,7 +1,11 @@
 <template>
   <section :class="$style.Flow">
     <div :class="$style.FlowHeading">
-      {{ $t('「新型コロナウイルス感染者」との濃厚接触が疑われる方') }}
+      {{
+        $t(
+          '注意・対応が必要なため、医療機関に行く前に必ず電話で相談してください。'
+        )
+      }}
     </div>
   </section>
 </template>
@@ -22,7 +26,7 @@
     padding: 5px;
     text-align: center;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 24px;
   }
 }
 </style>
