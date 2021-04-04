@@ -224,6 +224,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 }
                 return 0
               })
+            },
+            {
+              label: `${this.dataKind}2`,
+              data: this.chartData.map(d => {
+                return d.transition
+              }),
+              backgroundColor: '#006629',
+              borderWidth: 0,
+              minBarLength: this.chartData.map(d => {
+                if (d.transition <= 0) {
+                  return zeroMouseOverHeight
+                }
+                return 0
+              })
             }
           ]
         }
@@ -274,7 +288,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           xAxes: [
             {
               id: 'day',
-              stacked: true,
+              stacked: false,
               gridLines: {
                 display: false
               },
@@ -316,7 +330,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
+              stacked: false,
               gridLines: {
                 display: true,
                 color: '#E5E5E5'
@@ -372,7 +386,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           xAxes: [
             {
               id: 'day',
-              stacked: true,
+              stacked: false,
               gridLines: {
                 display: false
               },
@@ -389,7 +403,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               id: 'month',
-              stacked: true,
+              stacked: false,
               gridLines: {
                 drawOnChartArea: false,
                 drawTicks: false, // true -> false
@@ -428,7 +442,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
           ],
           yAxes: [
             {
-              stacked: true,
+              stacked: false,
               gridLines: {
                 display: true,
                 drawOnChartArea: false,
