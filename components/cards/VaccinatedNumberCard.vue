@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" md="6" class="DataCard">
-    <time-bar-chart
+    <time-bar-chart-two
       id="number-of-vaccinated-people"
       :title="$t('ワクチン接種者数')"
       :title-id="'number-of-vaccinated-people'"
@@ -17,13 +17,13 @@
 </template>
 
 <script>
+import TimeBarChartTwo from '../TimeBarChartTwo.vue'
 import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
-import TimeBarChart from '@/components/TimeBarChart.vue'
 
 export default {
   components: {
-    TimeBarChart
+    TimeBarChartTwo
   },
   props: {
     graphData: {
