@@ -75,8 +75,8 @@ export default Vue.extend({
       // TODO: get URI from such as global variables
       const dataUri = 'https://cdn2.dott.dev/data.json'
       const graphData = await axios.get(dataUri)
-      /*       this.Data = graphData.data
-      this.headerItem.date = graphData.data.last_update */
+      this.Data = graphData.data
+      this.headerItem.date = graphData.data.last_update
       this.dataLoaded = true
     } finally {
     }
