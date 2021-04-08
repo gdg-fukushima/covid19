@@ -180,7 +180,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastDayBefore2 = this.chartData2.slice(-2)[0].cumulative
       const formatDay = this.formatDayBeforeRatio(lastDay - lastDayBefore)
       const formatDay2 = this.formatDayBeforeRatio(lastDay2 - lastDayBefore2)
-      return formatDay + formatDay2
+      return (Number(formatDay) + Number(formatDay2)).toString()
     },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
@@ -189,28 +189,44 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const lastDayBefore2 = this.chartData2.slice(-2)[0].transition
       const formatDay = this.formatDayBeforeRatio(lastDay - lastDayBefore)
       const formatDay2 = this.formatDayBeforeRatio(lastDay2 - lastDayBefore2)
-      return formatDay + formatDay2
+      return (Number(formatDay) + Number(formatDay2)).toString()
     },
     displayInfo() {
       if (this.dataKind === 'transition') {
         return {
-          lText: `${this.chartData.slice(-1)[0].transition.toLocaleString()}`,
+          lText: `${(
+            this.chartData.slice(-1)[0].transition +
+            this.chartData2.slice(-1)[0].transition
+          ).toLocaleString()}`,
           sText: `${this.$t('実績値')}（${this.$t('前日比')}: ${
             this.displayTransitionRatio
-          } ${this.unit}）`,
+          } ${this.unit}）
+           接種1回目:
+           ${this.chartData.slice(-1)[0].transition}
+           ${this.unit}
+           , 接種2回目:
+           ${this.chartData2.slice(-1)[0].transition}
+           ${this.unit}
+          `,
           ladText: this.lastAcquisiteDate,
           unit: this.unit
         }
       }
       return {
-        lText: this.chartData[
-          this.chartData.length - 1
-        ].cumulative.toLocaleString(),
+        lText: (
+          this.chartData[this.chartData.length - 1].cumulative +
+          this.chartData2[this.chartData2.length - 1].cumulative
+        ).toLocaleString(),
         sText: `${this.chartData.slice(-1)[0].label} ${this.$t(
           '累計値'
-        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${
-          this.unit
-        }）`,
+        )}（${this.$t('前日比')}: ${this.displayCumulativeRatio} ${this.unit}）
+        接種1回目:
+           ${this.chartData[this.chartData.length - 1].cumulative}
+           ${this.unit}
+           , 接種2回目:
+           ${this.chartData2[this.chartData2.length - 1].cumulative}
+           ${this.unit}
+        `,
         ladText: '',
         unit: this.unit
       }
@@ -221,7 +237,6 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
-            console.log(d.label)
             return d.label
           }),
           datasets: [
