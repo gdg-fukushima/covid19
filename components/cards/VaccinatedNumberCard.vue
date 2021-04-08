@@ -5,7 +5,8 @@
       :title="$t('ワクチン接種者数')"
       :title-id="'number-of-vaccinated-people'"
       :chart-id="'time-bar-chart-vaccination'"
-      :chart-data="vaccinationGraph"
+      :chart-data="vaccinationGraph1"
+      :chart-data2="vaccinationGraph2"
       :date="Data.vaccination.date"
       :last-acquisite-date="lastAcquisiteDate"
       :unit="$t('人')"
@@ -33,8 +34,10 @@ export default {
     }
   },
   data() {
-    // ワクチン接種者数
-    const vaccinationGraph = formatGraph(this.graphData.vaccination.data)
+    // 1回目のワクチン接種者数
+    const vaccinationGraph1 = formatGraph(this.graphData.vaccination.data, 1)
+    // 2回目のワクチン接種者数
+    const vaccinationGraph2 = formatGraph(this.graphData.vaccination.data, 2)
 
     // 直近の相談受付日
     const lad = new Date(
@@ -45,14 +48,14 @@ export default {
 
     const data = {
       Data,
-      vaccinationGraph,
+      vaccinationGraph1,
+      vaccinationGraph2,
       lastAcquisiteDate: `${lad.getMonth() + 1}/${lad.getDate()}`
     }
     return data
   },
   mounted() {
     this.Data = this.graphData
-    this.vaccinationGraph = formatGraph(this.graphData.vaccination.data)
   }
 }
 </script>

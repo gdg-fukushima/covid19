@@ -1,6 +1,8 @@
 type DataType = {
   日付: Date
   小計: number
+  一回目: number
+  二回目: number
 }
 
 export type GraphDataType = {
@@ -14,7 +16,7 @@ export type GraphDataType = {
  *
  * @param data - Raw data
  */
-export default (data: DataType[]) => {
+export default (data: DataType[], vaccinatedOption: number) => {
   const graphData: GraphDataType[] = []
   const today = new Date()
   let patSum = 0
@@ -22,7 +24,15 @@ export default (data: DataType[]) => {
     .filter(d => new Date(d['日付']) < today)
     .forEach(d => {
       const date = new Date(d['日付'])
-      const subTotal = d['小計']
+      let subTotal
+      if (!vaccinatedOption) {
+        subTotal = d['小計']
+      } else if (vaccinatedOption === 1) {
+        subTotal = d['一回目']
+      } else if (vaccinatedOption === 2) {
+        subTotal = d['二回目']
+      }
+      if (subTotal === undefined) return new Error('type is different')
       if (!isNaN(subTotal)) {
         patSum += subTotal
         graphData.push({
