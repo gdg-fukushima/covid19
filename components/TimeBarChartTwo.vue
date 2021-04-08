@@ -93,6 +93,7 @@ type Props = {
   titleId: string
   chartId: string
   chartData: GraphDataType[]
+  chartData2: GraphDataType[]
   lastAcquisiteDate: string
   date: string
   unit: string
@@ -138,6 +139,10 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       type: Array,
       default: () => []
     },
+    chartData2: {
+      type: Array,
+      default: () => []
+    },
     lastAcquisiteDate: {
       type: String,
       required: true
@@ -171,12 +176,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
     displayCumulativeRatio() {
       const lastDay = this.chartData.slice(-1)[0].cumulative
       const lastDayBefore = this.chartData.slice(-2)[0].cumulative
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      const lastDay2 = this.chartData2.slice(-1)[0].cumulative
+      const lastDayBefore2 = this.chartData2.slice(-2)[0].cumulative
+      const formatDay = this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      const formatDay2 = this.formatDayBeforeRatio(lastDay2 - lastDayBefore2)
+      return formatDay + formatDay2
     },
     displayTransitionRatio() {
       const lastDay = this.chartData.slice(-1)[0].transition
       const lastDayBefore = this.chartData.slice(-2)[0].transition
-      return this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      const lastDay2 = this.chartData2.slice(-1)[0].transition
+      const lastDayBefore2 = this.chartData2.slice(-2)[0].transition
+      const formatDay = this.formatDayBeforeRatio(lastDay - lastDayBefore)
+      const formatDay2 = this.formatDayBeforeRatio(lastDay2 - lastDayBefore2)
+      return formatDay + formatDay2
     },
     displayInfo() {
       if (this.dataKind === 'transition') {
@@ -208,6 +221,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       if (this.dataKind === 'transition') {
         return {
           labels: this.chartData.map(d => {
+            console.log(d.label)
             return d.label
           }),
           datasets: [
@@ -227,12 +241,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             },
             {
               label: `${this.dataKind}2`,
-              data: this.chartData.map(d => {
+              data: this.chartData2.map(d => {
                 return d.transition
               }),
               backgroundColor: '#006629',
               borderWidth: 0,
-              minBarLength: this.chartData.map(d => {
+              minBarLength: this.chartData2.map(d => {
                 if (d.transition <= 0) {
                   return zeroMouseOverHeight
                 }
@@ -253,6 +267,20 @@ const options: ThisTypedComponentOptionsWithRecordProps<
             backgroundColor: '#00B849',
             borderWidth: 0,
             minBarLength: this.chartData.map(d => {
+              if (d.transition <= 0) {
+                return zeroMouseOverHeight
+              }
+              return 0
+            })
+          },
+          {
+            label: `${this.dataKind}2`,
+            data: this.chartData2.map(d => {
+              return d.cumulative
+            }),
+            backgroundColor: '#006629',
+            borderWidth: 0,
+            minBarLength: this.chartData2.map(d => {
               if (d.transition <= 0) {
                 return zeroMouseOverHeight
               }
@@ -466,7 +494,12 @@ const options: ThisTypedComponentOptionsWithRecordProps<
       const dataKind =
         this.dataKind === 'transition' ? 'transition' : 'cumulative'
       const values = this.chartData.map(d => d[dataKind])
-      return Math.max(...values) * yAxisMax
+      const values2 = this.chartData2.map(d => d[dataKind])
+      if (values < values2) {
+        return Math.max(...values2) * yAxisMax
+      } else {
+        return Math.max(...values) * yAxisMax
+      }
     },
     tableHeaders() {
       return [
