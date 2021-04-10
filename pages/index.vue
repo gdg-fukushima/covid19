@@ -20,6 +20,7 @@
         <tested-number-card :graph-data="Data" />
         <telephone-advisory-reports-number-card :graph-data="Data" />
         <consultation-desk-reports-number-card :graph-data="Data" />
+        <vaccinated-number-card :graph-data="Data" />
       </v-row>
     </div>
   </div>
@@ -40,6 +41,7 @@ import ConfirmedCasesAttributesCard from '@/components/cards/ConfirmedCasesAttri
 import TestedNumberCard from '@/components/cards/TestedNumberCard.vue'
 import TelephoneAdvisoryReportsNumberCard from '@/components/cards/TelephoneAdvisoryReportsNumberCard.vue'
 import ConsultationDeskReportsNumberCard from '@/components/cards/ConsultationDeskReportsNumberCard.vue'
+import VaccinatedNumberCard from '@/components/cards/VaccinatedNumberCard.vue'
 
 export default Vue.extend({
   components: {
@@ -51,7 +53,8 @@ export default Vue.extend({
     ConfirmedCasesAttributesCard,
     TelephoneAdvisoryReportsNumberCard,
     ConsultationDeskReportsNumberCard,
-    TestedNumberCard
+    TestedNumberCard,
+    VaccinatedNumberCard
   },
   data() {
     const data = {
