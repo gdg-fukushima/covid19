@@ -19,8 +19,8 @@
 
 <script>
 import TimeBarChartTwo from '../TimeBarChartTwo.vue'
-import Data from '@/data/data.json'
 import formatGraph from '@/utils/formatGraph'
+import Data from '@/data/data.json'
 
 export default {
   components: {
