@@ -18,9 +18,9 @@
 </template>
 
 <script>
+import Data from '@/data/data.json'
 import TimeBarChartTwo from '../TimeBarChartTwo.vue'
 import formatGraph from '@/utils/formatGraph'
-import Data from '@/data/data.json'
 
 export default {
   components: {
