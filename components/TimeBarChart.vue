@@ -261,8 +261,9 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ).toLocaleString()} ${unit}`
               return labelText
             },
-            title(tooltipItem, data) {
-              return data.labels![tooltipItem[0].index!] as string
+            title: (tooltipItem, data) => {
+              const label = data.labels![tooltipItem[0].index!] as string
+              return label.replace('-', '年').replace('-', '月') + '日'
             }
           }
         },
@@ -285,7 +286,7 @@ const options: ThisTypedComponentOptionsWithRecordProps<
                 maxRotation: 0,
                 minRotation: 0,
                 callback: (label: string) => {
-                  return label.split('/')[1]
+                  return dayjs(label).format('D')
                 }
               }
             },
@@ -301,30 +302,31 @@ const options: ThisTypedComponentOptionsWithRecordProps<
               ticks: {
                 fontSize: 11,
                 fontColor: '#808080',
+                maxRotation: 0,
                 padding: 3,
                 fontStyle: 'bold'
               },
               type: 'time',
               time: {
                 unit: 'month',
-                parser: 'M/D',
                 displayFormats: {
-                  month: 'MMM'
+                  month: 'YYYY-MM'
                 }
               }
             }
           ],
           yAxes: [
             {
-              stacked: true,
+              position: 'left',
               gridLines: {
                 display: true,
+                drawOnChartArea: true,
                 color: '#E5E5E5'
               },
               ticks: {
-                suggestedMin: 0,
                 maxTicksLimit: 8,
                 fontColor: '#808080',
+                suggestedMin: 0,
                 suggestedMax: scaledTicksYAxisMax
               }
             }
