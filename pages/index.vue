@@ -1,5 +1,5 @@
 <template>
-  <div class="MainPage">
+  <div v-if="dataLoaded" class="MainPage">
     <page-header
       :icon="headerItem.icon"
       :title="headerItem.title"
@@ -12,16 +12,14 @@
       :text="$t('自分や家族の症状に不安や心配があればまずは電話相談をどうぞ')"
       :btn-text="$t('相談の手順を見る')"
     />
-    <div v-if="dataLoaded">
-      <v-row class="DataBlock">
-        <confirmed-cases-details-card :graph-data="Data" />
-        <confirmed-cases-attributes-card :graph-data="Data" />
-        <confirmed-cases-number-card :graph-data="Data" />
-        <tested-number-card :graph-data="Data" />
-        <telephone-advisory-reports-number-card :graph-data="Data" />
-        <consultation-desk-reports-number-card :graph-data="Data" />
-      </v-row>
-    </div>
+    <v-row class="DataBlock">
+      <confirmed-cases-details-card :graph-data="Data" />
+      <confirmed-cases-attributes-card :graph-data="Data" />
+      <confirmed-cases-number-card :graph-data="Data" />
+      <tested-number-card :graph-data="Data" />
+      <telephone-advisory-reports-number-card :graph-data="Data" />
+      <consultation-desk-reports-number-card :graph-data="Data" />
+    </v-row>
   </div>
 </template>
 
@@ -74,6 +72,11 @@ export default Vue.extend({
       const graphData = await axios.get(dataUri)
       this.Data = graphData.data
       this.headerItem.date = graphData.data.last_update
+
+      const newsUri = 'https://cdn2.dott.dev/news.json'
+      const newsData = await axios.get(newsUri)
+      this.newsItems = newsData.data.news_items
+
       this.dataLoaded = true
     } finally {
     }
