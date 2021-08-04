@@ -9,6 +9,7 @@
     <ul class="WhatsNew-list">
       <li v-for="(item, i) in items" :key="i" class="WhatsNew-list-item">
         <a
+          v-if="item.url"
           class="WhatsNew-list-item-anchor"
           :href="item.url"
           target="_blank"
@@ -31,6 +32,17 @@
             </v-icon>
           </span>
         </a>
+        <div v-else class="WhatsNew-list-item-anchor">
+          <time
+            class="WhatsNew-list-item-anchor-time px-2"
+            :datetime="formattedDate(item.date)"
+          >
+            {{ item.date }}
+          </time>
+          <span class="WhatsNew-list-item-anchor-text">
+            {{ item.text }}
+          </span>
+        </div>
       </li>
     </ul>
   </div>
@@ -108,6 +120,13 @@ export default Vue.extend({
       &-link {
         flex: 0 1 auto;
         @include text-link();
+        @include lessThan($medium) {
+          padding-left: 8px;
+        }
+      }
+
+      &-text {
+        flex: 0 1 auto;
         @include lessThan($medium) {
           padding-left: 8px;
         }
