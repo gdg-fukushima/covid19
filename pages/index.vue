@@ -104,7 +104,7 @@ export default Vue.extend({
               "diseaseSpreadStatistics" : [{
                 "@type": "Dataset",
                 "name" : "福島県 新型コロナウイルス陽性患者属性",
-                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）陽性患者の公表日・居住地・年代・性別・退院・死亡に関するデータ。（注）チャーター機帰国者、クルーズ船乗客等は含まれていない（注）入院中には宿泊療養を含む",
+                "description" : "福島県が公式に発表した、新型コロナウイルス（COVID-19）陽性患者の公表日・居住地・年代・性別・退院・死亡に関するデータ。（注）チャーター機帰国者、クルーズ船乗客等は含まれていない（注）入院中には宿泊療養および自宅療養を含む",
                 "sameAs": "https://www.pref.fukushima.lg.jp/sec/21045c/covid19-opendata.html",
                 "license": "https://creativecommons.org/licenses/by/2.1/jp/",
                 "distribution" : {
