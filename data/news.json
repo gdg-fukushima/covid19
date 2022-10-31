@@ -1,6 +1,10 @@
 {
     "news_items": [
         {
+            "date": "2022\/10\/31",
+            "text": "2022年10月末をもって、本サイトを終了します。今後は「福島県 新型コロナウイルス感染症 関連情報ポータル」を御参照ください。",
+            "url": "https://www.pref.fukushima.lg.jp/site/covid19-portal/"
+        }, {
             "date": "2020\/05\/02",
             "text": "Code for FukushimaのTwitterアカウントで、更新時に最新情報をお知らせできるようになりました。",
             "url": "https://twitter.com/CODEforFKSM"
